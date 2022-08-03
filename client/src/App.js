@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
@@ -12,12 +14,7 @@ function App() {
 
 <Router>
 
-<nav>
-<Link to="/">Home</Link>
-<Link to="/register">Register</Link>
-<Link to="/login">Login</Link>
-
-</nav>
+<Navbar/>
 
 
  <Routes>
@@ -34,10 +31,7 @@ function App() {
 
  </Routes>
 
-<footer>
-<p>socials</p>
-
-</footer>
+<Footer />
 
  </Router>
   );
