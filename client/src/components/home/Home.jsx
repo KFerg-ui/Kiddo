@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import { Grid } from "@mui/material";
 import video from '../../assets/animation.mp4'
 import image1 from '../../assets/image-1.png'
 import image2 from '../../assets/image-2.png'
@@ -11,7 +12,7 @@ const Home = () => {
   return (
     <div className='home'>
     <div className='container'>
-      <h1 className='title'>Home</h1>
+      <h1 className='title'>KIDDO</h1>
 
 
       <video width="750" height="500" controls >

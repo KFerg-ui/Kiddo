@@ -4,7 +4,10 @@
     height: 100px;
     position: absolute;
     z-index: 10;
-    text-decoration: none;
+}
+#bars-container{
+    display: flex;
+    padding-left: 43rem;
 }
 
 .navbar .container{
@@ -13,6 +16,7 @@
     align-items: center;
 }
 .bars-icon {
+ 
     display: none;
     padding: 1rem;
 }
@@ -35,8 +39,8 @@
     display: flex;
     font-size: 3rem;
     color:black;
-    
 }
+
 
 @media screen and (max-width: 980px) {
     .navbar .bars-icon {
