@@ -20,12 +20,13 @@ const Navbar = () => {
             <Link to="/login">Login</Link>
           </li>
         </ul>
-        <div className="bars-container">
+       
+        <div id="bars-container">
           <div className="bars-icon" onClick={navClick}>
             <FaBars className="icon" />
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };
