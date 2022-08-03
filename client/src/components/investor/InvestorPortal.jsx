@@ -2,6 +2,8 @@ import React from "react";
 import "./InvestorPortal.css";
 import image8 from "../../assets/image-8.png";
 import image9 from "../../assets/image-9.png";
+import contactUs from "../../assets/contactUs.png";
+import standingDesk from "../../assets/standingDesk.png";
 import { Grid } from "@mui/material";
 
 const InvestorPortal = () => {
@@ -37,14 +39,18 @@ const InvestorPortal = () => {
         </Grid>
       </Grid>
 
-      <Grid container className="gridWrapContainer" direction="row">
+      <Grid container className="gridWrapContainer" direction="column">
         <Grid item xs={11} className="picWrap" direction="row">
         <h2>Company Statistics</h2>
+        <Grid item xs={5} className="picContainer">
+            <img className="standingDesk" src={standingDesk} id="standingDesk" alt="cartoon investor standing at computer " /></Grid>     
         </Grid>
       </Grid>
 
       <Grid container className="formWrapContainer" direction="row">
-        <Grid item xs={11} className="formWrap" direction="row">
+      <Grid item xs={5} className="picContainer">
+            <img className="image9" src={contactUs} id="contactUs" alt="cartoon investor at computer " /></Grid> 
+        <Grid item xs={5} className="formWrap" direction="columnrow">
       <form className="form" action="">
         <label>"Contact Kiddo about becoming an Investor."<br/></label>
         <input type="text" placeholder="enter message here"/>
