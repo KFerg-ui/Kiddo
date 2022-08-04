@@ -8,6 +8,23 @@ const saltRounds = parseInt(process.env.SALT)
 router.use(bodyParser.json()); 
 router.use(bodyParser.urlencoded({ extended: true })); 
 
+function verifyJWT(req,res,next){
+    const token = req.headers["accesstoken"];
+    if(!token){
+        res.send("Token not found")
+    }
+    else{
+        jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
+            if(err){
+                res.json({auth: false, message: "failed to authenticate token"})
+            }
+            else{
+                req.userId = result.id;
+                next();
+            }
+        })
+    }
+}
 
 async function hash (toHash) {
     const hashed = await new Promise((resolve, reject) => {
@@ -33,9 +50,15 @@ async function compareHash (plain,hashed) {
 }
 
 function generateAccessToken(email) {
-    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: 1800 }) // EMAIL NEED STO BE AN OBJECT
+    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: `1800s` }) // EMAIL NEED STO BE AN OBJECT
 }
 
+
+router
+    .route("/verifyUser")
+    .get( verifyJWT, async(req, res)=>{
+        res.json({auth: true})
+    })
 
 router 
     .route("/customer-service")
@@ -56,12 +79,17 @@ router
     .post(async(req,res)=>{
         const { email, password } = req.body
         const results = await Login.findOne({email: email})
-        if(await compareHash(password, results.password)){
-            const token = generateAccessToken({email});
-            res.json(token)
+        if(results){
+            if(await compareHash(password, results.password)){
+                const token = generateAccessToken({email});
+                res.json({auth: true, token: token, result: results})
+            }
+            else{
+                res.json({auth: false, message: "incorrect password"})
+            }
         }
         else{
-            res.send(`error`)
+            res.json({auth: false, message: "no user found with that email"})
         }
     })
 
