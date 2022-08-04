@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState, useEffect } from "react";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
 import image1 from "../../assets/image-1.png";
@@ -10,6 +10,39 @@ import image7 from "../../assets/image-7.png";
 import { Grid } from "@mui/material";
 
 const Home = () => {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [submission, setSubmission] = useState("");
+
+  useEffect(() =>{},[submission]);
+
+  const onSubmit = (event) => {
+    fetch('http://localhost:8000/newsletter', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      } 
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(!data.duplicate){
+        setSubmission("Thank you for signing up! We will contact you in the future")
+      }
+      else{
+        setSubmission("Error: Email has already been used to sign up for newsletter")
+      };
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <Grid container className="gridHomeContainer" justifyContent="center">
       <Grid item className="animation" xs={10}>
@@ -113,12 +146,15 @@ const Home = () => {
         </Grid>
       </Grid>
       <Grid item className="newsies" xs={10}>
-        <form method="post" action="http://localhost:8000/newsletter" className="newsForm">
-          <input type="text" name="name" placeholder="name"></input>
-          <input type="text" name="email" placeholder="email"></input>
-          <input type="text" name="phone" placeholder="phone"></input>
-          <button>Sign Up</button>
-        </form>
+        <div id="inputform">
+          <form onSubmit={onSubmit} className="newsForm">
+            <input type="text" onChange={(e) =>{setName(e.target.value)}} placeholder="name"></input>
+            <input type="text" onChange={(e) =>{setEmail(e.target.value)}} placeholder="email"></input>
+            <input type="text" onChange={(e) =>{setPhone(e.target.value)}} placeholder="phone"></input>
+            <input type="Submit" />
+            <p>{submission}</p>
+          </form>
+        </div>
       </Grid>
     </Grid>
   );

@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 function verifyJWT(req,res,next){
     const token = req.headers["accesstoken"];
     if(!token){
-        res.send("Token not found")
+        res.json({auth: false, message: "Token not found"})
     }
     else{
         jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
@@ -159,9 +159,8 @@ router
     .post(async (req,res)=>{
         const { name, email, phone } = req.body
         await Newsletter.create( { name: name, email: email, phone: phone})
-            .then(result => {
-                res.send(`data pushed`)}) //If data gets pushed
-            .catch(err => res.send(`Error: Duplicate Email`)); // if data is rejected
+            .then(result => {res.json({duplicate: false})}) //If data gets pushed
+            .catch(err => res.json({duplicate: true})); // if data is rejected
     })
 
 module.exports = router
