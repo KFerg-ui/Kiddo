@@ -62,16 +62,16 @@ router
 
 router 
     .route("/customer-service")
-    .get(async(req,res)=>{
-        //show companies
-        //Verify token
-        res.send(`get`)
+    .get( verifyJWT, async(req,res)=>{
+        const allCompanies = await Login.find({usertype: "investor"})
+        res.json({allCompanies})
     })
 
 router 
     .route("/customer-service/:company")
-    .get(async(req,res)=>{
-        //show specific company data
+    .get(verifyJWT, async(req,res)=>{
+        const results = await Login.findOne({business: req.params.company})
+        res.json({results})
     })
 
 router
