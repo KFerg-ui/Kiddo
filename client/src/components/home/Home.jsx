@@ -113,9 +113,10 @@ const Home = () => {
         </Grid>
       </Grid>
       <Grid item className="newsies" xs={10}>
-        <form className="newsForm">
-          <input type="text" placeholder="name"></input>
-          <input type="text" placeholder="email"></input>
+        <form method="post" action="http://localhost:8000/newsletter" className="newsForm">
+          <input type="text" name="name" placeholder="name"></input>
+          <input type="text" name="email" placeholder="email"></input>
+          <input type="text" name="phone" placeholder="phone"></input>
           <button>Sign Up</button>
         </form>
       </Grid>
