@@ -7,6 +7,7 @@ import { display } from "@mui/system";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
+  const [message, setMessage] = useState("");
 
   const checkLog = () => {
     if (logged === true) {
@@ -43,6 +44,7 @@ const Login = () => {
 
         } else {
           setLogged(false)
+          setMessage(data.message)
         }
         console.log(data)
       })
@@ -68,6 +70,7 @@ const Login = () => {
             placeholder="Enter your password"
           />
           <button>Login</button>
+          <p>{message}</p>
         </form>
         <button>Register</button>
         <button>Admin Login</button>

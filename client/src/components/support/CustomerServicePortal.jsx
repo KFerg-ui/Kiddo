@@ -5,31 +5,12 @@ import { Grid } from "@mui/material";
 const CustomerServicePortal = () => {
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
+  const [arry , setArry] = useState();
   let token = localStorage.getItem("token");
-
-  function verify(){
-    fetch('http://localhost:8000/verifyUser', {
-      method: 'GET',
-      headers: {
-        "accesstoken": token
-      } 
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if(data.auth){
-        setVerification(true);
-      }
-      else{
-        setVerification(false);
-      }
-    })
-    .catch((error)=>{
-      console.error('Error:', error);
-    });
-  }
+  let companyNames = [];
 
   function findCompanies(){
-    fetch('http://localhost:8000/verifyUser', {
+    fetch('http://localhost:8000/customer-service', {
       method: 'GET',
       headers: {
         "accesstoken": token
@@ -38,7 +19,8 @@ const CustomerServicePortal = () => {
     .then((response) => response.json())
     .then((data) => {
       if(data.auth){
-        setVerification(true);
+        setVerification(true)
+        setArry(data)
       }
       else{
         setVerification(false);
@@ -52,10 +34,16 @@ const CustomerServicePortal = () => {
     setTimeout(() => {
       setCount(count + 1)
     }, 5000);
-    verify();
+    findCompanies();
   },[count]);
 
+  
+
   if(verification){
+    arry.companies.forEach((company) => {
+      companyNames.push(<li>{company.business}</li>);
+    });
+  
     return (
       <div>
         <Grid container className="gridWrapContainer" direction="row">
@@ -66,12 +54,7 @@ const CustomerServicePortal = () => {
             Company Database list
             <Grid item xs={10} className="gridCompanyListWrap" direction="row">
               <ul>
-                <li>Company {1 + 0}</li>
-                <li>Company {2 + 0}</li>
-                <li>Company {3 + 0}</li>
-                <li>Company {4 + 0}</li>
-                <li>Company {5 + 0}</li>
-                <li>Company ...</li>
+                {companyNames}
               </ul>
             </Grid>
           </Grid>
