@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
+import { Link } from "react-router-dom";
 import { display } from "@mui/system";
 
 const Login = () => {
@@ -36,10 +37,10 @@ const Login = () => {
       .then((data) => {
         console.log(email, password, data)
         if (data.auth) {
-          setLogged(true), 
-          <Link to='/investors'/>
-              } else {
-          "we out"
+          setLogged(true)
+        } 
+        else {
+          setLogged(false)
         }
         console.log(data)
       })

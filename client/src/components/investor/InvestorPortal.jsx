@@ -7,9 +7,6 @@ import standingDesk from "../../assets/standingDesk.png";
 import { Grid } from "@mui/material";
 
 const InvestorPortal = () => { 
-  // DELETE LATER
-  localStorage.setItem("token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im15ZW1haWwxQGdtYWlsLmNvbSIsImlhdCI6MTY1OTcxNDA4NywiZXhwIjoxNjU5ODAwNDg3fQ.WWL-9zQRwQ_5Naa7eWNMNz5bMzALBk6DWvakgZeAhJ4")
-  // DELETE LATER
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
   let token = localStorage.getItem("token");
@@ -35,12 +32,12 @@ const InvestorPortal = () => {
     });
   }
   useEffect(() =>{
-    console.log("effect run")
     setTimeout(() => {
       setCount(count + 1)
     }, 5000);
     verify();
   },[count]);
+
   if(verification){
     return (
       <div>
