@@ -28,7 +28,7 @@ const Login = () => {
         password: password,
       }),
 
-      //* DIVE PLS
+      //* DIVE PLS 
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
@@ -38,8 +38,10 @@ const Login = () => {
         console.log(email, password, data)
         if (data.auth) {
           setLogged(true)
-        } 
-        else {
+          let token = data.token;
+          localStorage.setItem("token", token) // ? I don't think we need to stringify this, but maybe
+
+        } else {
           setLogged(false)
         }
         console.log(data)
