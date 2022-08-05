@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react";
+import React , { useState } from "react";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
 import image1 from "../../assets/image-1.png";
@@ -15,9 +15,9 @@ const Home = () => {
   const [phone, setPhone] = useState();
   const [submission, setSubmission] = useState("");
 
-  useEffect(() =>{},[submission]);
 
   const onSubmit = (event) => {
+    event.preventDefault();
     fetch('http://localhost:8000/newsletter', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify({
