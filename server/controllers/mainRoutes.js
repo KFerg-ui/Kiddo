@@ -53,7 +53,7 @@ async function compareHash(plain, hashed) {
 }
 
 function generateAccessToken(email) {
-    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: `1800s` }) // EMAIL NEED STO BE AN OBJECT
+    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: `24h` }) 
 }
 
 router
