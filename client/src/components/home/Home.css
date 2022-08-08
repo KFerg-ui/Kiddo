@@ -1,9 +1,63 @@
-.gridHomeContainer {
-    background-color: aquamarine;
-    background-image: linear-gradient(315deg, #90d5ec 0%, #f5aee1 74%);
-    background-image: radial-gradient(aliceblue, #f5aee1);
-    background-image: radial-gradient(circle at top right, lightpink, aliceblue, #f5aee1);
-}
+/* .gridHomeContainer { */
+    /* background-color: aquamarine; */
+    /* margin: auto; */
+    /* overflow: hidden; */
+
+/* } */
+
+/* .gridHomeContainer>* { */
+    /* !!! THIS IS NOT FINAL, pixel positions are from sample code */
+    /* position: relative; */
+    /* top: -2200px; */
+    /* left: 0px; */
+    /* z-index: 10; */
+/* } */
+
+.circle {
+    border-radius: 50%;
+    filter: blur(35px);
+    opacity: .4;
+  }
+  
+  #circle_1 {
+    background-color: red;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    top: -100px;
+    left: 50px;
+    z-index: 2;
+  }
+  
+  #circle_2 {
+    background-color: blue;
+    height: 750px;
+    width: 750px;
+    position: relative;
+    top: -700px;
+    left: -550px;
+    z-index: 3;
+  }
+  
+  #circle_3 {
+    background-color: green;
+    height: 850px;
+    width: 850px;
+    position: relative;
+    top: -900px;
+    left: -550px;
+    z-index: 4;
+  }
+  
+  #circle_4 {
+    background-color: yellow;
+    height: 600px;
+    width: 600px;
+    position: relative;
+    top: -1900px;
+    left: 50px;
+    z-index: 1;
+  }
 
 .animation {    
     padding-top: 7em;
@@ -16,8 +70,7 @@
 
 .title {
     text-align: center;
-    /* background-color: aliceblue; */
-    /* background-image: linear-gradient(315deg, #90d5ec 0%, #f5aee1 74%); */
+    /* background-color: #f0f8ff; */
     padding: 1em;
     /* border-radius: 10px; */
 }
@@ -32,20 +85,16 @@
 
 .missionHead {
     text-align: center;
-    background-color: none;
-    /* background-image: linear-gradient(315deg, #90d5ec 0%, #f5aee1 74%); */
     /* background-color: aliceblue; */
-    /* border-radius: 10px; */
-    /* border: 4px solid slategray; */
+    border-radius: 10px;
+    border: 4px solid slategray;
     font-family:Arial, Helvetica, sans-serif
 }
 
 .missionText {
-    background-color: none;
     /* background-color: aliceblue; */
-    background-image: linear-gradient(315deg, aliceblue 0%, #f6e6f2 74%);
-    /* border-radius: 10px; */
-    /* border: 4px solid slategray; */
+    border-radius: 10px;
+    border: 4px solid slategray;
     display: flex;
     padding: 1em;
 }

@@ -8,6 +8,7 @@ import image4 from "../../assets/image-4.png";
 import image5 from "../../assets/image-5.png";
 import image7 from "../../assets/image-7.png";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const Home = () => {
   const [name, setName] = useState();
@@ -71,6 +72,9 @@ const Home = () => {
 
 
     <Grid container className="gridHomeContainer" justifyContent="center">
+
+
+
       <Grid item className="animation" xs={10}>
         <video className="videoBox" width="100%" height="100%" controls>
           <source src={video} id="vid1" type="video/mp4" />
@@ -182,6 +186,7 @@ const Home = () => {
           </form>
         </div>
       </Grid>
+      <ColorBlobs/>
     </Grid>
 
 
