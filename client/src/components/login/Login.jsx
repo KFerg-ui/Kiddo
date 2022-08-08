@@ -40,7 +40,7 @@ const Login = () => {
         if (data.auth) {
           setLogged(true)
           let token = data.token;
-          localStorage.setItem("token", token) // ? I don't think we need to stringify this, but maybe
+          localStorage.setItem("token", token) 
 
         } else {
           setLogged(false)

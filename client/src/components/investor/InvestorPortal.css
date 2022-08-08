@@ -1,6 +1,7 @@
 
 .welcomeTitle {
-    background-color: palegoldenrod;
+    /* background-color: palegoldenrod; */
+    background-image: linear-gradient(315deg, #90d5ec 0%, #f5aee1 74%);
     display: flex;
     justify-content: center;
     margin-bottom: 2vw;
@@ -10,6 +11,7 @@
 
 .gridWrapContainer {
     background-color: rgb(198, 238, 170);
+    background-image: linear-gradient(315deg, #90d5ec 0%, #f5aee1 74%);
     height: 60vh;
     justify-content: space-around;
     align-items: center;
@@ -56,7 +58,7 @@
 
 .bulletPhrases {
     display: flex;
-    height: 40vh;
+    height: 40%;
     width: 40vw;
     background-color: rgb(165, 112, 100);
     font-size: 3vw;

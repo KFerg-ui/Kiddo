@@ -74,14 +74,16 @@ const InvestorPortal = () => {
         <Grid container className="gridWrapContainer" direction="column">
           <Grid item xs={11} className="picWrap" direction="row">
           <h2>Company Statistics</h2>
-          <Grid item xs={5} className="picContainer">
-              <img className="standingDesk" src={standingDesk} id="standingDesk" alt="cartoon investor standing at computer " /></Grid>     
+            <Grid item xs={5} className="picContainer">
+              {/* <img className="standingDesk" src={standingDesk} id="standingDesk" alt="cartoon investor standing at computer " /> */}
+            </Grid>     
           </Grid>
         </Grid>
 
         <Grid container className="formWrapContainer" direction="row">
-        <Grid item xs={5} className="picContainer">
-              <img className="image9" src={contactUs} id="contactUs" alt="cartoon investor at computer " /></Grid> 
+          {/* <Grid item xs={5} className="picContainer"> */}
+              {/* <img className="image9" src={contactUs} id="contactUs" alt="cartoon investor at computer " /> */}
+          {/* </Grid>  */}
           <Grid item xs={5} className="formWrap" direction="columnrow">
         <form className="form" action="">
           <label>"Contact Kiddo about becoming an Investor."<br/></label>
