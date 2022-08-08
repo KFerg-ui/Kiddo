@@ -4,6 +4,7 @@ import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
 import { Link } from "react-router-dom";
 import { display } from "@mui/system";
+import { Grid } from "@mui/material";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
@@ -11,10 +12,11 @@ const Login = () => {
 
   const checkLog = () => {
     if (logged === true) {
-      return <InvestorPortal/>
-  } else {
-    return '<h1>"You did it wrong"</h1>'
-  }}
+      return <InvestorPortal />;
+    } else {
+      return '<h1>"You did it wrong"</h1>';
+    }
+  };
 
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
@@ -29,16 +31,16 @@ const Login = () => {
         password: password,
       }),
 
-      //* DIVE PLS 
+      //* DIVE PLS
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(email, password, data)
+        console.log(email, password, data);
         if (data.auth) {
-          setLogged(true)
+          setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
 
@@ -46,37 +48,56 @@ const Login = () => {
           setLogged(false)
           setMessage(data.message)
         }
-        console.log(data)
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="login">
-      <h1>Kiddo</h1>
-      <h1>Login</h1>
-      <div className="banner">
-        <img src={image6} id="img1" alt="kids image" />
-      </div>
+    <Grid container className="loginGrid">
+      <Grid item className="banner" xs={12}>
+        <Grid item className="imageOne" width="50%" xs={9}>
+          <img src={image6} id="img7" alt="ads image" width="100%" />
+        </Grid>
+      </Grid>
+      <Grid item className="login-prompt" md={12} xs={12}>
+        Login To Kiddo Here
+      </Grid>
 
-      <div className="form-container">
+      <Grid 
+        container 
+        className="form-container" 
+        xs={12} 
+        justify-content="space-evenly"
+        sx={{ flexDirection: { md: "row" } }}>
         <form onSubmit={handleSubmit}>
-          <label>Email</label>
+          <Grid container className="email" xs={12}>
+          <label className="eText">Email</label>
           <input type="text" name="email" placeholder="Enter your email" />
-          <label>Password</label>
+          </Grid>
+          <Grid container className="password" xs={12}>
+          <label className="pText">Password</label>
           <input
             type="text"
             name="password"
             placeholder="Enter your password"
           />
+          </Grid>
+          <Grid item className="logButton" xs={12}>
           <button>Login</button>
           <p>{message}</p>
+          </Grid>
         </form>
+      </Grid>
+      <Grid className="regContainer" xs={12}>
         <button>Register</button>
+      </Grid>
+      <Grid className="adminContainer" xs={12}>
         <button>Admin Login</button>
-      </div>
+      </Grid>
+
       {checkLog}
-    </div>
+    </Grid>
   );
 };
 

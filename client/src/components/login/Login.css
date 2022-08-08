@@ -1,0 +1,58 @@
+* {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.loginGrid {
+    background-color: aliceblue;
+}
+
+.banner {
+    background-color: aqua;
+    margin-top: 7em;
+    padding: 2em;
+    justify-content: center;
+    display: flex;
+}
+
+.login-prompt {
+    padding-top: 1em;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+}
+.form-container {
+    justify-content: center;
+    padding: 1em;
+    grid-row-gap: 1em;
+}
+.email {
+    text-align: center;
+    padding: 1em;
+}
+.eText {
+    padding-right: 1em;
+    font-weight: 300;
+}
+
+.pText {
+    padding-right: 1em;
+    font-weight: 300;
+}
+
+.password {
+    padding-bottom: 1em;
+}
+
+.logButton {
+    text-align: center;
+}
+
+.regContainer {
+    text-align: center;
+    padding-top: 2em;
+}
+
+.adminContainer {
+    text-align: center;
+    padding-top: 1em;
+}
