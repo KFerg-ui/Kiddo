@@ -1,7 +1,63 @@
-.gridHomeContainer {
-    background-color: aquamarine;
+/* .gridHomeContainer { */
+    /* background-color: aquamarine; */
+    /* margin: auto; */
+    /* overflow: hidden; */
 
-}
+/* } */
+
+/* .gridHomeContainer>* { */
+    /* !!! THIS IS NOT FINAL, pixel positions are from sample code */
+    /* position: relative; */
+    /* top: -2200px; */
+    /* left: 0px; */
+    /* z-index: 10; */
+/* } */
+
+.circle {
+    border-radius: 50%;
+    filter: blur(35px);
+    opacity: .4;
+  }
+  
+  #circle_1 {
+    background-color: red;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    top: -100px;
+    left: 50px;
+    z-index: 2;
+  }
+  
+  #circle_2 {
+    background-color: blue;
+    height: 750px;
+    width: 750px;
+    position: relative;
+    top: -700px;
+    left: -550px;
+    z-index: 3;
+  }
+  
+  #circle_3 {
+    background-color: green;
+    height: 850px;
+    width: 850px;
+    position: relative;
+    top: -900px;
+    left: -550px;
+    z-index: 4;
+  }
+  
+  #circle_4 {
+    background-color: yellow;
+    height: 600px;
+    width: 600px;
+    position: relative;
+    top: -1900px;
+    left: 50px;
+    z-index: 1;
+  }
 
 .animation {    
     padding-top: 7em;
@@ -14,7 +70,7 @@
 
 .title {
     text-align: center;
-    background-color: aliceblue;
+    /* background-color: #f0f8ff; */
     padding: 1em;
     border-radius: 10px;
 }
@@ -29,14 +85,14 @@
 
 .missionHead {
     text-align: center;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     border-radius: 10px;
     border: 4px solid slategray;
     font-family:Arial, Helvetica, sans-serif
 }
 
 .missionText {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     border-radius: 10px;
     border: 4px solid slategray;
     display: flex;
