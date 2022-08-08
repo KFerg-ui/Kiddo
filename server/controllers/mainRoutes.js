@@ -71,8 +71,8 @@ router
 
 router 
     .route("/customer-service/:company")
-    .get(verifyJWT, async(req,res)=>{
-        const results = await Login.findOne({business: req.params.company})
+    .get(verifyJWT, async(req,res)=>{ //FORCE CAPITLIZATION
+        const results = await Login.findOne({business: req.params.company.replace(/_/g," ")})
         res.json({auth: true, company: results})
     })
 
@@ -96,7 +96,7 @@ router
         }
     })
 
-router.route("/signup/submit").post(async (req, res) => {
+router.route("/signup/submit").post(async (req, res) => { //FORCE BUSINESS CAPITILZATION 
   //push signup data
   const { firstName, lastName, email, password, phone, address, business } =
     req.body;
