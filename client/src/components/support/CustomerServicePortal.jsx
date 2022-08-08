@@ -20,7 +20,7 @@ const CustomerServicePortal = () => {
     .then((data) => {
       if(data.auth){
         setVerification(true)
-        setArry(data)
+        setArry(data) 
       }
       else{
         setVerification(false);

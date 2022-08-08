@@ -66,14 +66,14 @@ router
     .route("/customer-service")
     .get( verifyJWT, async(req,res)=>{
         const allCompanies = await Login.find({usertype: "investor"})
-        res.json({allCompanies})
+        res.json({auth: true, companies: allCompanies})
     })
 
 router 
     .route("/customer-service/:company")
     .get(verifyJWT, async(req,res)=>{
         const results = await Login.findOne({business: req.params.company})
-        res.json({results})
+        res.json({auth: true, company: results})
     })
 
 
@@ -109,19 +109,13 @@ router.route("/signup/submit").post(async (req, res) => {
     phone: phone,
     address: address,
     business: business,
+    usertype: "investor"
   })
     .then((result) => {
       res.send(`account created`);
     })
     .catch((err) => res.send(`Error: ${err}`));
 });
-
-router 
-    .route("/customer-service/:company")
-    .get(verifyJWT, async(req,res)=>{
-        const results = await Login.findOne({business: req.params.company})
-        res.json({results})
-    })
 
 router
     .route("/signin")
