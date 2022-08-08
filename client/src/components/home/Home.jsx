@@ -44,13 +44,39 @@ const Home = () => {
   }
 
   return (
+
+// Start of Exp. BLOBS CITY! 
+<>
+
+<div class="body">
+  
+  <div class="box">
+    
+    <div class="circle" id="circle_1"></div>
+    
+    <div class="circle" id="circle_2"></div>
+    
+    <div class="circle" id="circle_3"></div>
+    
+    <div class="circle" id="circle_4"></div>
+    
+    <div  class="text">
+      <h1>Base</h1>
+      </div>
+    </div>
+</div>  
+    
+ 
+
+
+
     <Grid container className="gridHomeContainer" justifyContent="center">
       <Grid item className="animation" xs={10}>
         <video className="videoBox" width="100%" height="100%" controls>
           <source src={video} id="vid1" type="video/mp4" />
         </video>
       </Grid>
-      <Grid item className="missionGrid" xs={10}>
+      <Grid item className="missionGrid" xs={12}>
         <h1 className="title">Welcome To Kiddo!</h1>
         <div className="register">
           <button className="register-button">Register Here</button>
@@ -157,6 +183,9 @@ const Home = () => {
         </div>
       </Grid>
     </Grid>
+
+
+    </>
   );
 };
 
