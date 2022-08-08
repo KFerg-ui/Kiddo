@@ -8,6 +8,7 @@ import { Grid } from "@mui/material";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
+  const [message, setMessage] = useState("");
 
   const checkLog = () => {
     if (logged === true) {
@@ -41,9 +42,10 @@ const Login = () => {
         if (data.auth) {
           setLogged(true);
           let token = data.token;
-          localStorage.setItem("token", token); // ? I don't think we need to stringify this, but maybe
+          localStorage.setItem("token", token) 
         } else {
-          setLogged(false);
+          setLogged(false)
+          setMessage(data.message)
         }
         console.log(data);
       })
@@ -82,6 +84,7 @@ const Login = () => {
           </Grid>
           <Grid item className="logButton" xs={12}>
           <button>Login</button>
+          <p>{message}</p>
           </Grid>
         </form>
       </Grid>
