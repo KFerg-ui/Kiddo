@@ -20,11 +20,13 @@
     font-size: x-large;
     font-weight: 500;
 }
+
 .form-container {
     justify-content: center;
     padding: 1em;
     grid-row-gap: 1em;
 }
+
 .email {
     text-align: center;
     padding: 1em;
@@ -55,4 +57,5 @@
 .adminContainer {
     text-align: center;
     padding-top: 1em;
+    padding-bottom: 2em;
 }
