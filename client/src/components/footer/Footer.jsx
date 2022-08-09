@@ -19,6 +19,9 @@ function Footer() {
         </div>
         <div className='footer-link-items'>
           <h2>Join Kiddo</h2>
+          <Link to='/register'>Register</Link>
+          <Link to='/login'>Login</Link>
+          <Link to='/admin'>Admin Portal</Link>
        </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>

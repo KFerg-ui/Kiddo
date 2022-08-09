@@ -61,7 +61,7 @@ const Login = () => {
         </Grid>
       </Grid>
       <Grid item className="login-prompt" md={12} xs={12}>
-        Login To Kiddo Here
+        Login To Kiddo
       </Grid>
 
       <Grid 
@@ -74,29 +74,26 @@ const Login = () => {
           <Grid container className="label" xs={12}>Email </Grid>
             <Grid item className="label" md={6} xs={12}>
          
-          <input type="text" name="email" placeholder="Enter your email" />
+          <input type="text" name="email" />
           </Grid>
           <Grid item className="label" md={6} xs={12}>Password</Grid>
           <Grid container className="password" xs={12}>
           <input
             type="text"
             name="password"
-            placeholder="Enter your password"
           />
           </Grid>
          
           
           <Grid item className="logButton" xs={12}>
-          <button id= "login">Login</button>
+          <button id= "login-btn">Login</button>
           <p>{message}</p>
           </Grid>
         </form>
       </Grid>
       <Grid className="regContainer" xs={12}>
-        <Link to="/register"><button>Register</button></Link>
-      </Grid>
-      <Grid className="adminContainer" xs={12}>
-        <button>Admin Login</button>
+        <p id="new-user">Dont have an account?</p>
+        <Link to="/register"><button id="reg-btn">Register</button></Link>
       </Grid>
 
       {checkLog}

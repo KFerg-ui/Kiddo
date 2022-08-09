@@ -1,4 +1,5 @@
 import React , { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
 import image1 from "../../assets/image-1.png";
@@ -55,11 +56,12 @@ const Home = () => {
           <source src={video} id="vid1" type="video/mp4" />
         </video>
       </Grid>
-      <Grid item className="missionGrid" xs={12}>
+      <Grid item className="reg-btn" xs={9}>
         <div className="register">
-          <button className="register-button">Register Here</button>
+          <Link to='/register'> <button  className="register-btn">Register Here</button></Link>
         </div>
-
+        </Grid>
+        <Grid item className="missionGrid" xs={12}>
         <div className="mission-statement">
           <h1 className="missionHead">Our Mission</h1>
           <p width="100%" className="missionText">
