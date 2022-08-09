@@ -14,9 +14,9 @@ function ColorBlobs() {
     
         <div class="circle" id="circle_3"></div>
     
-        <div class="circle" id="circle_4"></div>
+        {/* <div class="circle" id="circle_4"></div> */}
 
-        <div class="circle" id="circle_5"></div>
+        {/* <div class="circle" id="circle_5"></div> */}
         
 
 

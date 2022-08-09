@@ -1,11 +1,11 @@
 .blobContainer {
     /* height: 700px; */
-    width: 100vw;
+    width: 100%;
     /* position:absolute; */
     top: 0px;
     left: 0px;
     /* margin: auto; */
-    overflow: hidden;
+    /* overflow-x:auto */
     /* background-color: #f0f8ff */
   }
   
@@ -33,7 +33,7 @@
     height: 50vw;
     width: 50vw;
     position: absolute;
-    top: 15vw;
+    top: 15%;
     left: 55vw;
     z-index: -2;
   }
@@ -43,7 +43,7 @@
     height: 75vw;
     width: 75vw;
     position: absolute;
-    top: 10vw;
+    top: 10%;
     left: 10vw;
     z-index: -3;
   }
@@ -53,8 +53,8 @@
     height: 85vw;
     width: 85vw;
     position: absolute;
-    top: 90vw;
-    left: 55vw;
+    top: 70%;
+    left: 15vw;
     z-index: -4;
   }
   
@@ -63,7 +63,7 @@
     height: 60vw;
     width: 60vw;
     position: absolute;
-    top: 82vw;
+    top: 82%;
     left: 5vw;
     z-index: -1;
   }
@@ -73,7 +73,7 @@
     height: 40vw;
     width: 50vw;
     position: absolute;
-    top: 65vw;
+    top: 90%;
     left: 25vw;
     z-index: -5;
   }

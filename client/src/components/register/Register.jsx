@@ -1,5 +1,7 @@
 import React from 'react'
 import './Register.css'
+import ColorBlobs from "../colorBlobs/ColorBlobs";
+
 const Register = () => {
   
   
@@ -39,7 +41,7 @@ const Register = () => {
 
       <button>Register</button>
       </form>
-
+      <ColorBlobs/>
       </div>
       
   )
