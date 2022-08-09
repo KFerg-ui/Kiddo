@@ -1,0 +1,9 @@
+/* body {
+    overflow-x: hidden;
+} */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: fuchsia;
+}

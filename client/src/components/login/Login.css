@@ -8,7 +8,7 @@
 
 .banner {
     background-color: aqua;
-    margin-top: 7em;
+    /* margin-top: 7em; */
     padding: 2em;
     justify-content: center;
     display: flex;
@@ -20,11 +20,13 @@
     font-size: x-large;
     font-weight: 500;
 }
+
 .form-container {
     justify-content: center;
     padding: 1em;
     grid-row-gap: 1em;
 }
+
 .email {
     text-align: center;
     padding: 1em;
@@ -49,10 +51,11 @@
 
 .regContainer {
     text-align: center;
-    padding-top: 2em;
+    /* padding-top: 2em; */
 }
 
 .adminContainer {
     text-align: center;
     padding-top: 1em;
+    padding-bottom: 2em;
 }
