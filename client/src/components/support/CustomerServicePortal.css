@@ -25,3 +25,18 @@
     align-items: left;
     text-align: left;
 }
+
+.businessLink:visited{
+    color:black
+}
+
+li {
+    transition: all 250ms ease;
+  }
+
+.businessName:hover{
+    text-decoration: underline;
+    transform: translateY(-5px);
+    transition:  all 250ms ease;
+}
+
