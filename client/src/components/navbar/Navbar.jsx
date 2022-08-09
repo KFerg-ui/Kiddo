@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import logo from '../../assets/kiddo-transparent.png'
+import logo from '../../assets/logo-white-transparent.png'
 
 
 const Navbar = () => {
@@ -16,9 +16,7 @@ const Navbar = () => {
       <div className="container">
         <ul className={nav ? "nav-menu active" : "nav-menu"}>
           <li>
-            <Link to="/" className="nav-link" onClick={closeMobileMenu}>
-              <img src={logo} id="logo" alt="kiddo logo" />
-            </Link>
+            <Link to="/" className="nav-link" onClick={closeMobileMenu}>Home</Link>
           </li>
           <li>
             <Link to="/register" className="nav-link" onClick={closeMobileMenu}>Register</Link>

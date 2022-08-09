@@ -1,6 +1,6 @@
 
 *{
-    text-decoration: none;
+    text-decoration: none;   
 
 }
 
@@ -13,14 +13,18 @@
 }
 .nav-link:visited{
     text-decoration: none;
-    color:black
+    color:#f8f8ff
 }
 .navbar {
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     position: relative;
     z-index: 10;
+    background-color: #1a2f80;
+    color: ghostwhite;
+    
+
     
 }
 #bars-container{
@@ -57,7 +61,7 @@
 .navbar .icon {
     display: flex;
     font-size: 3rem;
-    color:black;
+    color:ghostwhite;
 }
 
 
