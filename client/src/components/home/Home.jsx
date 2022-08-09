@@ -49,11 +49,8 @@ const Home = () => {
 // Start of Exp. BLOBS CITY! 
 <>
     <Grid container className="gridHomeContainer" justifyContent="center">
-
-
-
         <h1 className="title">Welcome To Kiddo!</h1>
-      <Grid item className="animation" xs={10}>
+      <Grid item className="animation" xs={9}>
         <video className="videoBox" width="100%" height="100%" controls>
           <source src={video} id="vid1" type="video/mp4" />
         </video>
