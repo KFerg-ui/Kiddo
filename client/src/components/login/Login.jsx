@@ -3,7 +3,6 @@ import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
 import { Link } from "react-router-dom";
-import { display } from "@mui/system";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
@@ -96,7 +95,7 @@ const Login = () => {
         <Link to="/register"><button>Register</button></Link>
       </Grid>
       <Grid className="adminContainer" xs={12}>
-        <button>Admin Login</button>
+       <Link to="/login/admin"><button>Admin Login</button></Link>
       </Grid>
 
       {checkLog}
