@@ -5,15 +5,16 @@
 .title{
     font-weight: bolder;
 }
+
 .regForm {
     margin: 2em;
-   
 }
 
 .first {
     text-align: center;
     margin-top: 1em;
 }
+
 .field {
     padding-bottom: 1em;
 }
