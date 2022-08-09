@@ -7,7 +7,7 @@ const Register = () => {
 
   
 
-    <div className='form-container'>
+    <div className='reg-form-container'>
     <form method="POST" action="http://localhost:8000/signup/submit">
         <div className='register'>
     <h1>Kiddo</h1>
