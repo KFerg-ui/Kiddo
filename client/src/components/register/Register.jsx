@@ -8,6 +8,7 @@ import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const Register = () => {
   return (
+
     <Grid container className="regContainer" xs={12}>
       <Grid container className="banner">
           <h1>Register With Kiddo To Join Our Mission!</h1>

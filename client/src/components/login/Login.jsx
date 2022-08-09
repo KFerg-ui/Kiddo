@@ -71,20 +71,23 @@ const Login = () => {
         justify-content="space-evenly"
         sx={{ flexDirection: { md: "row" } }}>
         <form onSubmit={handleSubmit}>
-          <Grid container className="email" xs={12}>
-          <label className="eText">Email</label>
+          <Grid container className="label" xs={12}>Email </Grid>
+            <Grid item className="label" md={6} xs={12}>
+         
           <input type="text" name="email" placeholder="Enter your email" />
           </Grid>
+          <Grid item className="label" md={6} xs={12}>Password</Grid>
           <Grid container className="password" xs={12}>
-          <label className="pText">Password</label>
           <input
             type="text"
             name="password"
             placeholder="Enter your password"
           />
           </Grid>
+         
+          
           <Grid item className="logButton" xs={12}>
-          <button>Login</button>
+          <button id= "login">Login</button>
           <p>{message}</p>
           </Grid>
         </form>
