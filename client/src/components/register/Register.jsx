@@ -3,6 +3,7 @@ import React from "react";
 import "./Register.css";
 import image6 from "../../assets/image-6.png";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 
 const Register = () => {
@@ -121,7 +122,7 @@ const Register = () => {
           <button>Register</button>
         </Grid>
       </form>
-
+      <ColorBlobs/>
     </Grid>
   );
 };

@@ -5,6 +5,7 @@ import InvestorPortal from "../investor/InvestorPortal";
 import { Link } from "react-router-dom";
 import { display } from "@mui/system";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
@@ -89,13 +90,14 @@ const Login = () => {
         </form>
       </Grid>
       <Grid className="regContainer" xs={12}>
-        <button>Register</button>
+        <Link to="/register"><button>Register</button></Link>
       </Grid>
       <Grid className="adminContainer" xs={12}>
         <button>Admin Login</button>
       </Grid>
 
       {checkLog}
+      <ColorBlobs/>
     </Grid>
   );
 };
