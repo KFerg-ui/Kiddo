@@ -43,7 +43,6 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
-
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -55,7 +54,7 @@ const Login = () => {
 
   return (
     <Grid container className="loginGrid">
-      <Grid item className="banner" xs={12}>
+      <Grid container className="banner" xs={12}>
         <Grid item className="imageOne" width="50%" xs={9}>
           <img src={image6} id="img7" alt="ads image" width="100%" />
         </Grid>
