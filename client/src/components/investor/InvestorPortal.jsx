@@ -79,8 +79,8 @@ const InvestorPortal = () => {
           <Grid item xs={5} className="formWrap">
         <form className="form" action="">
           <label>"Contact Kiddo about becoming an Investor."<br/></label>
-          <input type="text" placeholder="enter message here"/>
-          <button>Message Input</button>
+          <input id="input" type="text" placeholder="enter message here"/>
+          <button className="send-btn">Send</button>
         </form>
           </Grid>
         </Grid>

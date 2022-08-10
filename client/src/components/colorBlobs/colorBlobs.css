@@ -31,26 +31,33 @@
     linear-gradient(144deg, rgba(125,212,243,0.43), rgba(249,124,181,0.85)),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.36' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); */
   }
+
+  .color3 {
+    color:rgb(44, 230, 243);
+    background: 
+    linear-gradient(144deg, rgba(9, 173, 238, 0.952), rgba(132, 221, 233, 0.889)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.36' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
   
   #circle_1 {
     height: 55vw;
     width: 55vw;
-    position: absolute;
+    position: fixed;
     top: 5%;
     left: 3%;
     z-index: -1;
     }
 
   #circle_2 {
-    height: 55vw;
-    width: 55vw;
+    height: 45vw;
+    width: 45vw;
     position: absolute;
-    top: 5%;
+    top: 35%;
     left: 45%;
     z-index: -2;
   }
 
-  #circle_1_3 {
+  #circle_3 {
     height: 25vw;
     width: 25vw;
     position: absolute;
@@ -64,7 +71,7 @@
     width: 35vw;
     position: absolute;
     top: 15%;
-    left: -10%;
+    left: 60%;
     z-index: -3;
     }
 
@@ -72,18 +79,18 @@
     height: 25vw;
     width: 25vw;
     position: absolute;
-    top: 20%;
-    left: 2%;
+    top: 40%;
+    left: -8%;
     z-index: -3;
   }
   
   #circle_6 {
-    height: 50vw;
-    width: 50vw;
-    position: absolute;
-    top: 25%;
-    left: 45%;
-    z-index: -1;
+    height: 25vw;
+    width: 25vw;
+    position: fixed;
+    top: 15%;
+    left: 80%;
+    z-index: -3;
   }
 
   #circle_7 {
@@ -172,7 +179,7 @@
     height: 55vw;
     position: absolute;
     top:50%;
-    left:25%;
+    left:5%;
     z-index: -1;
     filter: contrast(160%) brightness(250%);
     background: 
