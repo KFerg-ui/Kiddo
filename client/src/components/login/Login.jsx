@@ -22,7 +22,9 @@ const Login = () => {
     let email = e.target[0].value;
     let password = e.target[1].value;
     console.log(e);
+    
 
+    
     e.preventDefault();
     fetch("http://localhost:8000/signin", {
       method: "POST",
@@ -91,10 +93,14 @@ const Login = () => {
         </form>
       </Grid>
       <Grid className="regContainer" xs={12}>
-        <Link to="/register"><button>Register</button></Link>
+
+
+        <Link to="/register"><button id="reg-btn">Register</button></Link>
       </Grid>
       <Grid className="adminContainer" xs={12}>
        <Link to="/login/admin"><button>Admin Login</button></Link>
+
+
       </Grid>
 
       {checkLog}
