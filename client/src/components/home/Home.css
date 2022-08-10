@@ -16,9 +16,6 @@
     /* align-items: center; */
 }
 
-.videoBox {
-}
-
 .title {
     /* padding: 1em; */
     color: rgb(27, 27, 27); 
@@ -28,22 +25,24 @@
     letter-spacing: -1px;
     line-height: .1; 
     text-align: center;
+    
+}
 
+.kiddoUnderline {
+    position: relative;
+    top: -1.5em;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: xx-large;    
 }
 
 .joinFamily {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2.5em;
+    /* margin-top:.5em; */
 }
 
-.kiddoUnderline {
-    position: relative;
-    top: -2.5em;
-    letter-spacing: 3px;
-    font-size: 80%;    
-}
 
 .register {
     display: flex;
@@ -51,6 +50,17 @@
     margin-top: 2em;
     justify-content: center;
     align-items: center;
+}
+
+.familyOverline {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.investorPrompt {
+    font-weight: 500;
+    margin-bottom: 2em;
+    width: 60vw;
+    display: flex;
 }
 
 .register-button {
@@ -77,13 +87,15 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
-  
-  .register-button:focus {
+    margin-bottom: 1em;
+    margin-top: -1em;
+}
+
+.register-button:focus {
     outline: 0;
-  }
-  
-  .register-button:after {
+}
+
+.register-button:after {
     content: '';
     position: absolute;
     border: 1px solid #000000;
@@ -91,45 +103,79 @@
     left: 4px;
     width: calc(100% - 1px);
     height: calc(100% - 1px);
-  }
-  
-  .register-button:hover:after {
+}
+
+.register-button:hover:after {
     bottom: 2px;
     left: 2px;
-  }
-
-
-
-.newsies {
-    justify-content: center;
-    align-items: center;
 }
 
-
-.newsForm {
-    text-align: center;
-}
-
-.missionHead {
-    text-align: center;
+.mission-statement {
     background-color: aliceblue;
+}
+.missionHead {
+    letter-spacing: 2px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    background-color:rgb(227, 242, 255);
     /* border-radius: 10px; */
     /* border: 4px solid lightcoral; */
     font-family:Arial, Helvetica, sans-serif;
-    margin-bottom: 0;
-    
-    
+    font-weight: 500;
 }
 
 .missionText {
     background-color: aliceblue; 
-  margin-top: 0;
+    margin-top: 0;
     /* border: 4px solid lightcoral; */
     display: flex;
     margin-top: 0;
-    padding-right: 4em;
-    padding-left: 4em;
-    padding-top: 1em;
+    padding-right: 9em;
+    padding-left: 9em;
+    /* padding-top: 1em; */
     padding-bottom: 1em;
 }
+
+.newsies {
+    justify-content: center;
+    align-items: center;
+    padding:.4em
+}
+
+.inputName {
+    padding: .3em;
+    justify-content: center;
+}
+
+
+.infoOne {
+    margin: .2em;
+}
+
+.imageOne {
+    /* box-shadow: 5px 5px darkgrey; */
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+}
+
+.newsTitle {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.newsForm {
+    text-align: center;
+    background-color: aliceblue;
+    width: 100vw;
+}
+
+.newsButton {
+    padding-top: 1em;
+    align-items: center;
+}
+
 

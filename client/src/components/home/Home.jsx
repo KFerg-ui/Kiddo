@@ -61,14 +61,17 @@ const Home = () => {
         </Grid>
         <Grid item className="missionGrid" xs={12}>
           <div className="joinFamily">
-            <h1 className="kiddoUnderline">join the kiddo family</h1>   
+            <h1 className="familyOverline">JOIN THE KIDDO FAMILY</h1>
           </div>
-          <div className="register">         
+          <div className="joinFamily">
+          <h2 className="investorPrompt">Become an investor in our groundbreaking new social media platform for children ages 8-12.</h2>
+          </div>
+          <div className="register">
             <button className="register-button">Register Here</button>
           </div>
 
           <div className="mission-statement">
-            <h1 className="missionHead">Our Mission</h1>
+            <h1 className="missionHead"><span>OUR MISSION</span></h1>
             <p width="100%" className="missionText">
               Kiddo is a new social network for children. Through a thorough
               understanding of the existing social media ecosystem we aim to
@@ -156,37 +159,46 @@ const Home = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container className="newsies" xs={10}>
+        <Grid container className="newsies" xs={12}>
           <form onSubmit={onSubmit} className="newsForm">
-            <Grid item className="inputName" xs={10}>
+            <Grid item xs={12} >
+              <h2 className="newsTitle">Sign Up For Our Newsletter</h2>
+            </Grid>
+            <Grid item className="label" xs={12}>
+              Name
+            </Grid>
+            <Grid item className="inputName" xs={12}>
               <input
                 type="text"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                placeholder="name"
               ></input>
             </Grid>
-            <Grid item className="inputName" xs={10}>
+            <Grid item className="label" xs={12}>
+              Email{" "}
+            </Grid>
+            <Grid item className="inputName" xs={12}>
               <input
                 type="text"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                placeholder="email"
               ></input>
             </Grid>
-            <Grid item className="inputName" xs={10}>
+            <Grid item className="label" xs={12}>
+              Phone
+            </Grid>
+            <Grid item className="inputName" xs={12}>
               <input
                 type="text"
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}
-                placeholder="phone"
               ></input>
             </Grid>
-            <Grid item className="inputName" xs={10}>
-            <input type="Submit" />
+            <Grid item className="newsButton" xs={12}>
+              <input type="Submit" />
             </Grid>
             <p>{submission}</p>
           </form>
