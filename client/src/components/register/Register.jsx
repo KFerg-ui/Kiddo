@@ -119,8 +119,10 @@ const Register = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item className="button" xs={12}>
-          <button>Register</button>
+        <Grid item className="reg-btn" xs={9}>
+        <div className="register">
+           <button  className="register-btn">Register</button>
+        </div>
         </Grid>
       </form>
       <ColorBlobs/>

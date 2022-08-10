@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React , { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
 import image1 from "../../assets/image-1.png";
@@ -16,35 +18,33 @@ const Home = () => {
   const [phone, setPhone] = useState();
   const [submission, setSubmission] = useState("");
 
+
   const onSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8000/newsletter", {
-      method: "POST", // or 'PUT'
+    fetch('http://localhost:8000/newsletter', {
+      method: 'POST', // or 'PUT'
       body: JSON.stringify({
         name: name,
         email: email,
-        phone: phone,
+        phone: phone
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+        "Content-type": "application/json; charset=UTF-8"
+      } 
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.duplicate) {
-          setSubmission(
-            "Thank you for signing up! We will contact you in the future"
-          );
-        } else {
-          setSubmission(
-            "Error: Email has already been used to sign up for newsletter"
-          );
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+    .then((response) => response.json())
+    .then((data) => {
+      if(!data.duplicate){
+        setSubmission("Thank you for signing up! We will contact you in the future")
+      }
+      else{
+        setSubmission("Error: Email has already been used to sign up for newsletter")
+      };
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
 
   return (
     // Start of Exp. BLOBS CITY!
@@ -57,139 +57,118 @@ const Home = () => {
             <video className="videoBox" width="100%" height="100%" controls>
               <source src={video} id="vid1" type="video/mp4" />
             </video>
-          </Grid>
-        </Grid>
-        <Grid item className="missionGrid" xs={12}>
-          <div className="joinFamily">
-            <h1 className="kiddoUnderline">join the kiddo family</h1>   
-          </div>
-          <div className="register">         
-            <button className="register-button">Register Here</button>
-          </div>
-
-          <div className="mission-statement">
-            <h1 className="missionHead">Our Mission</h1>
-            <p width="100%" className="missionText">
-              Kiddo is a new social network for children. Through a thorough
-              understanding of the existing social media ecosystem we aim to
-              develop Kiddo with fundamentally different values and priorities:
-              Our users are our customers, not our products. Kiddo will be
-              ad-free, relying on small monthly subscription charges instead of
-              advertisements. This alone removes most of the structural
-              incentives for unhealthy social network features. Our goal is to
-              maximize child development and entertainment, not screen time.
-              Kiddo recognizes it should be a small part of a much larger
-              non-screen life for kids. We will rely on the insights of
-              recognized childhood development experts to ensure an enriching
-              and supportive environment.Our workers and users direct the future
-              of Kiddo. Kiddo’s ownership and day-to-day decisions will be
-              operated as a worker cooperative, with any outside investors
-              having equity but no voice in governance. Users will have a voice
-              on the future of Kiddo via elected, volunteer advisory boards.
-            </p>
-          </div>
-        </Grid>
-        <Grid
-          container
-          className="infoBoxes"
-          xs={12}
-          justifyContent="space-evenly"
-          sx={{ flexDirection: { md: "row" } }}
-        >
-          <Grid container 
-          className="infoOne" 
-          justifyContent="space-evenly" 
-          md={5} xs={9}>
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image1} id="img1" alt="first image" width="100%" />
-            </Grid>
-            <Grid item className="infoText1" xs={5}>
-              <p>designed with childhood development experts</p>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            className="infoOne"
-            md={5}
-            xs={9}
-            justifyContent="space-evenly"
-          >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image2} id="img2" alt="second image" width="100%" />
-            </Grid>
-            <Grid item className="infoText2" xs={5}>
-              <p>focused on safety and privacy</p>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            className="infoOne"
-            md={5}
-            xs={9}
-            justifyContent="space-evenly"
-          >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image3} id="img3" alt="third image" width="100%" />
-            </Grid>
-            <Grid item className="infoText2" xs={5}>
-              <p>all content age appropriate</p>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            className="infoOne"
-            md={5}
-            xs={9}
-            justifyContent="space-evenly"
-          >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image7} id="img7" alt="ads image" width="100%" />
-            </Grid>
-            <Grid item className="infoText2" xs={5}>
-              <p>100% Ad Free!</p>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid container className="newsies" xs={10}>
-          <form onSubmit={onSubmit} className="newsForm">
-            <Grid item className="inputName" xs={10}>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                placeholder="name"
-              ></input>
-            </Grid>
-            <Grid item className="inputName" xs={10}>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                placeholder="email"
-              ></input>
-            </Grid>
-            <Grid item className="inputName" xs={10}>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                }}
-                placeholder="phone"
-              ></input>
-            </Grid>
-            <Grid item className="inputName" xs={10}>
-            <input type="Submit" />
-            </Grid>
-            <p>{submission}</p>
-          </form>
         </Grid>
       </Grid>
-      <ColorBlobs />
+      <Grid item className="reg-btn" xs={9}>
+        <div className="register">
+          <Link to='/register'> <button  className="register-btn">Register Here</button></Link>
+        </div>
+        </Grid>
+        <Grid item className="missionGrid" xs={12}>
+        <div className="mission-statement">
+          <h1 className="missionHead">Our Mission</h1>
+          <p width="100%" className="missionText">
+            Kiddo is a new social network for children. Through a thorough
+            understanding of the existing social media ecosystem we aim to
+            develop Kiddo with fundamentally different values and priorities:
+            Our users are our customers, not our products. Kiddo will be
+            ad-free, relying on small monthly subscription charges instead of
+            advertisements. This alone removes most of the structural incentives
+            for unhealthy social network features. Our goal is to maximize child
+            development and entertainment, not screen time. Kiddo recognizes it
+            should be a small part of a much larger non-screen life for kids. We
+            will rely on the insights of recognized childhood development
+            experts to ensure an enriching and supportive environment.Our
+            workers and users direct the future of Kiddo. Kiddo’s ownership and
+            day-to-day decisions will be operated as a worker cooperative, with
+            any outside investors having equity but no voice in governance.
+            Users will have a voice on the future of Kiddo via elected,
+            volunteer advisory boards.
+          </p>
+        </div>
+      </Grid>
+      <Grid
+        container
+        className="infoBoxes"
+        xs={12}
+        justifyContent="space-evenly"
+        sx={{ flexDirection: { md: "row" } }}
+      >
+        <Grid
+          container
+          className="infoOne"
+          justifyContent="space-evenly"
+          md={5}
+          xs={9}
+        >
+          <Grid item className="imageOne" width="50%" xs={5}>
+            <img src={image1} id="img1" alt="first image" width="100%" />
+          </Grid>
+          <Grid item className="infoText1" xs={5}>
+            <p>information lorem lorem lorem</p>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          className="infoOne"
+          md={5}
+          xs={9}
+          justifyContent="space-evenly"
+        >
+          <Grid item className="imageOne" width="50%" xs={5}>
+            <img src={image2} id="img2" alt="second image" width="100%" />
+          </Grid>
+          <Grid item className="infoText2" xs={5}>
+            <p>information lorem lorem lorem</p>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          className="infoOne"
+          md={5}
+          xs={9}
+          justifyContent="space-evenly"
+        >
+          <Grid item className="imageOne" width="50%" xs={5}>
+            <img src={image3} id="img3" alt="third image" width="100%" />
+          </Grid>
+          <Grid item className="infoText2" xs={5}>
+            <p>information lorem lorem lorem</p>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          className="infoOne"
+          md={5}
+          xs={9}
+          justifyContent="space-evenly"
+        >
+          <Grid item className="imageOne" width="50%" xs={5}>
+            <img src={image7} id="img7" alt="ads image" width="100%" />
+          </Grid>
+          <Grid item className="infoText2" xs={5}>
+            <p>information lorem lorem lorem</p>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item className="newsies" xs={10}>
+        <div id="inputform">
+          <form onSubmit={onSubmit} className="newsForm">
+            <input type="text" onChange={(e) =>{setName(e.target.value)}} placeholder="name"></input>
+            <input type="text" onChange={(e) =>{setEmail(e.target.value)}} placeholder="email"></input>
+            <input type="text" onChange={(e) =>{setPhone(e.target.value)}} placeholder="phone"></input>
+            <input type="Submit" />
+            <p>{submission}</p>
+          </form>
+        </div>
+      </Grid>
+      <ColorBlobs/>
+    </Grid>
+
+
     </>
   );
 };
