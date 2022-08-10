@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
-
-  const checkLog = () => {
-    if (logged === true) {
-      return <InvestorPortal />;
-    } else {
-      return '<h1>"You did it wrong"</h1>';
-    }
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
@@ -43,6 +36,7 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
+          navigate(`/investors`)
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -98,7 +92,6 @@ const Login = () => {
        <Link to="/login/admin"><button>Admin Login</button></Link>
       </Grid>
 
-      {checkLog}
       <ColorBlobs/>
     </Grid>
   );
