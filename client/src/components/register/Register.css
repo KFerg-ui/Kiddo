@@ -3,7 +3,17 @@
 }
 
 .banner {
+    background-color: aliceblue;
     margin: 0;
+}
+
+/* .regImg {
+    box-shadow: 5px 5px gray;
+} */
+
+.regPrompt {
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .title{
@@ -27,7 +37,7 @@
 }
 
 .input {
-    text-align: left;
+    text-align: center;
     font-size: x-large;
 }
 .button {
