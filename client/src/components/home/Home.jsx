@@ -96,13 +96,10 @@ const Home = () => {
           justifyContent="space-evenly"
           sx={{ flexDirection: { md: "row" } }}
         >
-          <Grid
-            container
-            className="infoOne"
-            justifyContent="space-evenly"
-            md={5}
-            xs={9}
-          >
+          <Grid container 
+          className="infoOne" 
+          justifyContent="space-evenly" 
+          md={5} xs={9}>
             <Grid item className="imageOne" width="50%" xs={5}>
               <img src={image1} id="img1" alt="first image" width="100%" />
             </Grid>
