@@ -67,4 +67,24 @@ user-select: none;
 -webkit-user-select: none;
 touch-action: manipulation;
 margin-bottom: 2em;
+margin-top: 1em;
+}
+
+.register-btn:focus {
+    outline: 0;
+    }
+
+.register-btn:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+    
+.register-btn:hover:after {
+    bottom: 2px;
+    left: 2px;
 }

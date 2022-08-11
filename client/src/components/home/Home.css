@@ -111,6 +111,7 @@
 
 .mission-statement {
     background-color: aliceblue;
+    
 }
 
 .missionHead {
@@ -131,7 +132,7 @@
     display: flex;
     padding-right: 25vw;
     padding-left: 25vw;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
 }
 
 .newsies {

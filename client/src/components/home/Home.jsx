@@ -162,7 +162,7 @@ const Home = () => {
         <Grid container className="newsies" xs={12}>
           <form onSubmit={onSubmit} className="newsForm">
             <Grid item xs={12} >
-              <h2 className="newsTitle">Sign Up For Our Newsletter</h2>
+              <h2 className="newsTitle">SIGN UP FOR FUTURE UPDATES</h2>
             </Grid>
             <Grid item className="label" xs={12}>
               Name
