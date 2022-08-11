@@ -1,6 +1,6 @@
 
 *{
-    text-decoration: none;
+    text-decoration: none;   
 
 }
 
@@ -13,16 +13,18 @@
 }
 .nav-link:visited{
     text-decoration: none;
-    color:black
+    color:#f8f8ff
 }
 .navbar {
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100px;
-    position: absolute;
+    position: relative;
     z-index: 10;
-    
+    background-color: #1a2f80;
+    color: ghostwhite;
 }
+
 #bars-container{
     display: flex;
 }
@@ -57,7 +59,7 @@
 .navbar .icon {
     display: flex;
     font-size: 3rem;
-    color:black;
+    color:ghostwhite;
 }
 
 
@@ -75,7 +77,7 @@
         top: -1500px;
         align-items: center;
         justify-content: center;
-        background:whitesmoke;
+        background-color: #1a2f80;
         transition: 0.6s ease-in;
 
     }

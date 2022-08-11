@@ -1,14 +1,19 @@
+
 import React from "react";
 import "./Register.css";
-import image6 from "../../assets/image-6.png";
+import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate= useNavigate()
   return (
+
     <Grid container className="regContainer" xs={12}>
       <Grid container className="banner">
-          <h1>Register With Kiddo To Join Our Mission!</h1>
-          <Grid item className="imageOne" width="50%" xs={9}>
+          <h1 className="regPrompt">REGISTER TO JOIN OUR MISSION</h1>
+          <Grid item className="regImg" width="50%" xs={9}>
             <img src={image6} id="img7" alt="ads image" width="100%" />
           </Grid>
         </Grid>
@@ -22,7 +27,6 @@ const Register = () => {
               <input
                 type="text"
                 name="firstName"
-                placeholder="Enter your first name"
               />
             </Grid>
           </Grid>
@@ -34,7 +38,6 @@ const Register = () => {
               <input
                 type="text"
                 name="lastName"
-                placeholder="Enter your last name"
               />
             </Grid>
           </Grid>
@@ -46,7 +49,6 @@ const Register = () => {
               <input
                 type="text"
                 name="business"
-                placeholder="Enter company name"
               />
             </Grid>
           </Grid>
@@ -55,7 +57,7 @@ const Register = () => {
               Email
             </Grid>
             <Grid item className="input" md={5} xs={10}>
-              <input type="text" name="email" placeholder="Enter your email" />
+              <input type="text" name="email" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -63,7 +65,7 @@ const Register = () => {
               Country
             </Grid>
             <Grid item className="input" md={5} xs={10}>
-              <input type="text" placeholder="Enter your country" />
+              <input type="text"/>
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -71,7 +73,7 @@ const Register = () => {
               State
             </Grid>
             <Grid item className="input" md={5} xs={10}>
-              <input type="text" placeholder="Enter your state" />
+              <input type="text" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -82,7 +84,6 @@ const Register = () => {
               <input
                 type="text"
                 name="address"
-                placeholder="Enter your address"
               />
             </Grid>
           </Grid>
@@ -91,7 +92,7 @@ const Register = () => {
               ZIP
             </Grid>
             <Grid item className="input" md={5} xs={10}>
-              <input type="text" placeholder="Enter your zipcode" />
+              <input type="text" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -101,9 +102,7 @@ const Register = () => {
             <Grid item className="input" md={5} xs={10}>
               <input
                 type="text"
-                name="password"
-                placeholder="Enter your password"
-              />
+                name="password"/>
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -111,16 +110,20 @@ const Register = () => {
               Re-Enter Password
             </Grid>
             <Grid item className="input" md={5} xs={10}>
-              <input type="text" placeholder="Re-Enter your password" />
+              <input type="text" />
             </Grid>
           </Grid>
         </Grid>
-        <Grid item className="button" xs={12}>
-          <button>Register</button>
+        <Grid item className="reg-btn" xs={12}>
+        <div className="register">
+           <button className="register-btn">Register</button>
+        </div>
         </Grid>
       </form>
+      <ColorBlobs/>
     </Grid>
   );
 };
 
 export default Register;
+

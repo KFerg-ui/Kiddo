@@ -26,6 +26,25 @@ function verifyJWT(req,res,next){
     }
 }
 
+function verifyAdmin(req,res,next){
+    const token = req.headers["accesstoken"];
+    if(!token){
+        res.json({auth: false, message: "Token not found"})
+    }
+    else{
+        jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
+            if(result && result.admin){
+                req.userId = result.id;
+                next();
+            }
+            else{
+                res.json({auth: false, message: "failed to authenticate token"})
+            }
+        })
+    }
+}
+
+
 async function hash (toHash) {
     const hashed = await new Promise((resolve, reject) => {
       bcrypt.hash(toHash, saltRounds, function(err, hash) {
@@ -64,16 +83,41 @@ router
 
 router 
     .route("/customer-service")
-    .get( verifyJWT, async(req,res)=>{
+    .get( verifyAdmin, async(req,res)=>{
         const allCompanies = await Login.find({usertype: "investor"})
         res.json({auth: true, companies: allCompanies})
     })
 
 router 
     .route("/customer-service/:company")
-    .get(verifyJWT, async(req,res)=>{
-        const results = await Login.findOne({business: req.params.company})
+    .get(verifyAdmin, async(req,res)=>{ //FORCE CAPITLIZATION
+        const results = await Login.findOne({business: req.params.company.replace(/_/g," ")})
         res.json({auth: true, company: results})
+    })
+
+
+
+router
+    .route("/signin/admin")
+    .post(async(req,res)=>{
+        const {email, password } = req.body
+        const results = await Login.findOne({     
+            $and: [
+                { email : email },
+                { usertype: "admin" }
+          ]})
+        if(results){
+            if(await compareHash(password, results.password)){
+                const token = generateAccessToken({email:email, admin:true});
+                res.json({auth:true, token: token, result: results})
+            }
+            else{
+                res.json({auth:false, message: "incorrect password"})
+            }
+        }
+        else{
+            res.json({auth:false, message: "no user found with that email"})
+        }
     })
 
 
@@ -84,7 +128,7 @@ router
         const results = await Login.findOne({email: email})
         if(results){
             if(await compareHash(password, results.password)){
-                const token = generateAccessToken({email});
+                const token = generateAccessToken({ email: email, admin:false});
                 res.json({auth: true, token: token, result: results})
             }
             else{
@@ -96,8 +140,7 @@ router
         }
     })
 
-router.route("/signup/submit").post(async (req, res) => {
-  //push signup data
+router.route("/signup/submit").post(async (req, res) => { //FORCE BUSINESS CAPITILZATION 
   const { firstName, lastName, email, password, phone, address, business } =
     req.body;
   const pass = await hash(password);

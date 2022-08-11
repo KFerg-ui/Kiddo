@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
-import { Link } from "react-router-dom";
-import { display } from "@mui/system";
+import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
+  const navigate= useNavigate()
 
   const checkLog = () => {
     if (logged === true) {
@@ -22,7 +23,7 @@ const Login = () => {
     let email = e.target[0].value;
     let password = e.target[1].value;
     console.log(e);
-
+    
     e.preventDefault();
     fetch("http://localhost:8000/signin", {
       method: "POST",
@@ -43,6 +44,8 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
+          
+          navigate("/investors")
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -55,12 +58,15 @@ const Login = () => {
   return (
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
+        <Grid item className="logBanner" xs={12}>
+        <h2 className="logH2">LOGIN</h2>
+        </Grid>
         <Grid item className="imageOne" width="50%" xs={9}>
           <img src={image6} id="img7" alt="ads image" width="100%" />
         </Grid>
       </Grid>
       <Grid item className="login-prompt" md={12} xs={12}>
-        Login To Kiddo Here
+        Login To Kiddo
       </Grid>
 
       <Grid 
@@ -70,32 +76,34 @@ const Login = () => {
         justify-content="space-evenly"
         sx={{ flexDirection: { md: "row" } }}>
         <form onSubmit={handleSubmit}>
-          <Grid container className="email" xs={12}>
-          <label className="eText">Email</label>
-          <input type="text" name="email" placeholder="Enter your email" />
+          <Grid container className="label" xs={12}>Email </Grid>
+            <Grid item className="label" xs={12}>
+         
+          <input type="text" name="email"/>
           </Grid>
+          <Grid item className="label" md={6} xs={12}>Password</Grid>
           <Grid container className="password" xs={12}>
-          <label className="pText">Password</label>
           <input
             type="text"
             name="password"
-            placeholder="Enter your password"
           />
           </Grid>
+         
+          
           <Grid item className="logButton" xs={12}>
-          <button>Login</button>
+          <button id= "login-btn">Login</button>
           <p>{message}</p>
           </Grid>
         </form>
       </Grid>
       <Grid className="regContainer" xs={12}>
-        <button>Register</button>
+        <Link to="/register"><button id="reg-btn">Register</button></Link>
       </Grid>
       <Grid className="adminContainer" xs={12}>
-        <button>Admin Login</button>
       </Grid>
 
       {checkLog}
+      <ColorBlobs/>
     </Grid>
   );
 };

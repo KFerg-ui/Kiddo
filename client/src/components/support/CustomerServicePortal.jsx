@@ -1,4 +1,5 @@
 import React , { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./CustomerServicePortal.css";
 import { Grid } from "@mui/material";
 
@@ -8,6 +9,7 @@ const CustomerServicePortal = () => {
   const [arry , setArry] = useState();
   let token = localStorage.getItem("token");
   let companyNames = [];
+  let link = "";
 
   function findCompanies(){
     fetch('http://localhost:8000/customer-service', {
@@ -20,7 +22,7 @@ const CustomerServicePortal = () => {
     .then((data) => {
       if(data.auth){
         setVerification(true)
-        setArry(data) 
+        setArry(data)
       }
       else{
         setVerification(false);
@@ -41,7 +43,8 @@ const CustomerServicePortal = () => {
 
   if(verification){
     arry.companies.forEach((company) => {
-      companyNames.push(<li>{company.business}</li>);
+      link = `/support/${company.business.replace(" ","_")}`
+      companyNames.push(<Link to={link} className = "businessLink"><li className = "businessName">{company.business}</li></Link>);
     });
   
     return (
