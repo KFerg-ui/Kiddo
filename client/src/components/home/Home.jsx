@@ -67,7 +67,7 @@ const Home = () => {
           <h2 className="investorPrompt">Become an investor in our groundbreaking new social media platform for children ages 8-12.</h2>
           </div>
           <div className="register">
-            <button className="register-button">Register Here</button>
+            <Link to="/register" className="register-button">Register Here</Link>
           </div>
 
           <div className="mission-statement">

@@ -128,19 +128,16 @@
 .missionText {
     background-color: aliceblue; 
     margin-top: 0;
-    /* border: 4px solid lightcoral; */
     display: flex;
-    margin-top: 0;
     padding-right: 25vw;
     padding-left: 25vw;
-    /* padding-top: 1em; */
     padding-bottom: 1em;
 }
 
 .newsies {
     justify-content: center;
     align-items: center;
-    padding:.4em
+    margin-top: 2em;
 }
 
 .inputName {
@@ -159,6 +156,8 @@
 }
 
 .newsTitle {
+    /* background-color:rgb(227, 242, 255); */
+    padding: 1em;
     font-weight: 500;
     letter-spacing: 2px;
 }
@@ -166,12 +165,13 @@
 .newsForm {
     text-align: center;
     background-color: aliceblue;
-    width: 100vw;
+    width: 100%;
 }
 
 .newsButton {
     padding-top: 1em;
     align-items: center;
+    padding-bottom: 1em;
 }
 
 
