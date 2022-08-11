@@ -4,9 +4,10 @@ import "./Register.css";
 import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
-
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate= useNavigate()
   return (
 
     <Grid container className="regContainer" xs={12}>
@@ -113,9 +114,9 @@ const Register = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item className="reg-btn" xs={9}>
+        <Grid item className="reg-btn" xs={12}>
         <div className="register">
-           <button  className="register-btn">Register</button>
+           <button className="register-btn">Register</button>
         </div>
         </Grid>
       </form>

@@ -51,10 +51,16 @@ const InvestorPortal = () => {
         </div>
 
           <Grid container xs={12} className="picWrap pic8Wrap" direction="row" width="100%" height="100%">
-            <Grid item xs={5} className="bulletPhrases">
-              Kiddo information <br/>
-              Market Research <br/>            
-              Business model 
+            <Grid container xs={5} className="bulletPhrases">
+              <Grid item className="bullet" xs={12}>
+              <h2 className="investorTitle"><a href="../../assets/kiddoPresentations.pdf" download="kiddoPresentations.pdf">Download Kiddo Information</a></h2>
+              </Grid>
+              <Grid item className="bullet" xs={12}>
+              <h2 className="investorTitle">Market Research </h2>
+              </Grid>
+              <Grid item className="bullet" xs={12}>         
+              <h2 className="investorTitle">Business Model</h2> 
+              </Grid>   
             </Grid> 
             <Grid item xs={5} className="picContainer">
               <img className='image8' src={image8} id="img8" alt="4 cartoon kids at a table" /></Grid>
@@ -65,20 +71,20 @@ const InvestorPortal = () => {
             <Grid item xs={5} className="picContainer">
               <img className="image9" src={image9} id="img9" alt="cartoon investor at computer " /></Grid> 
             <Grid item xs={5} className="bulletPhrases">
-              Kiddo team            
+              <h2 className="investorTitle">KIDDO TEAM</h2>            
             </Grid>
           </Grid>
 
         <Grid container className="formWrapContainer" direction="column">
           <Grid item xs={12} className="picWrap">
-          <h2>Company Statistics</h2>
+          <h2 className="investorTitle">COMPANY STATISTICS</h2>
           </Grid>
         </Grid>
 
         <Grid container className="formWrapContainer" direction="row">
           <Grid item xs={5} className="formWrap">
         <form className="form" action="">
-          <label>"Contact Kiddo about becoming an Investor."<br/></label>
+          <label>Contact Kiddo About Becoming An Investor<br/></label>
           <input id="input" type="text" placeholder="enter message here"/>
           <button className="send-btn">Send</button>
         </form>
