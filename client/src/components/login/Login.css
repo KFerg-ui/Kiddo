@@ -6,6 +6,13 @@
     background-color: aliceblue;
 }
 
+.logH2 {
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: xx-large;
+}
+
 .banner {
     background-color: aqua;
     /* margin-top: 7em; */

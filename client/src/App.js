@@ -22,10 +22,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/investors" element={<InvestorPortal />} />
         <Route path="/support" element={<CustomerServicePortal />} />
-        <Route path="/admin" element={<AdminLogin />} />
+        {/* <Route path="/admin" element={<AdminLogin />} /> */}
         <Route path="/info" element={<CompanyInfo />} />
-        <Route path="/support/:company" element = {<CustomerServiceCompany/>}/>
-        <Route path="/login/admin" element = {<Admin/>} />
+        <Route path="/support/:company" element={<CustomerServiceCompany />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       <Footer />
