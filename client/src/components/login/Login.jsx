@@ -9,6 +9,7 @@ import ColorBlobs from "../colorBlobs/ColorBlobs";
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
+<<<<<<< HEAD
   const navigate= useNavigate()
 
   const checkLog = () => {
@@ -18,6 +19,9 @@ const Login = () => {
       return '<h1>"You did it wrong"</h1>';
     }
   };
+=======
+  const navigate = useNavigate();
+>>>>>>> 6008de1b216a3b10803d030feb21b3c58cbd5512
 
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
@@ -44,8 +48,12 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
+<<<<<<< HEAD
           
           navigate("/investors")
+=======
+          navigate(`/investors`)
+>>>>>>> 6008de1b216a3b10803d030feb21b3c58cbd5512
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -102,7 +110,6 @@ const Login = () => {
       <Grid className="adminContainer" xs={12}>
       </Grid>
 
-      {checkLog}
       <ColorBlobs/>
     </Grid>
   );
