@@ -18,7 +18,6 @@ const NewsletterSchema = new mongoose.Schema({ // create Schema
     phone: String
 })
 
-const Newsletter = mongoose.model("newsletter", NewsletterSchema)
 
 const LoginSchema = new mongoose.Schema({
     firstName: { type : String , required : true },
@@ -33,9 +32,9 @@ const LoginSchema = new mongoose.Schema({
     usertype: String
 })
 
-const Login = mongoose.model("logins", LoginSchema)
+
 
 module.exports = {
-    Newsletter,
-    Login
+    NewsletterSchema,
+    LoginSchema
 }
