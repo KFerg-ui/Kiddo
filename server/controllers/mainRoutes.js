@@ -3,6 +3,7 @@ const { Newsletter, Login } = require("../Schema");
 var bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { parse } = require("dotenv");
 require("dotenv").config();
 const saltRounds = parseInt(process.env.SALT);
 router.use(bodyParser.json());
@@ -84,7 +85,12 @@ router
 router 
     .route("/customer-service")
     .get( verifyAdmin, async(req,res)=>{
-        const allCompanies = await Login.find({usertype: "investor"})
+        const method = req.headers["sort"];
+        const reverse = req.headers["reverse"]
+        const allCompanies = await Login
+            .find({usertype: "investor"})
+            .collation({'locale':'en'})
+            .sort({[method]: reverse})
         res.json({auth: true, companies: allCompanies})
     })
 
