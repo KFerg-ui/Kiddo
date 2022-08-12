@@ -7,7 +7,7 @@
     "verbose": true
   },
   "scripts": {
-    "test": "./node_modules/.bin/jest",
+    "test": "jest --watch",
     "start": "node server.js",
     "dev": "nodemon",
     "setup": "npm install && cd client && npm install"
