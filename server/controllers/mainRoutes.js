@@ -87,8 +87,10 @@ router
     .get( verifyAdmin, async(req,res)=>{
         const method = req.headers["sort"];
         const reverse = req.headers["reverse"]
+        let search = req.headers["search"]
+        search = new RegExp(search , "i")
         const allCompanies = await Login
-            .find({usertype: "investor"})
+            .find({usertype: "investor", business: search})
             .collation({'locale':'en'})
             .sort({[method]: reverse})
         res.json({auth: true, companies: allCompanies})

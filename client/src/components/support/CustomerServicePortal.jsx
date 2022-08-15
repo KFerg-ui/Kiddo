@@ -14,6 +14,7 @@ const CustomerServicePortal = () => {
   let token = localStorage.getItem("token");
   let companyNames = [];
   let link = "";
+  let output = "";
 
   function nameSort(){
     setContactStatus("")
@@ -29,6 +30,7 @@ const CustomerServicePortal = () => {
       setNameStatus("↓")
     }
   }
+
   function contactSort(){
     setNameStatus("")
     setNameBool(true)
@@ -44,18 +46,26 @@ const CustomerServicePortal = () => {
     }
   }
 
+  const search = async (e) => {
+    e.preventDefault();
+    console.log("fetch")
+  }
 
-  function findCompanies(method, reverse){
+  function findCompanies(method, reverse, search){
     if(!method){
       method = "business"
       reverse = 1;
+    }
+    if(!search){
+      search = "";
     }
     fetch('http://localhost:8000/customer-service', {
       method: 'GET',
       headers: {
         "accesstoken": token,
         "sort": method,
-        "reverse": reverse
+        "reverse": reverse,
+        "search": search
       } 
     })
     .then((response) => response.json())
@@ -81,24 +91,24 @@ const CustomerServicePortal = () => {
 
   
 
-  if(verification){
+  if(verification){ //figure out why formatting is different between dates
     arry.companies.forEach((company) => {
       link = `/support/${company.business.replace(" ","_")}`
-      if(!company.contact == ""){
-        company.contact[0] = "no date attached"
+      if(company.contact == ""){
+        output = "no date attached";
+      }
+      else{
+        output = company.contact[company.contact.length -1]
       }
       companyNames.push(
-        <Link to={link} className = "businessLink">
-          <Grid container className = "listContainer" justify-content = "center">
-            <Grid item xs = {5}>
-              {company.business}
-            </Grid>
-            <Grid item xs = {5}>
-              {company.contact[company.contact.length -1]}
-                
-            </Grid>
+        <Grid container className = "listContainer" justifyContent = "space-around">
+          <Grid item xs = {5} className = "business">
+            <Link to={link} className = "businessLink">{company.business}</Link>
           </Grid>
-        </Link>);
+          <Grid item xs = {5} >
+            {output}
+          </Grid>
+        </Grid>)
     });
   
     return (
@@ -115,6 +125,12 @@ const CustomerServicePortal = () => {
               </Grid>
               <Grid item className="lastContactSort">
                 <button onClick={contactSort}>Recent Contact {contactStatus}</button>
+              </Grid>
+              <Grid item className="searchBar">
+                <form onSubmit={search}>
+                  <input type="text"/>
+                  <button>Search</button>
+                </form>
               </Grid>
             </Grid>
             <Grid item xs={10} className="gridCompanyListWrap" direction="row">
