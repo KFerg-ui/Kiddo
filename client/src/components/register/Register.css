@@ -24,6 +24,14 @@
     margin: 2em;
 }
 
+.regImg {
+    padding-bottom: 2em;
+}
+
+#img7 {
+    box-shadow: 5px 5px darkgray;
+}
+
 .first {
     text-align: center;
     margin-top: 1em;
@@ -38,8 +46,8 @@
 }
 
 .input {
-    text-align: center;
-    font-size: x-large;
+    font-size: large;
+    border: 1px solid black;
 }
 
 .register-btn {

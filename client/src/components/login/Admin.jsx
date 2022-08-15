@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./Admin.css";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
@@ -44,15 +44,11 @@ const Admin = () => {
   return (
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
-        <Grid item width="50%" xs={9}>
+        <Grid item width="50%" xs={12} className="adLogContainer">
           {" "}{/* center later */}
-          <h3>Admin Login</h3>
+          <h1 className="adLogTitle">ADMINISTRATOR LOGIN</h1>
         </Grid>
       </Grid>
-      <Grid item className="login-prompt" md={12} xs={12}>
-        Admin Login
-      </Grid>
-
       <Grid
         container
         className="form-container"
@@ -65,7 +61,7 @@ const Admin = () => {
             Email{" "}
           </Grid>
           <Grid item className="label" xs={12}>
-            <input type="text" name="email" placeholder="Enter your email" />
+            <input type="text" name="email"/>
           </Grid>
           <Grid item className="label" xs={12}>
             Password
@@ -74,11 +70,10 @@ const Admin = () => {
             <input
               type="text"
               name="password"
-              placeholder="Enter your password"
-            />
+              />
           </Grid>
           <Grid item className="logButton" xs={12}>
-            <button id="login">Login</button>
+            <button className="adLogButton">Login</button>
             <p>{message}</p>
           </Grid>
         </form>
