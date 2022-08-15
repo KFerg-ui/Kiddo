@@ -1,9 +1,9 @@
 import React , { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./CustomerServicePortal.css";
-import { Grid } from "@mui/material";
-import { DataGrid } from '@mui/x-data-grid';
-import ColorBlobs from "../colorBlobs/ColorBlobs";
+// import findCompanies from "./findCompanies";
+import Table from "./table/Table.tsx";
+
+
 
 const CustomerServicePortal = () => {
   const [investorList, setInvestorList] = useState([]);
@@ -11,43 +11,9 @@ const CustomerServicePortal = () => {
 
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
-  // const [arry , setArry] = useState();
-  // const [nameBool, setNameBool] = useState(true);
-  // const [nameStatus, setNameStatus] = useState("");
-  // const [contactBool, setContactBool] = useState(true);
-  // const [contactStatus, setContactStatus] = useState("");
-  let token = localStorage.getItem("token");
-  // let companyNames = [];
-  // let link = "";
 
-  // function nameSort(){
-  //   setContactStatus("")
-  //   setContactBool(true)
-  //   if(nameBool){
-  //     findCompanies("business",1)
-  //     setNameBool(!nameBool)
-  //     setNameStatus("↑");
-  //   }
-  //   else{
-  //     findCompanies("business",-1)
-  //     setNameBool(!nameBool)
-  //     setNameStatus("↓")
-  //   }
-  // }
-  // function contactSort(){
-  //   setNameStatus("")
-  //   setNameBool(true)
-  //   if(contactBool){
-  //     findCompanies("contact",1)
-  //     setContactBool(!contactBool)
-  //     setContactStatus("↑");
-  //   }
-  //   else{
-  //     findCompanies("contact",-1)
-  //     setContactBool(!contactBool)
-  //     setContactStatus("↓")
-  //   }
-  // }
+
+  let token = localStorage.getItem("token");
 
 
   function findCompanies(method, reverse){
@@ -68,9 +34,7 @@ const CustomerServicePortal = () => {
       if(data.auth){
         setVerification(true)
         setInvestorList(data.investors)
-        data.investors.forEach(inv => {
-          console.log(inv);
-        })
+
       }
       else{
         setVerification(false);
@@ -90,57 +54,9 @@ const CustomerServicePortal = () => {
   
 
   if(verification){
-    // arry.companies.forEach((company) => {
-    //   link = `/support/${company.business.replace(" ","_")}`
-    //   if(!company.contact == ""){
-    //     company.contact[0] = "no date attached"
-    //   }
-    //   companyNames.push(
-    //     <Link to={link} className = "businessLink">
-    //       <Grid container className = "listContainer" justify-content = "center">
-    //         <Grid item xs = {5}>
-    //           {company.business}
-    //         </Grid>
-    //         <Grid item xs = {5}>
-    //           {company.contact[company.contact.length -1]}
-                
-    //         </Grid>
-    //       </Grid>
-    //     </Link>);
-    // });
-  
     return (
       <div>
-          <DataGrid
-            rows={5}
-            columns={5}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-          />
-
-
-        {/* <Grid container className="gridWrapContainer" direction="row" justifyContent= "center">
-          <Grid item xs={10} className="gridDBListContainer" direction="column">
-            <h1>Investor Data</h1>
-          </Grid>
-          <Grid item xs={10} className="gridDBListWrap" direction="column">
-            Company Database list
-            <Grid container className = "sortButtons" justifyContent="space-around">
-              <Grid item className ="nameSort">
-                <button onClick={nameSort}>Name {nameStatus}</button>
-              </Grid>
-              <Grid item className="lastContactSort">
-                <button onClick={contactSort}>Recent Contact {contactStatus}</button>
-              </Grid>
-            </Grid>
-            <Grid item xs={10} className="gridCompanyListWrap" direction="row">
-              <Grid container className="bigListContainer" direction ="column">
-                {companyNames}
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid> */}
+        <Table investorList = {investorList}/>
       </div>
     );
   }
