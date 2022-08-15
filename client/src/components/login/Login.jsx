@@ -9,15 +9,8 @@ import ColorBlobs from "../colorBlobs/ColorBlobs";
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
-  const checkLog = () => {
-    if (logged === true) {
-      return <InvestorPortal />;
-    } else {
-      return '<h1>"You did it wrong"</h1>';
-    }
-  };
 
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
@@ -44,8 +37,9 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
-          
-          navigate("/investors")
+
+          navigate(`/investors`)
+
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -95,7 +89,6 @@ const Login = () => {
       <Grid className="adminContainer" xs={12}>
       </Grid>
 
-      {checkLog}
       <ColorBlobs/>
     </Grid>
   );

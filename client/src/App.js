@@ -7,7 +7,6 @@ import Register from "./components/register/Register";
 import InvestorPortal from "./components/investor/InvestorPortal";
 import CustomerServicePortal from "./components/support/CustomerServicePortal";
 import CompanyInfo from "./components/info/CompanyInfo";
-import AdminLogin from "./components/admin/AdminLogin";
 import CustomerServiceCompany from "./components/support/CustomerServiceCompany";
 import Admin from "./components/login/Admin";
 
@@ -22,7 +21,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/investors" element={<InvestorPortal />} />
         <Route path="/support" element={<CustomerServicePortal />} />
-        {/* <Route path="/admin" element={<AdminLogin />} /> */}
         <Route path="/info" element={<CompanyInfo />} />
         <Route path="/support/:company" element={<CustomerServiceCompany />} />
         <Route path="/admin" element={<Admin />} />

@@ -72,7 +72,7 @@ export default function CustomerServiceCompany(props) {
     
       return (
         <div>
-          <Grid container className="gridWrapContainer" direction="row">
+          <Grid container className="gridWrapContainer" direction="row" justifyContent= "center">
             <Grid item xs = {10}>
                 <Grid container className="gridDBListContainer" direction="column">
                     <Grid item xs = {10}><h1>Company Browser</h1></Grid>
@@ -81,7 +81,8 @@ export default function CustomerServiceCompany(props) {
                     <Grid item xs={10}>{companyName}</Grid>
                     <Grid item xs={10} className="gridCompanyListWrap">
                         <ul>
-                        {companyData}
+                          List Start
+                          {companyData}
                         </ul>
                     </Grid>
                 </Grid>
