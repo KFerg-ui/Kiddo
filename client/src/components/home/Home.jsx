@@ -1,5 +1,5 @@
 
-import React , { useState } from "react";
+import React , { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
@@ -12,13 +12,20 @@ import image7 from "../../assets/image-7.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
+
+
+
 const Home = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [submission, setSubmission] = useState("");
 
+  useEffect(() => {
 
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+  
   const onSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:8000/newsletter', {

@@ -2,33 +2,37 @@ import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
+
 function Footer() {
   return (
     <div className='footer-container'>
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
-            <h2>About Us</h2>
-            <Link to='/'>How it works</Link>
-            <Link to='/investors'>Investors</Link>
+            <h2>ABOUT US</h2>
+            <Link to='/' href="#top">How it works</Link>
+            <Link to='/investors' href="#top">Investors</Link>
 
           </div>
-          <div className='footer-link-items'>
-            <h2>Contact Us</h2>
-          </div>
+        
         </div>
         <div className='footer-link-items'>
-          <h2>Join Kiddo</h2>
-          <Link to='/register'>Register</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/admin'>Admin Portal</Link>
+          <h2>JOIN KIDDO</h2>
+          <Link to='/register' href="#top">Register</Link>
+          <Link to='/login' href="#top">Login</Link>
+          <Link to='/admin' href="#top">Admin Portal</Link>
        </div>
           <div className='footer-link-items'>
-            <h2>Social Media</h2>
+            <h2>SOCIAL MEDIA</h2>
             <Link to='/'>Instagram</Link>
             <Link to='/'>Facebook</Link>
             <Link to='/'>Youtube</Link>
             <Link to='/'>Twitter</Link>
+          </div>
+          <div className='footer-link-items'>
+            <h2>CONTACT US</h2>
+            <p>915-267-5166</p>
+            <p id="kiddo-email">kiddosocialmedia@gmail.com</p>
           </div>
         </div>
     

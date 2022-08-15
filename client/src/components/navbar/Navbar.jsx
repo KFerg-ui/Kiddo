@@ -16,16 +16,16 @@ const Navbar = () => {
       <div className="container">
         <ul className={nav ? "nav-menu active" : "nav-menu"}>
           <li>
-            <Link to="/" className="nav-link" onClick={closeMobileMenu} data-testid="homeNav">Home</Link>
+            <Link to="/" className="nav-link" onClick={closeMobileMenu}>HOME</Link>
           </li>
           <li>
-            <Link to="/register" className="nav-link" onClick={closeMobileMenu}data-testid="registerNav">Register</Link>
+            <Link to="/register" className="nav-link" onClick={closeMobileMenu}>REGISTER</Link>
           </li>
           <li>
-            <Link to="/login" className="nav-link" onClick={closeMobileMenu}data-testid="loginNav">Login</Link>
+            <Link to="/login" className="nav-link" onClick={closeMobileMenu}>LOGIN</Link>
           </li>
         </ul>
-       
+      
         <div id="bars-container">
           <div className="bars-icon" onClick={navClick}>
             <FaBars className="icon" />
