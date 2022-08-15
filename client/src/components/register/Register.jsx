@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
@@ -8,6 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate= useNavigate()
+
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   return (
 
     <Grid container className="regContainer" xs={12}>
