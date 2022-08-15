@@ -1,9 +1,14 @@
 import React , { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./CustomerServicePortal.css";
-import { Grid } from "@mui/material";
+// import findCompanies from "./findCompanies";
+import Table from "./table/Table.tsx";
+
+
 
 const CustomerServicePortal = () => {
+  const [investorList, setInvestorList] = useState([]);
+
+
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
   const [arry , setArry] = useState();
@@ -72,7 +77,8 @@ const CustomerServicePortal = () => {
     .then((data) => {
       if(data.auth){
         setVerification(true)
-        setArry(data)
+        setInvestorList(data.investors)
+
       }
       else{
         setVerification(false);
@@ -133,11 +139,7 @@ const CustomerServicePortal = () => {
                 </form>
               </Grid>
             </Grid>
-            <Grid item xs={10} className="gridCompanyListWrap" direction="row">
-              <Grid container className="bigListContainer" direction ="column">
-                {companyNames}
-              </Grid>
-            </Grid>
+             <Table investorList = {investorList}/>
           </Grid>
         </Grid>
       </div>

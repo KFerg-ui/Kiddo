@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Newsletter, Login } = require("../Schema");
+const { Newsletter, Login } = require("../models");
 var bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");

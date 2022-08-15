@@ -16,13 +16,13 @@ const Navbar = () => {
       <div className="container">
         <ul className={nav ? "nav-menu active" : "nav-menu"}>
           <li>
-            <Link to="/" className="nav-link" onClick={closeMobileMenu}>Home</Link>
+            <Link to="/" className="nav-link" onClick={closeMobileMenu} data-testid="homeNav">Home</Link>
           </li>
           <li>
-            <Link to="/register" className="nav-link" onClick={closeMobileMenu}>Register</Link>
+            <Link to="/register" className="nav-link" onClick={closeMobileMenu}data-testid="registerNav">Register</Link>
           </li>
           <li>
-            <Link to="/login" className="nav-link" onClick={closeMobileMenu}>Login</Link>
+            <Link to="/login" className="nav-link" onClick={closeMobileMenu}data-testid="loginNav">Login</Link>
           </li>
         </ul>
        

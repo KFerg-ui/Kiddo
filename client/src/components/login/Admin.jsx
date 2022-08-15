@@ -64,10 +64,10 @@ const Admin = () => {
           <Grid container className="label" xs={12}>
             Email{" "}
           </Grid>
-          <Grid item className="label" md={6} xs={12}>
+          <Grid item className="label" xs={12}>
             <input type="text" name="email" placeholder="Enter your email" />
           </Grid>
-          <Grid item className="label" md={6} xs={12}>
+          <Grid item className="label" xs={12}>
             Password
           </Grid>
           <Grid container className="password" xs={12}>

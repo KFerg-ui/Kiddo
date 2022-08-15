@@ -81,6 +81,7 @@ export default function CustomerServiceCompany(props) {
                     <Grid item xs={10}>{companyName}</Grid>
                     <Grid item xs={10} className="gridCompanyListWrap">
                         <ul>
+                          List Start
                           {companyData}
                         </ul>
                     </Grid>

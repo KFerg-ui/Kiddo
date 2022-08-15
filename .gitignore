@@ -1,6 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,node
 
+### untrack client/build folder ###
+client/build/
+client/node_modules/
+server/node_modules/
+
+
 ### Node ###
 # Logs
 logs

@@ -22,8 +22,8 @@ function App() {
         <Route path="/investors" element={<InvestorPortal />} />
         <Route path="/support" element={<CustomerServicePortal />} />
         <Route path="/info" element={<CompanyInfo />} />
-        <Route path="/support/:company" element = {<CustomerServiceCompany/>}/>
-        <Route path="/login/admin" element = {<Admin/>} />
+        <Route path="/support/:company" element={<CustomerServiceCompany />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       <Footer />
