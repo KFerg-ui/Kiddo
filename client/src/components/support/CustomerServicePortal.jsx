@@ -2,6 +2,7 @@ import React , { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CustomerServicePortal.css";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const CustomerServicePortal = () => {
   const [verification, setVerification] = useState(false);
@@ -50,11 +51,13 @@ const CustomerServicePortal = () => {
     return (
       <div>
         <Grid container className="gridWrapContainer" direction="row">
-          <Grid item xs={10} className="gridDBListContainer" direction="column">
+          <Grid item xs={12} className="gridDBListContainer" direction="column">
             <h1>Investor Data</h1>
           </Grid>
-          <Grid item xs={10} className="gridDBListWrap" direction="column">
-            Company Database list
+          <Grid item xs={12} className="gridDBListWrap" direction="column">
+            <h1>
+              Company Database list
+            </h1>
             <Grid item xs={10} className="gridCompanyListWrap" direction="row">
               <ul>
                 {companyNames}
