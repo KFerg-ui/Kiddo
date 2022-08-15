@@ -2,6 +2,7 @@ import React , { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CustomerServicePortal.css";
 import { Grid } from "@mui/material";
+import ColorBlobs from "../colorBlobs/ColorBlobs";
 
 const CustomerServicePortal = () => {
   const [verification, setVerification] = useState(false);
