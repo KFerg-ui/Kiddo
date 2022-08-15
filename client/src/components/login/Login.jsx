@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
@@ -6,10 +6,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
+
+
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
+  
+  const checkLog = () => {
+    if (logged === true) {
+      return <InvestorPortal />;
+    } else {
+      return '<h1>"You did it wrong"</h1>';
+    }
+  };
 
 
   const handleSubmit = async (e) => {
