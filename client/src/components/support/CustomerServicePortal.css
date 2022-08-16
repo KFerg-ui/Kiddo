@@ -28,6 +28,7 @@
 
 .businessLink:visited{
     color:black
+
 }
 
 li {
@@ -36,7 +37,7 @@ li {
 
 .businessName:hover{
     text-decoration: underline;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     transition:  all 250ms ease;
 }
 
