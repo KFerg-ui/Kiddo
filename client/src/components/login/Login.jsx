@@ -27,7 +27,7 @@ const Login = () => {
   }
 
   useEffect ( () => {
-    console.log(`logged = ${logged}`)
+    // console.log(`logged = ${logged}`)
   }, [logged])
 
   useEffect( () => {
@@ -43,7 +43,7 @@ const Login = () => {
   // }, [logged])
 
   let renderComponents = function () {
-    console.log("render" + logged)
+    // console.log("render " + logged)
     if (logged){
       return <LogoutButton logout = {logout}/>
     } else {
@@ -58,14 +58,7 @@ const Login = () => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
 
-  
-  const checkLog = () => {
-    if (logged === true) {
-      return <InvestorPortal />;
-    } else {
-      return '<h1>"You did it wrong"</h1>';
-    }
-  };
+
 
 
     
@@ -112,7 +105,6 @@ const Login = () => {
       </Grid>
 
       
-      {/* <LogoutButton logout = {logout}/> */}
       {renderComponents()}
       <ColorBlobs/>
     
