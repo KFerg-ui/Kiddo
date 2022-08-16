@@ -15,26 +15,26 @@ const columns: GridColDef[] = [
 ];
 
 export default function Table(props) {
-  const [rows, setRows] = React.useState([{ id: 0 }]);
+  const [rows, setRows] = React.useState<[object]>([{ id : 0 }]);
 
   React.useEffect(() => {
-    let rows = [{}];
+    let ourRows : [object]= [{ id : 0 }];
     let list = props.investorList;
     for (let i = 0; i < list.length; i++) {
-      rows[i] = {
+      ourRows[i] = {
         id: i,
         name: list[i].firstName + " " + list[i].lastName,
         company: list[i].business,
         email: list[i].email,
       };
     }
-    setRows(rows);
+    setRows(ourRows);
   }, [props.investorList]);
 
   return (
     <div style={{ height: 300, width: "100%" }}>
       <DataGrid
-        rows={rows}
+        rows = {rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
