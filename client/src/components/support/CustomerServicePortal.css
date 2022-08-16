@@ -40,4 +40,10 @@ li {
     transition:  all 250ms ease;
 }
 
+.searchForm{
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 

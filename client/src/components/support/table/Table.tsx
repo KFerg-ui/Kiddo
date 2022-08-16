@@ -1,6 +1,7 @@
 import * as React from "react";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Link } from 'react-router-dom'
+import "../CustomerServicePortal.css" ;
 
 
 
@@ -8,9 +9,9 @@ const columns: GridColDef[] = [
   { field: "id", hide: true },
   { field: "name", headerName: "Name", width: 150 },
   { field: "company", headerName: "Company", width: 150, renderCell: (params) => (
-    <Link to={`/support/${params.value}`}>{params.value}</Link>)},
-  { field: "investments", headerName: "Investments", width: 150 },
+    <Link className="businessName" to={`/support/${params.value}`}>{params.value}</Link>)},
   { field: "email", headerName: "Email", width: 150 },
+  { field: "lastContact", headerName: "Last Date of Contact", width: 150 },
 
 ];
 
@@ -26,6 +27,7 @@ export default function Table(props) {
         name: list[i].firstName + " " + list[i].lastName,
         company: list[i].business,
         email: list[i].email,
+        lastContact: list[i].contact[list[i].contact.length -1]
       };
     }
     setRows(ourRows);
