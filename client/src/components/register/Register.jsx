@@ -5,8 +5,10 @@ import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const { register, handleSubmit } = useForm();
   const navigate= useNavigate()
 
   useEffect(() => {
