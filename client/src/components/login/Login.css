@@ -4,6 +4,13 @@
 
 .loginGrid {
     background-color: aliceblue;
+    
+}
+
+.loginForm {
+    /* display: flex; */
+    /* flex-direction: column; */
+    justify-content: center;
 }
 
 .logH2 {
