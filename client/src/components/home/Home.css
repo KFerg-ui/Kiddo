@@ -217,8 +217,7 @@
         -webkit-user-select: none;
         touch-action: manipulation;
         margin-bottom: 1em;
-        margin-top: 1em;
-        
+        margin-top: 1em;        
         content: "";
         border: 1px solid #000000;
         bottom: 4px;
@@ -245,3 +244,10 @@
         bottom: 2px;
         left: 2px;
     }
+
+    @media (min-width: 768px) {
+        .newsButtonStyle {
+       padding: .75rem 3rem;
+       font-size: 1.25rem;
+     }
+     }
