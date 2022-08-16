@@ -6,7 +6,7 @@ import contactUs from "../../assets/contactUs.png";
 import standingDesk from "../../assets/standingDesk.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
-import PDF from "../../assets/kiddoPresentations.pdf"
+import PDF from "../../assets/kiddoBusinessPlan.pdf"
 
 const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
