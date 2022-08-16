@@ -3,15 +3,13 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Link } from 'react-router-dom'
 import "../CustomerServicePortal.css" ;
 
-
-
 const columns: GridColDef[] = [
   { field: "id", hide: true },
-  { field: "name", headerName: "Name", width: 150 },
-  { field: "company", headerName: "Company", width: 150, renderCell: (params) => (
-    <Link className="businessName" to={`/support/${params.value}`}>{params.value}</Link>)},
-  { field: "email", headerName: "Email", width: 150 },
-  { field: "lastContact", headerName: "Last Date of Contact", width: 150 },
+  { field: "name", headerName: "Name", width: 250 },
+  { field: "company", headerName: "Company", width: 250, renderCell: (params) => (
+    <Link className="businessName" to={`/support/${params.value}`}><p className= "business">{params.value}</p></Link>)},
+  { field: "email", headerName: "Email", width: 250 },
+  { field: "lastContact", headerName: "Last Date of Contact", width: 250 },
 
 ];
 
@@ -34,13 +32,12 @@ export default function Table(props) {
   }, [props.investorList]);
 
   return (
-    <div style={{ height: 300, width: "100%" }}>
+    <div style={{ height: "35vw", width: "100%" }}>
       <DataGrid
         rows = {rows}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         rowsPerPageOptions={[5]}
-        checkboxSelection
       />
     </div>
   );
