@@ -87,11 +87,11 @@ router
     .get( verifyAdmin, async(req,res)=>{
         const method = req.headers["sort"];
         const reverse = req.headers["reverse"]
-        const allCompanies = await Login
+        const investors = await Login
             .find({usertype: "investor"})
             .collation({'locale':'en'})
             .sort({[method]: reverse})
-        res.json({auth: true, companies: allCompanies})
+        res.json({auth: true, investors: investors})
     })
 
 router 
