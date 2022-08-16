@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from "react";
+
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
@@ -9,11 +11,14 @@ import LoginForm from "./loginLogout/LoginForm"
 import LogoutButton from "./loginLogout/LogoutButton";
 import isVerified from "../../functions/isVerified";
 
+
+
 const Login = () => {
   const [logged, setLogged] = useState(false);
   // const [message, setMessage] = useState("");
   // const [loginOrLogoff, setLoginOrLogoff] = useState(LoginForm)
   // const navigate = useNavigate();
+
 
 
   let logout = function () {
@@ -48,11 +53,21 @@ const Login = () => {
 
 
 
+  useEffect(() => {
 
-  // const handleSubmit = async (e) => {
-  //   let email = e.target[0].value;
-  //   let password = e.target[1].value;
-  //   console.log(e);
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
+  
+  const checkLog = () => {
+    if (logged === true) {
+      return <InvestorPortal />;
+    } else {
+      return '<h1>"You did it wrong"</h1>';
+    }
+  };
+
+
     
   //   e.preventDefault();
   //   fetch("http://localhost:8000/signin", {
@@ -92,12 +107,10 @@ const Login = () => {
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
         <Grid item className="logBanner" xs={12}>
-        <h2 className="logH2">LOGIN</h2>
-        </Grid>
-        <Grid item className="imageOne" width="50%" xs={9}>
-          <img src={image6} id="img7" alt="ads image" width="100%" />
+        <h2 className="logH2">INVESTOR LOGIN</h2>
         </Grid>
       </Grid>
+
       
       {/* <LogoutButton logout = {logout}/> */}
       {renderComponents()}
@@ -140,6 +153,7 @@ const Login = () => {
     //   </Grid>
     //   <Grid className="adminContainer" xs={12}>
     //   </Grid>
+
 
     //   <ColorBlobs/>
     // </Grid>

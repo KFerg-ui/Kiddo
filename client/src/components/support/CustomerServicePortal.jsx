@@ -1,32 +1,34 @@
 import React , { useState, useEffect } from "react";
 import "./CustomerServicePortal.css";
-// import findCompanies from "./findCompanies";
 import Table from "./table/Table.tsx";
 
 
 
 const CustomerServicePortal = () => {
   const [investorList, setInvestorList] = useState([]);
-
-
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
 
 
   let token = localStorage.getItem("token");
 
+  const submitFunc = async (e) => {
+    e.preventDefault();
+    findCompanies(e.target[1].value, e.target[0].value)
+  }
 
-  function findCompanies(method, reverse){
-    if(!method){
+
+  function findCompanies(search, method){
+    if(!search){
+      search = "";
       method = "business"
-      reverse = 1;
     }
     fetch('http://localhost:8000/customer-service', {
       method: 'GET',
       headers: {
         "accesstoken": token,
-        "sort": method,
-        "reverse": reverse
+        "search": search,
+        "method": method
       } 
     })
     .then((response) => response.json())
@@ -56,6 +58,16 @@ const CustomerServicePortal = () => {
   if(verification){
     return (
       <div>
+        <form className="searchForm" onSubmit= {submitFunc}>
+          <select>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+            <option value="business">Business</option>
+            <option value="email">Email</option>
+          </select>
+          <input type= "text" placeholder="Search"/>
+          <button>Search</button>
+        </form>
         <Table investorList = {investorList}/>
       </div>
     );

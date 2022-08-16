@@ -13,6 +13,14 @@
     justify-content: center;
 }
 
+.labelLog {
+    text-align: center;
+}
+
+.labelLoginRegPrompt {
+    padding-bottom: 1em;
+}
+
 .logH2 {
     text-align: center;
     font-weight: 500;
@@ -21,20 +29,11 @@
 }
 
 .banner {
-    background-color: aqua;
+    background-color: aliceblue;
     /* margin-top: 7em; */
-    padding: 2em;
+    padding-top: 2em;
     justify-content: center;
     display: flex;
-}
-
-.login-prompt {
-    padding-top: 1em;
-    text-align: center;
-    font-size: x-large;
-    font-weight: 500;
-    font-size: 30px;
-    padding-bottom: 1em;
 }
 
 .form-container {
@@ -43,44 +42,14 @@
     grid-row-gap: 1em;
 }
 
-.email {
-    text-align: center;
-    padding: 1em;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-.eText {
-   padding-right: 1em;
-    font-weight: 300;
-    font-size: 24px;
-}
-#new-user{
-    margin-top: -1em;
-}
-.pText {
-    padding-right: 1em;
-    font-weight: 300;
-    font-size: 24px;
-}
-
-.password {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1em;
-    align-items: center;
-}
-
 .logButton {
     text-align: center;
-  
+    padding-top: 2em;
 }
 
 .regContainer {
     text-align: center;
-    /* padding-top: 2em; */
 }
-
 
 .form-container form input{
     padding: .5rem;
@@ -91,6 +60,7 @@
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(0, 0, 0, .3);
 }
+
 #login-btn{
 background-color: #3DD1E7;
 border: 0 solid #E5E7EB;
@@ -145,7 +115,6 @@ left: 2px;
 }
 
 
-
 #reg-btn{
     width: 100px;
     height:50px;
@@ -165,8 +134,8 @@ left: 2px;
 }
 
 
-.label{
+/* .label{
     font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 font-size: 1rem;
 font-weight: 700;
-}
+} */
