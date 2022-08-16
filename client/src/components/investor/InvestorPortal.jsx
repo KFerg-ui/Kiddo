@@ -68,16 +68,29 @@ const InvestorPortal = () => {
         
         
           <Grid container xs={12} className=" picWrap pic9Wrap" direction="row" width="100%" height="100%">
-            <Grid item xs={5} className="picContainer">
-              <img className="image9" src={image9} id="img9" alt="cartoon investor at computer " /></Grid> 
-            <Grid item xs={5} className="bulletPhrases">
-              <h2 className="investorTitle">KIDDO TEAM</h2>            
+            
+            <Grid item xs={12} className="bulletPhrases">
+              <h2 className="kiddoTeam">KIDDO TEAM</h2>                         
             </Grid>
+            <div className="teamMembers"> <h3>Emily Reynolds</h3>Emily Reynolds is the Project Manager for Kiddo. She has been working in the tech space for the last three years and has worked at both smaller scale companies and Estee Lauder. She brings training as a certified Scrum Master and has been developing Kiddo for the last two years.</div>
+            <div className="teamMembers"> <h3>Lee Delarm</h3>Lee Delarm is the Chief Technology Officer.  "One of my passions is helping people realize their potential!
+
+I put my time towards searching for new opportunities to help the under-served youth of the country.
+I love helping people solve their tech issues,
+working with others, and writing the next great horror novel on the side." </div>
+            <div className="teamMembers"> <h3>Mary Kelley</h3>Mary Kelley is former childhood educator with nearly 30 years experience in the classroom. As an educator,
+she specialized in working with children with disabilities and has consulted with the State of Vermont on
+curriculum development and approval</div>
+            <div className="teamMembers"><h3>Matt Cropp</h3>Matt Cropp is an advisor to Kiddo. Matt Cropp is experienced in the co-op world. Matt is the Executive
+Director at Vermont Employee Ownership Center. </div>
           </Grid>
 
         <Grid container className="formWrapContainer" direction="column">
           <Grid item xs={12} className="picWrap">
-          <h2 className="investorTitle">COMPANY STATISTICS</h2>
+          <h2 className="advantageBlurb">The main difference between our competitors and ourselves is the way the application creates revenue. The
+other applications on the market create revenue using advertisements and data mining. Kiddo uses no
+advertisements and therefore significantly reduces harm to children. This gives us a distinct advantage of
+being a site that parents feel excited for their children to use.</h2>
           </Grid>
         </Grid>
 
