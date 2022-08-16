@@ -6,6 +6,7 @@ import contactUs from "../../assets/contactUs.png";
 import standingDesk from "../../assets/standingDesk.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
+import PDF from "../../assets/kiddoPresentations.pdf"
 
 const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
@@ -64,15 +65,17 @@ const InvestorPortal = () => {
                 download our investor presentation here.
               </h2>
             </Grid>
-            <Grid container className="bullet" xs={7}>
-              <Grid item className="download-btn" xs={12}>
+            <Grid container className="bullet" xs={12}>
+              {/* <Grid item className="download-btn" xs={12}> */}
                 <a
-                  href="../../assets/kiddoPresentations.pdf"
-                  download="kiddoPresentations.pdf"
+                  href={PDF}
+                  target='_blank' 
+                  rel='noreferrer'
+                  className="download-btn"
                 >
-                  Download Kiddo Information
+                  KIDDO INFO PACKET
                 </a>
-              </Grid>
+              {/* </Grid> */}
             </Grid>
             {/* <Grid item className="bullet" xs={12}>
               <h2 className="investorTitle">Market Research </h2>

@@ -138,6 +138,7 @@ text-align: center;
 
 .bullet {
     width: 10em;
+    justify-content: center;
 }
 
 .bulletPhrases {
@@ -224,7 +225,7 @@ text-align: center;
         display: flex;
         font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
         justify-content: center;
         line-height: 1.75rem;
         padding: .75rem 1.65rem;
