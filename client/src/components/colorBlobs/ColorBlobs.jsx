@@ -17,13 +17,13 @@ function ColorBlobs() {
 
         <div className="circle color3" id="circle_6"></div>
     
-        {/* <div className="circle color1" id="circle_7"></div> */}
+        <div className="circle color3" id="circle_7"></div>
 
-        {/* <div className="circle color1" id="circle_8"></div> */}
+        <div className="circle color3" id="circle_8"></div>
     
-        {/* <div className="circle color1" id="circle_9"></div> */}
+        <div className="circle color2" id="circle_9"></div>
 
-        {/* <div className="circle color1" id="circle_10"></div> */}
+        <div className="circle color1" id="circle_10"></div>
 
         {/* <div className="circle color1" id="circle_11"></div> */}
 

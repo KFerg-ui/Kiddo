@@ -1,5 +1,5 @@
 
-import React , { useState } from "react";
+import React , { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/animation.mp4";
@@ -12,13 +12,20 @@ import image7 from "../../assets/image-7.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
+
+
+
 const Home = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
   const [submission, setSubmission] = useState("");
 
+  useEffect(() => {
 
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+  
   const onSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:8000/newsletter', {
@@ -54,7 +61,7 @@ const Home = () => {
         <h1 className="kiddoUnderline">WHERE KIDS COME FIRST</h1>
         <Grid container className="animation" xs={12}>
           <Grid item className="videoWrap" xs={9}>
-            <video className="videoBox" width="100%" height="100%" controls>
+            <video data-testid = "video" className="videoBox" width="100%" height="100%" controls>
               <source src={video} id="vid1" type="video/mp4" />
             </video>
           </Grid>
@@ -106,10 +113,10 @@ const Home = () => {
             md={5}
             xs={9}
           >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image1} id="img1" alt="first image" width="100%" />
+            <Grid item className="imageOne" xs={5}>
+              <img src={image1} id="img1" alt="first image" width="100%" height="100%" />
             </Grid>
-            <Grid item className="infoText1" xs={5}>
+            <Grid item className="infoText" xs={5}>
               <p>designed with childhood development experts</p>
             </Grid>
           </Grid>
@@ -121,10 +128,10 @@ const Home = () => {
             xs={9}
             justifyContent="space-evenly"
           >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image2} id="img2" alt="second image" width="100%" />
+            <Grid item className="imageOne" xs={5}>
+              <img src={image2} id="img2" alt="second image" width="100%" height="100%"/>
             </Grid>
-            <Grid item className="infoText2" xs={5}>
+            <Grid item className="infoText" xs={5}>
               <p>focused on safety and privacy</p>
             </Grid>
           </Grid>
@@ -136,10 +143,10 @@ const Home = () => {
             xs={9}
             justifyContent="space-evenly"
           >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image3} id="img3" alt="third image" width="100%" />
+            <Grid item className="imageOne" xs={5}>
+              <img src={image3} id="img3" alt="third image" width="100%" height="100%"/>
             </Grid>
-            <Grid item className="infoText2" xs={5}>
+            <Grid item className="infoText" xs={5}>
               <p>all content age appropriate</p>
             </Grid>
           </Grid>
@@ -151,10 +158,10 @@ const Home = () => {
             xs={9}
             justifyContent="space-evenly"
           >
-            <Grid item className="imageOne" width="50%" xs={5}>
-              <img src={image7} id="img7" alt="ads image" width="100%" />
+            <Grid item className="imageOne"  xs={5}>
+              <img src={image7} id="img7" alt="ads image" width="100%" height="100%"/>
             </Grid>
-            <Grid item className="infoText2" xs={5}>
+            <Grid item className="infoText" xs={5}>
               <p>100% Ad Free!</p>
             </Grid>
           </Grid>
@@ -170,6 +177,7 @@ const Home = () => {
             <Grid item className="inputName" xs={12}>
               <input
                 type="text"
+                className="inputField"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -181,10 +189,11 @@ const Home = () => {
             <Grid item className="inputName" xs={12}>
               <input
                 type="text"
+                className="inputField"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-              ></input>
+                ></input>
             </Grid>
             <Grid item className="label" xs={12}>
               Phone
@@ -192,13 +201,14 @@ const Home = () => {
             <Grid item className="inputName" xs={12}>
               <input
                 type="text"
+                className="inputField"
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}
               ></input>
             </Grid>
             <Grid item className="newsButton" xs={12}>
-              <input type="Submit" />
+              <input className="newsButtonStyle" type="Submit"/>
             </Grid>
             <p>{submission}</p>
           </form>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import InvestorPortal from "../investor/InvestorPortal";
@@ -6,11 +6,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 
+
+
 const Login = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
+
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
+  
   const checkLog = () => {
     if (logged === true) {
       return <InvestorPortal />;
@@ -18,6 +27,7 @@ const Login = () => {
       return '<h1>"You did it wrong"</h1>';
     }
   };
+
 
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
@@ -44,8 +54,9 @@ const Login = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token) 
-          
-          navigate("/investors")
+
+          navigate(`/investors`)
+
         } else {
           setLogged(false)
           setMessage(data.message)
@@ -59,37 +70,29 @@ const Login = () => {
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
         <Grid item className="logBanner" xs={12}>
-        <h2 className="logH2">LOGIN</h2>
-        </Grid>
-        <Grid item className="imageOne" width="50%" xs={9}>
-          <img src={image6} id="img7" alt="ads image" width="100%" />
+        <h2 className="logH2">INVESTOR LOGIN</h2>
         </Grid>
       </Grid>
-      <Grid item className="login-prompt" md={12} xs={12}>
-        Login To Kiddo
-      </Grid>
-
-      <Grid 
+          <Grid 
         container 
         className="form-container" 
         xs={12} 
         justify-content="space-evenly"
         sx={{ flexDirection: { md: "row" } }}>
         <form onSubmit={handleSubmit}>
-          <Grid container className="label" xs={12}>Email </Grid>
-            <Grid item className="label" xs={12}>
-         
-          <input type="text" name="email"/>
+        <Grid item className="labelLog" xs={12}>Email </Grid>
+            <Grid item className="input" xs={12}>
+          <input 
+          type="text"
+          name="email"/>
           </Grid>
-          <Grid item className="label" md={6} xs={12}>Password</Grid>
-          <Grid container className="password" xs={12}>
+          <Grid item className="labelLog" xs={12}>Password</Grid>
+          <Grid container className="input" xs={12}>
           <input
             type="text"
             name="password"
           />
           </Grid>
-         
-          
           <Grid item className="logButton" xs={12}>
           <button id= "login-btn">Login</button>
           <p>{message}</p>
@@ -97,12 +100,12 @@ const Login = () => {
         </form>
       </Grid>
       <Grid className="regContainer" xs={12}>
+      <Grid item className="labelLoginRegPrompt" xs={12}>Not A Member Yet?</Grid>
         <Link to="/register"><button id="reg-btn">Register</button></Link>
       </Grid>
       <Grid className="adminContainer" xs={12}>
       </Grid>
 
-      {checkLog}
       <ColorBlobs/>
     </Grid>
   );

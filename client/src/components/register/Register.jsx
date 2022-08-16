@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
@@ -8,6 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate= useNavigate()
+
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   return (
 
     <Grid container className="regContainer" xs={12}>
@@ -23,8 +28,9 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               First Name
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
+            <Grid md={5} xs={10}>
               <input
+              item className="input"
                 type="text"
                 name="firstName"
               />
@@ -34,8 +40,8 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               Last Name
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input
+            <Grid item md={5} xs={10}>
+              <input className="input"
                 type="text"
                 name="lastName"
               />
@@ -45,8 +51,9 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               Company Name
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
+            <Grid item md={5} xs={10}>
               <input
+               className="input"
                 type="text"
                 name="business"
               />
@@ -56,32 +63,35 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               Email
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input type="text" name="email" />
+            <Grid item md={5} xs={10}>
+              <input  className="input" type="text" name="email" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               Country
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input type="text"/>
+            <Grid item md={5} xs={10}>
+              <input className="input" type="text"/>
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               State
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input type="text" />
+            <Grid item md={5} xs={10}>
+              <input 
+              className="input"
+              type="text" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               Address
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
+            <Grid item md={5} xs={10}>
               <input
+              className="input" 
                 type="text"
                 name="address"
               />
@@ -91,16 +101,19 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               ZIP
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input type="text" />
+            <Grid item  md={5} xs={10}>
+              <input 
+              className="input"
+              type="text" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               Password
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
+            <Grid item md={5} xs={10}>
               <input
+              className="input" 
                 type="text"
                 name="password"/>
             </Grid>
@@ -109,8 +122,8 @@ const Register = () => {
             <Grid item className="label" md={5} xs={10}>
               Re-Enter Password
             </Grid>
-            <Grid item className="input" md={5} xs={10}>
-              <input type="text" />
+            <Grid item md={5} xs={10}>
+              <input className="input" type="text" />
             </Grid>
           </Grid>
         </Grid>
