@@ -4,12 +4,24 @@
 
 .banner {
     background-color: aliceblue;
-    margin: 0;
+    margin: 4em;
+    padding-bottom: 2em;
+    text-align: center;
 }
 
 /* .regImg {
     box-shadow: 5px 5px gray;
 } */
+
+.regContainer {
+    background-color: aliceblue;
+    margin-bottom: 4em;
+    /* margin-top: 6em; */
+}
+
+.passwords {
+    margin: 2em
+}
 
 .regPrompt {
     font-weight: 500;
@@ -43,6 +55,11 @@
 
 .label {
     text-align: left;
+}
+
+.labelPass {
+    text-align: center;
+    padding-bottom: .5em;
 }
 
 .input {
