@@ -1,13 +1,15 @@
 import React from 'react'
 
-function LogoutButton(props) {
+function LogoutButton() {
 
-
+  
 
   return (
+    
     <div className="signOutWrap">
-    <button className="signOutBtn" onClick = {props.logout}>Sign Out</button>
+      <button className="signOutBtn" onClick = {localStorage.clear()}>Sign Out</button>
     </div>
+
   )
 }
 

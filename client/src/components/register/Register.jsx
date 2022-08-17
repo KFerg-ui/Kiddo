@@ -8,13 +8,93 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  // const { register, handleSubmit } = useForm();
   const navigate= useNavigate()
+  const [serverMessage, setServerMessage] = useState("")
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+    console.log(e);
+
+    let firstName = e.target.elements.firstName.value
+    let lastName = e.target.elements.lastName.value
+    let email = e.target.elements.email.value
+    let business = e.target.elements.business.value
+    let password = e.target.elements.password.value
+    let passwordConfirm = e.target.elements.passwordConfirm.value
+
+    fetch("http://localhost:8000/signup/submit", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        business,
+        password,
+        passwordConfirm
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => {
+        // console.log("response: ", response)
+        return response.json()
+      })
+      //we will have to json() response then:
+      .then((responseData) => {
+        console.log("data: ", responseData)
+        //if the response has a "success" code, we redirect to /login
+        if (responseData.status === 200){
+          navigate(`/login`)
+
+        } else {
+          setServerMessage(responseData.message)
+        }
+        //else we setMessage(res.message)
+
+      })
+    
+    // fetch("http://localhost:8000/signin", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password,
+    //   }),
+
+    //   //* DIVE PLS
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(email, password, data);
+    //     if (data.auth) {
+    //       props.setLogged(true);
+    //       let token = data.token;
+    //       localStorage.setItem("token", token) 
+
+    //       navigate(`/investors`)
+
+    //     } else {
+    //       props.setLogged(false)
+    //       setMessage(data.message)
+    //     }
+    //     console.log(data);
+    //   })
+    //   .catch((err) => console.log(err));
+  };
+
+  {/* <form method="POST" action="http://localhost:8000/signup/submit"> */}
 
   useEffect(() => {
 
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
+
+  
   return (
 
     <Grid container className="regContainer" xs={12}>
@@ -24,7 +104,8 @@ const Register = () => {
             <img src={image6} id="img7" alt="ads image" width="100%" />
           </Grid>
         </Grid>
-      <form method="POST" action="http://localhost:8000/signup/submit">
+           <p>{serverMessage}</p>
+          <form onSubmit = {handleSubmit}>
         <Grid container className="regForm" md={12} xs={12}>
           <Grid container className="field" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
@@ -116,7 +197,7 @@ const Register = () => {
             <Grid item md={5} xs={10}>
               <input
               className="input" 
-                type="text"
+                type="password"
                 name="password"/>
             </Grid>
           </Grid>
@@ -125,7 +206,7 @@ const Register = () => {
               Re-Enter Password
             </Grid>
             <Grid item md={5} xs={10}>
-              <input className="input" type="text" />
+              <input className="input" type="password" name="passwordConfirm"/>
             </Grid>
           </Grid>
         </Grid>
