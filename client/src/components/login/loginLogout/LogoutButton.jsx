@@ -1,11 +1,11 @@
 import React from 'react'
 
-function LogoutButton(props) {
+function LogoutButton() {
 
-
+  
 
   return (
-    <button onClick = {props.logout}>Sign Out</button>
+    <button onClick = {localStorage.clear()}>Sign Out</button>
   )
 }
 
