@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import {useState} from "react";
 
-function LoginForm(props) {
+function LoginForm() {
     // const [logged, setLogged] = useState(false);
     const [message, setMessage] = useState("");
 
@@ -31,14 +31,14 @@ function LoginForm(props) {
           .then((data) => {
             console.log(email, password, data);
             if (data.auth) {
-              props.setLogged(true);
+              // props.setLogged(true);
               let token = data.token;
               localStorage.setItem("token", token) 
     
               navigate(`/investors`)
     
             } else {
-              props.setLogged(false)
+              // props.setLogged(false)
               setMessage(data.message)
             }
             console.log(data);

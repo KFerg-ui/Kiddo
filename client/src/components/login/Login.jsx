@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
-import InvestorPortal from "../investor/InvestorPortal";
-import { Link, useNavigate } from "react-router-dom";
+// import InvestorPortal from "../investor/InvestorPortal";
+// import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import LoginForm from "./loginLogout/LoginForm"
@@ -14,25 +14,38 @@ import isVerified from "../../functions/isVerified";
 
 
 const Login = () => {
-  const [logged, setLogged] = useState(false);
+  // const [logged, setLogged] = useState(false);
   // const [message, setMessage] = useState("");
-  // const [loginOrLogoff, setLoginOrLogoff] = useState(LoginForm)
+  // const [conditionalComponent, setConditionalComponent] = useState(<LoginForm setLogged = {setLogged}/>)
   // const navigate = useNavigate();
 
 
+  // let setComponent = function () {
+  //   console.log("render " + logged)
+    
+  //   if (isVerified()){
+  //     setConditionalComponent(<LogoutButton logout = {logout}/>)
+  //   } else {
+  //     setConditionalComponent(<LoginForm setLogged = {setLogged}/>)
+  //   }
+  // }
 
-  let logout = function () {
-    localStorage.clear()
-    setLogged(false)
-  }
+  // let logout = function () {
+  //   localStorage.clear()
+  //   // setLogged(false)
+  // }
 
-  useEffect ( () => {
-    // console.log(`logged = ${logged}`)
-  }, [logged])
+  // useEffect( 
+  //   setComponent
+  // , [logged] )
 
-  useEffect( () => {
-    setLogged(isVerified())
-  },  [])
+
+  // useEffect(  () => {
+  //   let set = async function () {
+  //     await setLogged(isVerified())
+  //   }
+  //   set()
+  // }, [])
 
   // useEffect( () => {
   //   if (logged){
@@ -42,14 +55,6 @@ const Login = () => {
   //   }
   // }, [logged])
 
-  let renderComponents = function () {
-    // console.log("render " + logged)
-    if (logged){
-      return <LogoutButton logout = {logout}/>
-    } else {
-      return <LoginForm setLogged = {setLogged}/>
-    }
-  }
 
 
 
@@ -60,7 +65,16 @@ const Login = () => {
 
 
 
+  let conditionalComponent = () => {
+    // console.log("Running? ")
 
+    if (localStorage.getItem("token")){
+      return (<LogoutButton/>)
+    } else {
+      return (<LoginForm/>)
+    }
+
+  }
     
   //   e.preventDefault();
   //   fetch("http://localhost:8000/signin", {
@@ -100,15 +114,19 @@ const Login = () => {
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
         <Grid item className="logBanner" xs={12}>
-        <h2 className="logH2">INVESTOR LOGIN</h2>
+        <h2 className="logH2">Investor Login</h2>
+        </Grid>
+        <Grid item className="imageOne" width="50%" xs={9}>
+          <img src={image6} id="img7" alt="ads image" width="100%" />
         </Grid>
       </Grid>
+      
 
       
-      {renderComponents()}
+      {conditionalComponent()}
       <ColorBlobs/>
-    
     </Grid>
+    
     //   <Grid item className="login-prompt" md={12} xs={12}>
     //     Login To Kiddo
     //   </Grid>
