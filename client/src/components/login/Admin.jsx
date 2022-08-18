@@ -80,7 +80,7 @@ const Admin = () => {
           </Grid>
           <Grid container className="password" xs={12}>
             <input
-              type="text"
+              type="password"
               name="password"
               />
           </Grid>

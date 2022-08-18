@@ -48,9 +48,6 @@ function LoginForm() {
 
   return (
     <Grid container className="loginForm">
-      <Grid item className="login-prompt" md={12} xs={12}>
-        
-      </Grid>
 
       <Grid
         container

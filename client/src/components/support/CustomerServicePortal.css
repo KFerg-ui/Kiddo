@@ -26,17 +26,12 @@
     text-align: left;
 }
 
-.businessLink:visited{
-    color:black
-
+.business{
+    color:black;
+    text-decoration: underline;
 }
 
-li {
-    transition: all 250ms ease;
-  }
-
 .businessName:hover{
-    text-decoration: underline;
     transform: translateY(-2px);
     transition:  all 250ms ease;
 }
