@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import image6 from "../../assets/image-6.png";
 import { Grid } from "@mui/material";
-import ColorBlobs from "../colorBlobs/ColorBlobs";
+// import ColorBlobs from "../colorBlobs/ColorBlobs";
 import LoginForm from "./loginLogout/LoginForm"
 import LogoutButton from "./loginLogout/LogoutButton";
 import isVerified from "../../functions/isVerified";
@@ -48,11 +48,12 @@ return (
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
         <Grid item className="logBanner" xs={12}>
+
         <h2 className="logH2">INVESTOR LOGIN</h2>
         </Grid>
       </Grid>
       {conditionalComponent()}
-      <ColorBlobs/>
+      {/* <ColorBlobs/> */}
     </Grid>
   );
 };

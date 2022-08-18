@@ -5,7 +5,11 @@ function LogoutButton() {
   
 
   return (
-    <button onClick = {localStorage.clear()}>Sign Out</button>
+    
+    <div className="signOutWrap">
+      <button className="signOutBtn" onClick = {localStorage.clear()}>Sign Out</button>
+    </div>
+
   )
 }
 
