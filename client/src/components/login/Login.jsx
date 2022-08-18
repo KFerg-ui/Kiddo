@@ -6,7 +6,7 @@ import image6 from "../../assets/image-6.png";
 // import InvestorPortal from "../investor/InvestorPortal";
 // import { Link, useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
-import ColorBlobs from "../colorBlobs/ColorBlobs";
+// import ColorBlobs from "../colorBlobs/ColorBlobs";
 import LoginForm from "./loginLogout/LoginForm"
 import LogoutButton from "./loginLogout/LogoutButton";
 import isVerified from "../../functions/isVerified";
@@ -117,14 +117,14 @@ const Login = () => {
         <h2 className="logH2">Investor Login</h2>
         </Grid>
         <Grid item className="imageOne" width="50%" xs={9}>
-          <img src={image6} id="img7" alt="ads image" width="100%" />
+          <img src={image6} id="img7" alt="ads image" width="100%" height="100%" />
         </Grid>
       </Grid>
       
 
       
       {conditionalComponent()}
-      <ColorBlobs/>
+      {/* <ColorBlobs/> */}
     </Grid>
     
     //   <Grid item className="login-prompt" md={12} xs={12}>

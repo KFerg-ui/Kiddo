@@ -54,4 +54,7 @@
     bottom: 2px;
     left: 2px;
     }
-    
+    .loginGrid {
+        display: flex;
+        min-height: 60vh;
+    }
