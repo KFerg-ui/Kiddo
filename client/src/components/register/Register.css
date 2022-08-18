@@ -16,7 +16,6 @@
 .regContainer {
     background-color: aliceblue;
     margin-bottom: 4em;
-    /* margin-top: 6em; */
 }
 
 .passwords {
@@ -65,6 +64,12 @@
 .input {
     font-size: large;
     border: 1px solid black;
+}
+
+.inputC {
+    font-size: large;
+    border: 1px solid black;
+    margin-left: 1em;
 }
 
 .register-btn {

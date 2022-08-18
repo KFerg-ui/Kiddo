@@ -146,23 +146,33 @@ router
     })
 
 router.route("/signup/submit").post(async (req, res) => { //FORCE BUSINESS CAPITILZATION 
-  const { firstName, lastName, email, password, phone, address, business } =
+  const { firstName, lastName, email, password, passwordConfirm, phone, address, business } =
     req.body;
-  const pass = await hash(password);
-  await Login.create({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    password: pass,
-    phone: phone,
-    address: address,
-    business: business,
-    usertype: "investor"
-  })
-    .then((result) => {
-      res.send(`account created`);
-    })
-    .catch((err) => res.send(`Error: ${err}`));
+
+    if(password === passwordConfirm){
+        
+        const pass = await hash(password);
+        await Login.create({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: pass,
+          phone: phone,
+          address: address,
+          business: business,
+          usertype: "investor"
+        })
+          .then((result) => {
+            res.status(200).send({ message : `account created`});
+          })
+          .catch((err) => res.status(400).send({ message : `Error: ${err}`}));
+    } else {
+        res.status(400).send({ message : `Password fields must match`})
+    }
+
+
+
+
 });
 
 router

@@ -26,6 +26,7 @@ const LoginSchema = new mongoose.Schema({
     password: { type: String, required : true},
     phone: String,
     address: String,
+    
     business: String,
     contact: [String],
     investment: [String],
