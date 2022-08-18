@@ -1,6 +1,7 @@
 import React , { useState, useEffect } from "react";
 import "./CustomerServicePortal.css";
 import { Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { useParams } from 'react-router-dom';
 
@@ -44,6 +45,11 @@ export default function CustomerServiceCompany(props) {
       }, 5000);
       findCompany();
     },[count]);
+
+    useEffect(() => {
+
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, []);
   
     
   
@@ -85,6 +91,7 @@ export default function CustomerServiceCompany(props) {
                           {companyData}
                         </ul>
                     </Grid>
+                    <Grid item xs = {10}><Link to='/support' className="supportBack"><h2>Back</h2></Link></Grid>
                 </Grid>
             </Grid>
           </Grid>

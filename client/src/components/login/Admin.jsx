@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Admin.css";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
@@ -7,12 +7,20 @@ import ColorBlobs from "../colorBlobs/ColorBlobs";
 const Admin = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate()  
+  
+  useEffect(() => {
 
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
+
+  
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
     let password = e.target[1].value;
 
+ 
+  
     e.preventDefault();
     fetch("http://localhost:8000/signin/admin", {
       method: "POST",

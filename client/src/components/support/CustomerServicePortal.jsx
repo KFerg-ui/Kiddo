@@ -9,6 +9,10 @@ const CustomerServicePortal = () => {
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
 
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 
   let token = localStorage.getItem("token");
 
