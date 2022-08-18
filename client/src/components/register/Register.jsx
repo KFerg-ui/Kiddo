@@ -5,11 +5,28 @@ import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 
 const Register = () => {
+
+  const changeFirst = event => {
+    let result = event.target.value.replace(/[^a-z,.'-]/gi, '');
+    setFirstName(result);
+  };
+
+  const changeLast = event => {
+    let result = event.target.value.replace(/[^a-z,.'-]/gi, '');
+    setLastName(result);
+  };
+
+
+  function removeExtra(string){
+    return(string.replace(/\s+/g, ' ').trim())
+  }
   // const { register, handleSubmit } = useForm();
   const navigate= useNavigate()
+  
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [serverMessage, setServerMessage] = useState("")
 
   const handleSubmit = async (e) => {
@@ -17,10 +34,10 @@ const Register = () => {
     e.preventDefault();
     console.log(e);
 
-    let firstName = e.target.elements.firstName.value
-    let lastName = e.target.elements.lastName.value
-    let email = e.target.elements.email.value
-    let business = e.target.elements.business.value
+    let firstName = removeExtra(e.target.elements.firstName.value)
+    let lastName = removeExtra(e.target.elements.lastName.value)
+    let email = removeExtra(e.target.elements.email.value)
+    let business = removeExtra(e.target.elements.business.value)
     let password = e.target.elements.password.value
     let passwordConfirm = e.target.elements.passwordConfirm.value
 
@@ -111,10 +128,13 @@ const Register = () => {
               First Name
             </Grid>
             <Grid md={5} xs={10}>
-              <input
+            <input
               item className="input"
+                onChange ={changeFirst}
+                value = {firstName}
                 type="text"
                 name="firstName"
+                required
               />
             </Grid>
           </Grid>
@@ -123,9 +143,12 @@ const Register = () => {
               Last Name
             </Grid>
             <Grid item md={5} xs={10}>
-              <input className="input"
+            <input className="input"
+                onChange = {changeLast}
+                value = {lastName}
                 type="text"
                 name="lastName"
+                required
               />
             </Grid>
           </Grid>
