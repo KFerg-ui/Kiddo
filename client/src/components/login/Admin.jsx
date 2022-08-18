@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./Admin.css";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
-import ColorBlobs from "../colorBlobs/ColorBlobs";
+// import ColorBlobs from "../colorBlobs/ColorBlobs";
+
+
+
 
 const Admin = () => {
   const [logged, setLogged] = useState(false);
@@ -19,8 +22,7 @@ const Admin = () => {
     let email = e.target[0].value;
     let password = e.target[1].value;
 
- 
-  
+
     e.preventDefault();
     fetch("http://localhost:8000/signin/admin", {
       method: "POST",
@@ -29,6 +31,8 @@ const Admin = () => {
         password: password,
       }),
 
+
+      
       //* DIVE PLS
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -48,6 +52,11 @@ const Admin = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 
   return (
     <Grid container className="loginGrid">
@@ -76,7 +85,7 @@ const Admin = () => {
           </Grid>
           <Grid container className="password" xs={12}>
             <input
-              type="text"
+              type="password"
               name="password"
               />
           </Grid>
@@ -87,7 +96,7 @@ const Admin = () => {
         </form>
       </Grid>
 
-      <ColorBlobs />
+      {/* <ColorBlobs /> */}
     </Grid>
   );
 };

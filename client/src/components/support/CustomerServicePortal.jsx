@@ -50,6 +50,7 @@ const CustomerServicePortal = () => {
       console.error('Error:', error);
     });
   }
+  
   useEffect(() =>{
     setTimeout(() => {
       setCount(count + 1)
