@@ -29,15 +29,13 @@
 
 .banner {
     background-color: aliceblue;
-    /* margin-top: 7em; */
-    padding-top: 2em;
     justify-content: center;
     display: flex;
 }
 
 .form-container {
     justify-content: center;
-    padding: 1em;
+    /* padding: 1em; */
     grid-row-gap: 1em;
 }
 
