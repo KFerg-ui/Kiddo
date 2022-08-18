@@ -5,19 +5,18 @@ import image6 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 
 
 
 const Register = () => {
 
   const changeFirst = event => {
-    const result = event.target.value.replace(/^[a-z ,.'-]+$/i);
+    let result = event.target.value.replace(/[^a-z,.'-]/gi, '');
     setFirstName(result);
   };
 
   const changeLast = event => {
-    const result = event.target.value.replace(/^[a-z ,.'-]+$/i);
+    let result = event.target.value.replace(/[^a-z,.'-]/gi, '');
     setLastName(result);
   };
 

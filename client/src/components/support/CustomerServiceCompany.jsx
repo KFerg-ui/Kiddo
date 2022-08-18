@@ -9,9 +9,11 @@ export default function CustomerServiceCompany(props) {
     const [verification, setVerification] = useState(false);
     const [count, setCount] = useState(-1);
     const [arry , setArry] = useState();
+    const [message, setMessage] = useState(``);
     let { company } = useParams();
     let token = localStorage.getItem("token");
     let companyData = [];
+    let messageData = [];
     let dateArry = [];
     let companyName = "";
     let investmentArry = [];
@@ -37,6 +39,27 @@ export default function CustomerServiceCompany(props) {
         console.error('Error:', error);
       });
     } 
+
+    const addNotes = async (e) => {
+      e.preventDefault();
+
+      let note= e.target.elements.note.value
+
+      fetch(`http://localhost:8000/customer-service/notes/${company}`, {
+        method: 'GET',
+        headers: {
+          "accesstoken": token,
+          "note": note
+        } 
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        setMessage("Notes Updated")
+      })
+      .catch((error)=>{
+        console.error('Error:', error);
+      });
+    }
 
     useEffect(() =>{
       setTimeout(() => {
@@ -65,6 +88,9 @@ export default function CustomerServiceCompany(props) {
                 })}
                 {investmentArry}
             </ul>)
+            arry.company.notes.forEach((note)=>{
+              messageData.push(<ul>{note}</ul>)
+            })
         }
         else{
             companyData.push("Bad info, please contact backend")
@@ -79,11 +105,24 @@ export default function CustomerServiceCompany(props) {
                 </Grid>
                 <Grid container className="gridDBListWrap" direction="column">
                     <Grid item xs={10}>{companyName}</Grid>
-                    <Grid item xs={10} className="gridCompanyListWrap">
-                        <ul>
-                          List Start
-                          {companyData}
-                        </ul>
+                    <Grid container className= "infoWrap">
+                      <Grid item xs={5} className="gridCompanyListWrap">
+                          <ul>
+                            List Start
+                            {companyData}
+                          </ul>
+                      </Grid>
+                      <Grid item xs={5} className="infoData">
+                            Notes
+                            <form onSubmit={addNotes}>
+                              <input type="text" name ="note"/>
+                              <button>Add Note</button><br/>
+                              {message}
+                            </form>
+                          <ul className = "notesList">
+                              {messageData}
+                          </ul>
+                      </Grid>
                     </Grid>
                 </Grid>
             </Grid>
