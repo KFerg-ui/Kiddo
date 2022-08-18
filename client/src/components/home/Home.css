@@ -208,8 +208,9 @@
         text-decoration-thickness: auto;
         width: 100%;
         max-width: 10vw;
-        min-width: 100px;
-        max-height: 7vw;
+        min-width: 10em;
+        max-height: 10vw;
+        min-height: 10vw;
         position: relative;
         cursor: pointer;
         transform: rotate(-2deg);
