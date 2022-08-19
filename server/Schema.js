@@ -26,10 +26,10 @@ const LoginSchema = new mongoose.Schema({
     password: { type: String, required : true},
     phone: String,
     address: String,
-    
-    business: String,
+    business: {type: String, unique: true},
     contact: [String],
     investment: [String],
+    notes: [String],    
     usertype: String
 })
 
