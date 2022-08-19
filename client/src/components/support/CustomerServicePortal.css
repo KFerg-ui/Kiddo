@@ -1,5 +1,4 @@
 .gridWrapContainer {
-    background-color: aquamarine;
     display: flex;
 }
 
@@ -8,15 +7,16 @@
     justify-content: center;
     align-items: left;
     text-align: center;
+    background-color: aliceblue;
 }
 
 .gridDBListWrap {
-    background-color: burlywood;    
+    background-color: rgb(227, 242, 255);    
     display: flex;
     justify-content: center;
     align-items: left;
     text-align: center;
-    font-size: 3vh;
+    /* font-size: 3vh; */
 }
 
 .gridCompanyListWrap {
@@ -25,3 +25,21 @@
     align-items: left;
     text-align: left;
 }
+
+.business{
+    color:black;
+    text-decoration: underline;
+}
+
+.businessName:hover{
+    transform: translateY(-2px);
+    transition:  all 250ms ease;
+}
+
+.searchForm{
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+

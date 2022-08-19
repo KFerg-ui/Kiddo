@@ -18,7 +18,6 @@ const NewsletterSchema = new mongoose.Schema({ // create Schema
     phone: String
 })
 
-const Newsletter = mongoose.model("newsletter", NewsletterSchema)
 
 const LoginSchema = new mongoose.Schema({
     firstName: { type : String , required : true },
@@ -27,15 +26,16 @@ const LoginSchema = new mongoose.Schema({
     password: { type: String, required : true},
     phone: String,
     address: String,
-    business: String,
+    business: {type: String, unique: true},
     contact: [String],
     investment: [String],
+    notes: [String],    
     usertype: String
 })
 
-const Login = mongoose.model("logins", LoginSchema)
+
 
 module.exports = {
-    Newsletter,
-    Login
+    NewsletterSchema,
+    LoginSchema
 }

@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const { Newsletter, Login } = require("../Schema");
+const { Newsletter, Login } = require("../models");
 var bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { parse } = require("dotenv");
 require("dotenv").config();
 const saltRounds = parseInt(process.env.SALT);
 router.use(bodyParser.json());
@@ -25,6 +26,25 @@ function verifyJWT(req,res,next){
         })
     }
 }
+
+function verifyAdmin(req,res,next){
+    const token = req.headers["accesstoken"];
+    if(!token){
+        res.json({auth: false, message: "Token not found"})
+    }
+    else{
+        jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
+            if(result && result.admin){
+                req.userId = result.id;
+                next();
+            }
+            else{
+                res.json({auth: false, message: "failed to authenticate token"})
+            }
+        })
+    }
+}
+
 
 async function hash (toHash) {
     const hashed = await new Promise((resolve, reject) => {
@@ -64,16 +84,56 @@ router
 
 router 
     .route("/customer-service")
-    .get( verifyJWT, async(req,res)=>{
-        const allCompanies = await Login.find({usertype: "investor"})
-        res.json({auth: true, companies: allCompanies})
+    .get( verifyAdmin, async(req,res)=>{
+        let search = req.headers["search"]
+        let method = req.headers["method"]
+        search = new RegExp(search , "i")
+        const investors = await Login
+            .find({usertype: "investor", [method]: search})
+        res.json({auth: true, investors: investors})
     })
 
 router 
     .route("/customer-service/:company")
-    .get(verifyJWT, async(req,res)=>{
-        const results = await Login.findOne({business: req.params.company})
+    .get(verifyAdmin, async(req,res)=>{ //FORCE CAPITLIZATION
+        const results = await Login.findOne({business: req.params.company.replace(/_/g," ")})
         res.json({auth: true, company: results})
+    })
+
+router
+    .route("/customer-service/notes/:company")
+    .get(verifyAdmin, async(req,res)=>{
+        let note = req.headers["note"]
+        await Login.updateOne(
+            {business: req.params.company.replace(/_/g," ") },
+            {$push:{notes: note}}
+        )
+        res.json({sent:true})
+    })
+
+
+
+router
+    .route("/signin/admin")
+    .post(async(req,res)=>{
+        const {email, password } = req.body
+        const results = await Login.findOne({     
+            $and: [
+                { email : email },
+                { usertype: "admin" }
+          ]})
+        if(results){
+            if(await compareHash(password, results.password)){
+                const token = generateAccessToken({email:email, admin:true});
+                res.json({auth:true, token: token, result: results})
+            }
+            else{
+                res.json({auth:false, message: "incorrect password"})
+            }
+        }
+        else{
+            res.json({auth:false, message: "no user found with that email"})
+        }
     })
 
 
@@ -84,7 +144,7 @@ router
         const results = await Login.findOne({email: email})
         if(results){
             if(await compareHash(password, results.password)){
-                const token = generateAccessToken({email});
+                const token = generateAccessToken({ email: email, admin:false});
                 res.json({auth: true, token: token, result: results})
             }
             else{
@@ -96,25 +156,34 @@ router
         }
     })
 
-router.route("/signup/submit").post(async (req, res) => {
-  //push signup data
-  const { firstName, lastName, email, password, phone, address, business } =
+router.route("/signup/submit").post(async (req, res) => { //FORCE BUSINESS CAPITILZATION 
+  const { firstName, lastName, email, password, passwordConfirm, phone, address, business } =
     req.body;
-  const pass = await hash(password);
-  await Login.create({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    password: pass,
-    phone: phone,
-    address: address,
-    business: business,
-    usertype: "investor"
-  })
-    .then((result) => {
-      res.send(`account created`);
-    })
-    .catch((err) => res.send(`Error: ${err}`));
+
+    if(password === passwordConfirm){
+        
+        const pass = await hash(password);
+        await Login.create({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: pass,
+          phone: phone,
+          address: address,
+          business: business,
+          usertype: "investor"
+        })
+          .then((result) => {
+            res.status(200).send({ message : `account created`});
+          })
+          .catch((err) => res.status(400).send({ message : `Error: ${err}`}));
+    } else {
+        res.status(400).send({ message : `Password fields must match`})
+    }
+
+
+
+
 });
 
 router
