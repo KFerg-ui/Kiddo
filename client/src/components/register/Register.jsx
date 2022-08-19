@@ -172,7 +172,7 @@ const Register = () => {
               <input  className="input" type="text" name="email" />
             </Grid>
           </Grid>
-          <Grid container className="first" md={6} xs={12}>
+          {/* <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               Address
             </Grid>
@@ -183,8 +183,8 @@ const Register = () => {
                 name="address"
               />
             </Grid>
-          </Grid>
-          <Grid container className="first" md={6} xs={12}>
+          </Grid> */}
+          {/* <Grid container className="first" md={6} xs={12}>
             <Grid item className="label" md={5} xs={10}>
               ZIP
             </Grid>
@@ -216,14 +216,14 @@ const Register = () => {
               className="input"
               type="text" />
             </Grid>
-          </Grid>
+          </Grid> */}
           <Grid container className="first" md={6} xs={12}>
-            <Grid item className="label" md={5} xs={10}>
+            {/* <Grid item className="label" md={5} xs={10}>
               Country
-            </Grid>
+            </Grid> */}
             <Grid item md={5} xs={10}>
               {/* <input className="input" type="text"/> */}
-              <select className="inputC" name="country">
+              {/* <select className="inputC" name="country">
     <option>select country</option>
     <option value="US">United States</option>
     <option value="AF">Afghanistan</option>
@@ -477,7 +477,7 @@ const Register = () => {
     <option value="YE">Yemen</option>
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
-</select>
+</select> */}
             </Grid>
           </Grid>
         </Grid>
