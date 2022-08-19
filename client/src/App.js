@@ -9,26 +9,43 @@ import CustomerServicePortal from "./components/support/CustomerServicePortal";
 import CompanyInfo from "./components/info/CompanyInfo";
 import CustomerServiceCompany from "./components/support/CustomerServiceCompany";
 import Admin from "./components/login/Admin";
+import { useState, useEffect, createContext } from "react";
+
+const UserContext = createContext()
 
 function App() {
+  const [hasToken, setHasToken] = useState(false);
+
+  useEffect(() => {
+    console.log("app load")
+    console.log("HASTOKEN?: ", localStorage.getItem("token") == true)
+    setHasToken(localStorage.getItem("token") == true)
+  }, [])
+
+
+
   return (
     <Router>
-      <Navbar />
+      <UserContext.Provider value = {setHasToken}>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/investors" element={<InvestorPortal />} />
-        <Route path="/support" element={<CustomerServicePortal />} />
-        <Route path="/info" element={<CompanyInfo />} />
-        <Route path="/support/:company" element={<CustomerServiceCompany />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+        <Navbar hasToken = {hasToken}/>
 
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/investors" element={<InvestorPortal />} />
+          <Route path="/support" element={<CustomerServicePortal />} />
+          <Route path="/info" element={<CompanyInfo />} />
+          <Route path="/support/:company" element={<CustomerServiceCompany />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+
+        <Footer />
+      </UserContext.Provider>
     </Router>
   );
 }
 
 export default App;
+export { UserContext }

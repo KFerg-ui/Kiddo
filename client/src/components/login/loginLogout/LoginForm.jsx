@@ -1,11 +1,14 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import {useState} from "react";
+import {useState, useContext} from "react";
+import { UserContext } from "../../../App";
 
 function LoginForm() {
     // const [logged, setLogged] = useState(false);
     const [message, setMessage] = useState("");
+
+    const setHasToken = useContext(UserContext)
 
     const navigate = useNavigate();
 
@@ -34,7 +37,7 @@ function LoginForm() {
               // props.setLogged(true);
               let token = data.token;
               localStorage.setItem("token", token) 
-    
+              setHasToken(true)
               navigate(`/investors`)
     
             } else {
