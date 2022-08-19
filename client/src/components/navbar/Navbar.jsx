@@ -17,7 +17,7 @@ const LogoutButton  = () => {
   }
 
   return (
-    <button onClick = { logout }>Sign Out</button>
+    <Link to="/" className = "nav-link" onClick = { logout }>LOGOUT</Link>
   )
 }
 
@@ -43,37 +43,6 @@ const Navbar = (props) => {
     setHasToken(props.hasToken)
   }, [props.hasToken])
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // const [loginOrLogout, setLoginOrLogout] = useState(LoginButton)
-
-  // let checkVerification = async function () {
-  //   let verified = await isVerified();
-  //   setIsLoggedIn(verified)
-  // }
-
-  // useEffect(() => {
-  //   checkVerification()
-  // }, [count])
-
-  // useEffect(() =>{
-  //   let kill = setTimeout(() => {
-  //     setCount(count + 1)
-  //     // setHasToken(true)
-  //     console.log("Tick")
-  //   }, 100);
-  //   // return () => clearTimeout(kill);
-  // },[]);
-
-
-
-
-  // useEffect(() => {
-  //   if (isLoggedIn){
-  //     // setLoginOrLogout(LogoutButton)
-  //   } else {
-  //     // setLoginOrLogout(LoginButton)
-  //   }
-  // }, [isLoggedIn])
 
   let conditionalComponent = () => {
     console.log("Running? hadToken: ", hasToken)
