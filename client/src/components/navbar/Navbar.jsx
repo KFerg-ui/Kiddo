@@ -6,13 +6,14 @@ import logo from '../../assets/logo-white-transparent.png'
 import isVerified from "../../functions/isVerified";
 import { UserContext } from "../../App";
 
-const LogoutButton  = () => {
+const LogoutButton  = (props) => {
   const navigate= useNavigate()
   const setHasToken = useContext(UserContext)
 
   let logout = () => {
     localStorage.clear()
     setHasToken(false)
+    props.closeMobileMenu()
     navigate("/")
   }
 
@@ -21,12 +22,12 @@ const LogoutButton  = () => {
   )
 }
 
-const LoginButton  = () => {
-  const [nav, setNav] = useState(false);
-  const navClick = () => setNav(!nav);
-  const closeMobileMenu = () => setNav(false);
+const LoginButton  = (props) => {
+  // const [nav, setNav] = useState(false);
+  // const navClick = () => setNav(!nav);
+  // const closeMobileMenu = () => setNav(false);
   return (
-    <Link to="/login" className="nav-link" onClick={closeMobileMenu}>LOGIN</Link>
+    <Link to="/login" className="nav-link" onClick={props.closeMobileMenu}>LOGIN</Link>
   )
 }
 
@@ -49,9 +50,9 @@ const Navbar = (props) => {
     
 
     if (hasToken){
-      return (<LogoutButton/>)
+      return (<LogoutButton closeMobileMenu = {closeMobileMenu}/>)
     } else {
-      return (<LoginButton/>)
+      return (<LoginButton closeMobileMenu = {closeMobileMenu}/>)
     }
 
   }
