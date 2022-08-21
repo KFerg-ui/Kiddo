@@ -10,6 +10,7 @@ import CompanyInfo from "./components/info/CompanyInfo";
 import CustomerServiceCompany from "./components/support/CustomerServiceCompany";
 import Admin from "./components/login/Admin";
 import { useState, useEffect, createContext } from "react";
+import ForgotPassword from "./components/forgotPassword/ForgotPassword";
 
 const UserContext = createContext()
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/info" element={<CompanyInfo />} />
           <Route path="/support/:company" element={<CustomerServiceCompany />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path = "/forgot-password" element = {<ForgotPassword/>} />
         </Routes>
 
         <Footer />

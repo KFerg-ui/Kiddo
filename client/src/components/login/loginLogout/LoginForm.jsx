@@ -84,6 +84,7 @@ function LoginForm() {
           <button id="reg-btn">Register</button>
         </Link>
       </Grid>
+            <Link to="/forgot-password">Forgot password?</Link>
       <Grid className="adminContainer" xs={12}></Grid>
     </Grid>
   );
