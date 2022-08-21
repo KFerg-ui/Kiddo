@@ -177,7 +177,7 @@ const Register = () => {
               Phone
             </Grid>
             <Grid item md={5} xs={10}>
-              <input  className="input" type="text" name="email" />
+              <input  className="input" type="text" name="phone" />
             </Grid>
           </Grid>
           <Grid container className="first" md={6} xs={12}>
@@ -190,7 +190,7 @@ const Register = () => {
     <option>select</option>
     <option value="call">Call</option>
     <option value="text">Text</option>
-    <option value="email">Email</option>
+    <option value="EM">Email</option>
 </select>
             </Grid>
           </Grid>
