@@ -100,6 +100,17 @@ router
         res.json({auth: true, company: results})
     })
 
+router
+    .route("/customer-service/notes/:company")
+    .get(verifyAdmin, async(req,res)=>{
+        let note = req.headers["note"]
+        await Login.updateOne(
+            {business: req.params.company.replace(/_/g," ") },
+            {$push:{notes: note}}
+        )
+        res.json({sent:true})
+    })
+
 
 
 router

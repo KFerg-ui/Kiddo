@@ -57,7 +57,7 @@ const Home = () => {
     // Start of Exp. BLOBS CITY!
     <>
       <Grid container className="gridHomeContainer" justifyContent="center">
-        <h1 className="title">kiddo.</h1>
+        <h1 className="title">kiddo</h1>
         <h1 className="kiddoUnderline">WHERE KIDS COME FIRST</h1>
         <Grid container className="animation" xs={12}>
           <Grid item className="videoWrap" xs={9}>
@@ -208,7 +208,7 @@ const Home = () => {
               ></input>
             </Grid>
             <Grid item className="newsButton" xs={12}>
-              <input className="newsButtonStyle" type="Submit"/>
+              <button className="newsButtonStyle" type="Submit">Subscribe</button>
             </Grid>
             <p>{submission}</p>
           </form>
