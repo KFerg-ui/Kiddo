@@ -7,6 +7,7 @@ import standingDesk from "../../assets/standingDesk.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import PDF from "../../assets/kiddoBusinessPlan.pdf"
+import PRESENT from "../../assets/kiddoPresentations.pdf"
 
 const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
@@ -74,6 +75,18 @@ const InvestorPortal = () => {
                   className="download-btn"
                 >
                   KIDDO INFO PACKET
+                </a>
+              {/* </Grid> */}
+            </Grid>
+            <Grid container className="bullet" xs={12}>
+              {/* <Grid item className="download-btn" xs={12}> */}
+                <a
+                  href={PRESENT}
+                  target='_blank' 
+                  rel='noreferrer'
+                  className="download-btn"
+                >
+                  KIDDO MEDIA PRESENTATION
                 </a>
               {/* </Grid> */}
             </Grid>

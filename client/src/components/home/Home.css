@@ -18,11 +18,10 @@
     color: rgb(27, 27, 27); 
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 27.5vw;
-    font-weight: bold;
+    font-weight: 300;
     letter-spacing: -1px;
     line-height: .1; 
     text-align: center;
-    
 }
 
 .kiddoUnderline {
