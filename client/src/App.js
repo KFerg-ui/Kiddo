@@ -11,6 +11,7 @@ import CustomerServiceCompany from "./components/support/CustomerServiceCompany"
 import Admin from "./components/login/Admin";
 import { useState, useEffect, createContext } from "react";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
+import ResetPassword from "./components/resetPassword/ResetPassword";
 
 const UserContext = createContext()
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/support/:company" element={<CustomerServiceCompany />} />
           <Route path="/admin" element={<Admin />} />
           <Route path = "/forgot-password" element = {<ForgotPassword/>} />
+          <Route path = "/reset-password/:resetToken" element = {<ResetPassword/>} />
         </Routes>
 
         <Footer />

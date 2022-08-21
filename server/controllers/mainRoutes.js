@@ -6,8 +6,42 @@ const jwt = require("jsonwebtoken");
 const { parse } = require("dotenv");
 require("dotenv").config();
 const saltRounds = parseInt(process.env.SALT);
+const nodeMailer = require("nodemailer")
+
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+
+const buildPasswordResetEmail = (userEmail, token) => {
+
+    const mailOptions = {
+        from : `${process.env.ROBOT_EMAIL}`,
+        to: `${userEmail}`,
+        subject: `Password Reset Request`,
+        text:
+            `You are receiving this message because you or someone else has requested the reset of the password associated with this email address.\n\n
+            Click the link below, or paste it into your browser, to complete the password reset process within one hour of receiving this email.\n\n
+            http://localhost:3000/reset-password/${token}\n\n
+            If you did not request this, please ignore this email, and your password will remain unchanged.`
+    }
+
+    return mailOptions;
+
+}
+
+const emailTransporter = () => {
+
+    console.log(process.env.ACCT_SERVICES_USER)
+    console.log(process.env.ACCT_SERVICES_EMAIL_PASS)
+
+    const transporter = nodeMailer.createTransport({
+        service: 'zoho',
+        auth: {
+            user: `${process.env.ACCT_SERVICES_USER}`,
+            pass: `${process.env.ACCT_SERV_EMAIL_PASS}`,
+        }
+    })
+    return transporter;
+}
 
 function verifyJWT(req,res,next){
     const token = req.headers["accesstoken"];
@@ -74,6 +108,10 @@ async function compareHash(plain, hashed) {
 
 function generateAccessToken(email) {
     return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: `24h` }) 
+}
+
+function generatePasswordResetToken(email) {
+    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: `1h` }) 
 }
 
 router
@@ -239,8 +277,22 @@ router
             // const responseData = await databaseResponse
 
             if (user){
+
+                const transporter = emailTransporter()
+                const resetToken = generatePasswordResetToken({userEmail})
+                const mailOptions = buildPasswordResetEmail(userEmail, resetToken)
+                console.log(`options: `, mailOptions)
+
+                transporter.sendMail(mailOptions, (err, response) => {
+                    if (err) {
+                        console.error(err);
+                        res.send({message : `Error sending email`})
+                    } else {
+                        console.log(`response: ${response}`)
+                        res.status(200).send({message : `email sent`})
+                    }
+                })
     
-                res.status(200).send({message : `user found`})
             } else {
                 res.status(400).send({message : "no account found matching that email"})
             }
@@ -249,6 +301,24 @@ router
             res.status(400).send({ message : `email field is empty`})
         }
         
+
+    })
+
+router
+    .route("/password/reset/:token")
+    .post( async (req, res) => {
+        const token = req.params.token
+
+        jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
+            if(err){
+                res.status(400).json({auth: false, message: "failed to authenticate token"})
+            }
+            else{
+                req.userId = result.id;
+                next();
+            }
+        })
+
 
     })
 
