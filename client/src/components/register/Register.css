@@ -69,6 +69,8 @@
 .inputC {
     font-size: large;
     border: 1px solid black;
+    width: 10.3em;
+    text-align: center;
 }
 
 .register-btn {
