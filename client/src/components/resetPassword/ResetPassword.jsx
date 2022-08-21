@@ -6,6 +6,7 @@ function ResetPassword() {
 
     const [hasResetToken, setHasResetToken] = React.useState(false)
     const [alertText, setAlertText] = React.useState(false)
+    const [token, setToken] = React.useState("")
 
     const verify = async (resetToken) => { 
         // console.log("checking verify")
@@ -57,17 +58,52 @@ function ResetPassword() {
  
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        const path = document.location.pathname
+        // console.log(url)
+
+        const urlSplit = path.split('/')
+        
+        const token = urlSplit[urlSplit.length - 1]
+
+        console.log(token)
 
         const pass1 = e.target.elements.pass1.value
         const pass2 = e.target.elements.pass2.value
 
+        // console.log(pass1)
+
         if (pass1 !== pass2) {
             setAlertText("Passwords must match")
         } else {
+
             
             //Here we must send a request to the server to update the password
+            fetch('http://localhost:8000/password/submit-new', {
+              method: 'POST',
+              body: JSON.stringify({
+                "newPass" : pass1
+              }),
+              headers: {
+                "accesstoken": token,
+                "Content-type": "application/json; charset=UTF-8",
+                // "newPass" : pass1
+              },
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("data:" + data)
+              // console.log("Auth check: " + data.auth !== undefined)
+              setAlertText(data.message)
+            })
+            .catch((error)=>{
+              console.error('Error:', error);
+              // console.log(data)
+              
+            });
+
         }
         
     }

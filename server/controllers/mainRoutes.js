@@ -44,14 +44,15 @@ const emailTransporter = () => {
 }
 
 function verifyJWT(req,res,next){
-    const token = req.headers["accesstoken"];
+    const token = req.headers.accesstoken;
+    console.log(`verify token ${token}`)
     if(!token){
         res.json({auth: false, message: "Token not found"})
     }
     else{
         jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
             if(err){
-                res.json({auth: false, message: "failed to authenticate token"})
+                res.json({auth: false, message: "failed to authenticate token."})
             }
             else{
                 req.userId = result.id;
@@ -304,6 +305,15 @@ router
 
     })
 
+    router
+        .route("/password/submit-new")
+        .post( verifyJWT, (req, res) => {
+            console.log(req.body);
+            const newPass = req.body.newPass
+            console.log(newPass)
+            res.status(200)
+        } )
+
 router
     .route("/password/reset/:token")
     .post( async (req, res) => {
@@ -311,7 +321,7 @@ router
 
         jwt.verify(token, process.env.TOKEN_SECRET,(err,result)=>{
             if(err){
-                res.status(400).json({auth: false, message: "failed to authenticate token"})
+                res.status(400).json({auth: false, message: "failed to authenticate token. "})
             }
             else{
                 req.userId = result.id;
@@ -319,8 +329,9 @@ router
             }
         })
 
-
+        
     })
+    
 
 
 module.exports = router
