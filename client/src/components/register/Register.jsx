@@ -63,9 +63,8 @@ const Register = () => {
       .then((responseData) => {
         console.log("data: ", responseData)
         //if the response has a "success" code, we redirect to /login
-        if (responseData.status === 200){
+        if (responseData.message === "account created"){
           navigate(`/login`)
-
         } else {
           setServerMessage(responseData.message)
         }
