@@ -76,7 +76,7 @@
     position: relative;
     text-align: center;
     text-decoration: none #000000 solid;
-    text-decoration-thickness: auto;
+    /* text-decoration-thickness: auto; */
     width: 100%;
     max-width: 40vw;
     position: relative;
@@ -208,8 +208,7 @@
         text-decoration-thickness: auto;
         width: 100%;
         max-width: 10vw;
-        min-width: 100px;
-        max-height: 7vw;
+        min-width: 10em;
         position: relative;
         cursor: pointer;
         transform: rotate(-2deg);
