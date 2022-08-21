@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logo-white-transparent.png'
 import isVerified from "../../functions/isVerified";
+import { UserContext } from "../../App";
 
 const LogoutButton  = () => {
+  const navigate= useNavigate()
+  const setHasToken = useContext(UserContext)
+
+  let logout = () => {
+    localStorage.clear()
+    setHasToken(false)
+    navigate("/")
+  }
+
   return (
-    <button onClick = { () => {localStorage.clear()} }>Sign Out</button>
+    <Link to="/" className = "nav-link" onClick = { logout }>LOGOUT</Link>
   )
 }
 
@@ -21,49 +31,24 @@ const LoginButton  = () => {
 }
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [nav, setNav] = useState(false);
   const navClick = () => setNav(!nav);
   const closeMobileMenu = () => setNav(false);
-  const [count, setCount] = useState(-1)
+  // const [count, setCount] = useState(-1)
   const [hasToken, setHasToken] = useState(false);
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // const [loginOrLogout, setLoginOrLogout] = useState(LoginButton)
+  useEffect(() => {
+    console.log("USEEFFECTRUNNINGTOKEN: ", props.hasToken)
+    setHasToken(props.hasToken)
+  }, [props.hasToken])
 
-  // let checkVerification = async function () {
-  //   let verified = await isVerified();
-  //   setIsLoggedIn(verified)
-  // }
-
-  // useEffect(() => {
-  //   checkVerification()
-  // }, [count])
-
-  useEffect(() =>{
-    let kill = setTimeout(() => {
-      setCount(count + 1)
-      // setHasToken(true)
-      console.log("Tick")
-    }, 100);
-    // return () => clearTimeout(kill);
-  },[]);
-
-
-
-
-  // useEffect(() => {
-  //   if (isLoggedIn){
-  //     // setLoginOrLogout(LogoutButton)
-  //   } else {
-  //     // setLoginOrLogout(LoginButton)
-  //   }
-  // }, [isLoggedIn])
 
   let conditionalComponent = () => {
-    console.log("Running? ")
+    console.log("Running? hadToken: ", hasToken)
+    
 
-    if (localStorage.getItem("token")){
+    if (hasToken){
       return (<LogoutButton/>)
     } else {
       return (<LoginButton/>)

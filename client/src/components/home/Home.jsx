@@ -208,7 +208,7 @@ const Home = () => {
               ></input>
             </Grid>
             <Grid item className="newsButton" xs={12}>
-              <input className="newsButtonStyle" type="Submit"/>
+              <button className="newsButtonStyle" type="Submit">Subscribe</button>
             </Grid>
             <p>{submission}</p>
           </form>

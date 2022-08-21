@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Admin.css";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 // import ColorBlobs from "../colorBlobs/ColorBlobs";
+import { UserContext } from "../../App";
 
 
 
@@ -11,6 +12,8 @@ const Admin = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate()  
+
+  const setHasToken = useContext(UserContext)
   
   useEffect(() => {
 
@@ -44,6 +47,7 @@ const Admin = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token);
+          setHasToken(true)
           navigate(`/support`)
         } else {
           setLogged(false);
