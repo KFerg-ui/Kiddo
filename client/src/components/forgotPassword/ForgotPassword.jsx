@@ -13,10 +13,10 @@ function ForgotPassword() {
         //this is a stub
         e.preventDefault()
 
-        console.log(e.target[0].value);
+        
 
         const userEmail = e.target[0].value
-        console.log(`input: `, userEmail)
+        
 
         const requestOptions = {
             method: "POST",
@@ -28,8 +28,7 @@ function ForgotPassword() {
             },
         }
 
-        console.log(requestOptions)
-        // console.log(requestOptions.body.email.json())
+        
         try {
 
             fetch("http://localhost:8000/password/forgot", requestOptions)
