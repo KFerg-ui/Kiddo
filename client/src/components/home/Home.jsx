@@ -60,7 +60,7 @@ const Home = () => {
         <h1 className="titleHome">kiddo</h1>
         <h1 className="kiddoUnderline">WHERE KIDS COME FIRST</h1>
         <Grid container className="animation" xs={12}>
-          <Grid item className="videoWrap" xs={9}>
+          <Grid item className="videoWrap" md={9} xs={11}>
             <video data-testid = "video" className="videoBox" width="100%" height="100%" controls>
               <source src={video} id="vid1" type="video/mp4" />
             </video>
