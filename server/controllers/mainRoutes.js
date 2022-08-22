@@ -268,7 +268,7 @@ router.route("/password/forgot").post(async (req, res) => {
 
     if (user) {
       const transporter = emailTransporter();
-      // const resetToken = generatePasswordResetToken({ userEmail });
+      const resetToken = generatePasswordResetToken({ userEmail });
       const mailOptions = buildPasswordResetEmail(userEmail, resetToken);
 
       transporter.sendMail(mailOptions, (err, response) => {
