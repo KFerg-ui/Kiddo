@@ -92,7 +92,7 @@
     top: 5%;
     left: 5%;
     z-index: -1;
-    animation: left-to-right 55s linear forwards infinite;    
+    animation: left-to-right 110s linear forwards infinite;    
   }
 
   #circle_2 {
@@ -102,7 +102,7 @@
     top: 35%;
     left: 45%;
     z-index: -2;
-    animation: left-to-right 65s linear forwards infinite;
+    animation: left-to-right 130s linear forwards infinite;
   }
 
   #circle_3 {
@@ -112,7 +112,7 @@
     top: 10%;
     left: 40%;
     z-index: -2;
-    animation: right-to-left 108s linear forwards infinite;
+    animation: right-to-left 216s linear forwards infinite;
   }
   
   #circle_4 {
@@ -122,7 +122,7 @@
     top: 15%;
     left: 60%;
     z-index: -3;
-    animation: left-to-right 85s linear backwards infinite;
+    animation: left-to-right 190s linear backwards infinite;
     }
 
   #circle_5 {
@@ -132,7 +132,7 @@
     top: 40%;
     left: -8%;
     z-index: -3;
-    animation: right-to-left 195s linear backwards infinite;
+    animation: right-to-left 390s linear backwards infinite;
   }
   
   #circle_6 {
@@ -142,7 +142,7 @@
     top: 15%;
     left: 80%;
     z-index: -3;
-    animation: left-to-right 95s linear backwards infinite;
+    animation: left-to-right 190s linear backwards infinite;
   }
 
   #circle_7 {
@@ -152,7 +152,7 @@
     top: 8%;
     left: -2%;
     z-index: -4;
-    animation: right-to-left 105s linear backwards infinite;
+    animation: right-to-left 210s linear backwards infinite;
   }
   
   #circle_8 {
@@ -173,7 +173,7 @@
     top: 53%;
     left: 35%;    
     z-index: -1;    
-    animation: right-to-left 155s linear backwards infinite;
+    animation: right-to-left 310s linear backwards infinite;
   }
 
   #circle_10 {
@@ -209,7 +209,7 @@
     top: 60%;
     left: 35%;
     z-index: -5;
-    animation: left-to-right 165s linear backwards infinite;
+    animation: left-to-right 390s linear backwards infinite;
   }
   
   #circle_14 {
@@ -240,6 +240,6 @@
     background: 
     linear-gradient(144deg, rgba(244,0,255,0.43), rgba(49,124,181,0.85)),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.18' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    animation: left-to-right 115s linear forwards infinite;
+    animation: left-to-right 250s linear forwards infinite;
   }
 
