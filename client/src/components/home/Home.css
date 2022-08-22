@@ -29,7 +29,8 @@
     top: -1.5em;
     letter-spacing: 3px;
     font-weight: 500;
-    font-size: xx-large;    
+    /* font-size: xx-large;     */
+    font-size: 4vw;
 }
 
 .joinFamily {
@@ -52,12 +53,14 @@
 .familyOverline {
     font-weight: 500;
     letter-spacing: 2px;
+    font-size: 5.5vw;
 }
 .investorPrompt {
     font-weight: 500;
     margin-bottom: 2em;
     width: 60vw;
     display: flex;
+    /* font-size: 4vw; */
 }
 
 .register-button {
