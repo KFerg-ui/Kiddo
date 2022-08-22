@@ -154,13 +154,13 @@ text-align: center;
 
 .image8 {    
     width: 100%;
-    box-shadow: 2px 2px darkgrey;
+    /* box-shadow: 2vw 2vw darkgrey; */
 }
 
-.image9 {
+/* .image9 {
     width: 38vw;
     box-shadow: 2px 2px darkgrey;
-}
+} */
 
 #input {
     margin-top: 1em;

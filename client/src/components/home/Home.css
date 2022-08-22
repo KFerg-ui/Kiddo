@@ -2,7 +2,7 @@
 .videoWrap {
     display: flex;
     background-color: aliceblue;
-    box-shadow: 5px 5px darkgrey;
+    box-shadow: .5vw .5vw darkgrey;
 }
 
 .animation {    
@@ -162,7 +162,7 @@
 }
 
 .imageOne {
-    box-shadow: 2px 2px darkgrey;
+    box-shadow: .2vw .2vw darkgrey;
 }
 
 .label {
