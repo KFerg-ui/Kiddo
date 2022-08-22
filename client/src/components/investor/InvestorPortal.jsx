@@ -45,8 +45,8 @@ const InvestorPortal = () => {
       <div>
         <div>
           {" "}
-          <Grid item xs={12} className="welcomeTitle" direction="row">
-            <h1>welcome!</h1>
+          <Grid item xs={12}  direction="row">
+            <h1 className="welcomeTitle">welcome!</h1>
           </Grid>
         </div>
 
