@@ -247,6 +247,7 @@ text-align: center;
         -webkit-user-select: none;
         touch-action: manipulation;
         padding-bottom: 1em;
+        margin-top: 1em;
         }
         
         .download-btn:focus {
