@@ -25,6 +25,18 @@ const buildPasswordResetEmail = (userEmail, token) => {
   return mailOptions;
 };
 
+const buildContactKiddoEmail = (userEmail, message) => {
+  const mailOptions = {
+    from : `${process.env.ROBOT_EMAIL}`,
+    to: `${process.env.CUSTOMER_SUPPORT_EMAIL}`,
+    subject: `Automated Message from Kiddo Investor Website`,
+    text: `This message was submitted by a user on the Kiddo investor portal: \n\n ${message}
+    \n\n Message sent from account: ${userEmail}`
+  }
+
+  return mailOptions;
+}
+
 const emailTransporter = () => {
   const transporter = nodeMailer.createTransport({
     service: "zoho",
@@ -256,7 +268,7 @@ router.route("/password/forgot").post(async (req, res) => {
 
     if (user) {
       const transporter = emailTransporter();
-      const resetToken = generatePasswordResetToken({ userEmail });
+      // const resetToken = generatePasswordResetToken({ userEmail });
       const mailOptions = buildPasswordResetEmail(userEmail, resetToken);
 
       transporter.sendMail(mailOptions, (err, response) => {
@@ -302,6 +314,45 @@ router.route("/password/reset/:token").post(async (req, res) => {
       next();
     }
   });
+});
+
+router.route("/contact-kiddo").post(verifyJWT, async (req, res) => {
+  // const userEmail = req.body.email;
+  const message = req.body.message;
+  const token = req.headers.accesstoken;
+
+  // console.log(req.headers)
+
+  const decoded = jwt.decode(token);
+
+  const email = decoded.email
+
+  console.log(email)
+
+  // const email = jwt.decode(token).userEmail
+
+  console.log("user email: ", email)
+
+  if (message !== "") {
+    // const user = await Login.findOne({ email: userEmail });
+    // const responseData = await databaseResponse
+
+    // if (user) {
+      const transporter = emailTransporter();
+      // const resetToken = generatePasswordResetToken({ userEmail });
+      const mailOptions = buildContactKiddoEmail(email, message)
+
+      transporter.sendMail(mailOptions, (err, response) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send({ message: `Error sending email` });
+        } else {
+          res.status(200).send({ message: `email sent` });
+        }
+      });
+    } else {
+    res.status(400).send({ message: `message field is empty` });
+  }
 });
 
 module.exports = router;

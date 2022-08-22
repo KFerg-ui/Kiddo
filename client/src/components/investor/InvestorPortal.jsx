@@ -12,6 +12,7 @@ import PRESENT from "../../assets/kiddoPresentations.pdf"
 const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
+  const [serverMessage, setServerMessage] = useState("")
   let token = localStorage.getItem("token");
 
   function verify() {
@@ -39,6 +40,37 @@ const InvestorPortal = () => {
     }, 5000);
     verify();
   }, [count]);
+
+  const handleSubmit = async function (e) {
+    e.preventDefault();
+    const message = e.target.elements.message.value;
+
+    const requestOptions = {
+      method: "POST",
+      body: JSON.stringify({
+        message : message
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        accesstoken: token,
+      }
+    }
+
+    try {
+
+      fetch("http://localhost:8000/contact-kiddo", requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+              setServerMessage(data.message)
+          })
+      
+  } catch (err) {
+      console.log(err)
+  }
+
+
+
+  }
 
   if (verification) {
     return (
@@ -164,13 +196,14 @@ const InvestorPortal = () => {
         </Grid>
         <Grid container className="formWrapContainer" direction="row">
           <Grid item xs={5} className="formWrap">
-            <form className="form" action="">
+            <form className="form" onSubmit = {handleSubmit}>
               <label>
                 Contact Kiddo About Becoming An Investor
                 <br />
               </label>
-              <input id="input" type="text" placeholder="enter message here" />
+              <input name= "message" id="input" type="text" placeholder="enter message here" />
               <button className="send-btn">Send</button>
+              <p>{serverMessage}</p>
             </form>
           </Grid>
         </Grid>
