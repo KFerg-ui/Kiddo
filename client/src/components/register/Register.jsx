@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./Register.css";
-import image6 from "../../assets/image-8.png";
+import image8 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
@@ -117,7 +117,7 @@ const Register = () => {
       <Grid container className="banner">
           <Grid item className="regImg" width="50%" xs={9}>
           <h1 className="regPrompt">REGISTER TO JOIN OUR MISSION</h1>
-            <img src={image6} id="img7" alt="ads image" width="100%" />
+            <img src={image8} id="img8" alt="ads image" width="100%" />
           </Grid>
         </Grid>
       <Grid container className="regContainer" xs={12}>
