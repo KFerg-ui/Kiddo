@@ -1,5 +1,5 @@
 import React , { useState, useEffect } from "react";
-import "./CustomerServicePortal.css";
+import "./CustomerServiceCompany.css";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -79,16 +79,16 @@ export default function CustomerServiceCompany(props) {
     if(verification){
         if(arry.company){
             companyName = arry.company.business;
-            companyData.push(<ul><h3>{arry.company.business}</h3></ul>);
-            companyData.push(<ul>email: {arry.company.email}</ul>);
-            companyData.push(<ul>Name: {arry.company.firstName} {arry.company.lastName}</ul>);
-            companyData.push(<ul>Contact Dates:
+            companyData.push(<ul className="company-header"><h3>{arry.company.business}</h3></ul>);
+            companyData.push(<ul className="contact-info">Email: {arry.company.email}</ul>);
+            companyData.push(<ul className="contact-info">Name: {arry.company.firstName} {arry.company.lastName}</ul>);
+            companyData.push(<ul className="contact-info">Contact Dates:
                 {arry.company.contact.forEach((date) => {
                     dateArry.push(<ul>{date}</ul>)
                 })}
                 {dateArry}
             </ul>)
-            companyData.push(<ul>Investment Data:
+            companyData.push(<ul className="contact-info">Investment Data:
                 {arry.company.investment.forEach((investment) =>{
                     investmentArry.push(<ul>{investment}</ul>)
                 })}
@@ -103,23 +103,25 @@ export default function CustomerServiceCompany(props) {
         }
     
       return (
-        <div>
-          <Grid container className="gridWrapContainer" direction="row" justifyContent= "center">
+       
+          <Grid container className="gridWrapContainer" direction="column">
             <Grid item xs = {10}>
                 <Grid container className="gridDBListContainer" direction="column">
-                    <Grid item xs = {10}><h1>Company Browser</h1></Grid>
+                    <Grid item xs = {10}><h1 className="browser-header">Company Browser</h1></Grid>
                 </Grid>
                 <Grid container className="gridDBListWrap" direction="column">
                     <Grid item xs={10}>{companyName}</Grid>
                     <Grid container className= "infoWrap">
-                      <Grid item xs={5} className="gridCompanyListWrap">
-                          <ul>
-                            List Start
+                      <Grid item xs={10} className="gridCompanyListWrap">
+                          <ul>     
                             {companyData}
                           </ul>
                       </Grid>
-                      <Grid item xs={5} className="infoData">
-                            Notes
+                      <Grid item xs={12} className="notes">
+                        Notes
+                      </Grid>
+                      <Grid item xs={12} className="notes">
+                
                             <form onSubmit={addNotes}>
                               <input type="text" name ="note"/>
                               <button>Add Note</button><br/>
@@ -128,13 +130,14 @@ export default function CustomerServiceCompany(props) {
                           <ul className = "notesList">
                               {messageData}
                           </ul>
+                          
                       </Grid>
                     </Grid>
                     <Grid item xs = {10}><Link to='/support' className="supportBack"><h2>Back</h2></Link></Grid>
                 </Grid>
             </Grid>
           </Grid>
-        </div>
+      
       );
     }
     else{

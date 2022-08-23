@@ -1,31 +1,3 @@
-.gridWrapContainer {
-    display: flex;
-}
-
-.gridDBListContainer {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    text-align: center;
-    background-color: aliceblue;
-}
-
-.gridDBListWrap {
-    background-color: rgb(227, 242, 255);    
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    text-align: center;
-    /* font-size: 3vh; */
-}
-
-.gridCompanyListWrap {
-    background-color: aliceblue;
-    justify-content: center;
-    align-items: left;
-    text-align: left;
-}
-
 .business{
     color:black;
     text-decoration: underline;
