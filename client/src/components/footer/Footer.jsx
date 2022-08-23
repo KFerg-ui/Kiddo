@@ -1,9 +1,37 @@
-import React from 'react';
+import React , { useEffect ,useState } from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
 
 function Footer() {
+  
+  const [verified, setVerfied] = useState("");
+  let token = localStorage.getItem("token");
+
+  useEffect(() => {
+    fetch('http://localhost:8000/customer-service', {
+      method: 'GET',
+      headers: {
+        "accesstoken": token,
+        "search": "",
+        "method": "business"
+      } 
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data.auth){
+        setVerfied(<Link to='/support' href="#top">ADMIN PORTAL</Link>)
+
+      }
+      else{
+        setVerfied("");
+      }
+    })
+    .catch((error)=>{
+      console.error('Error:', error);
+    });
+  }, [verified]);
+
   return (
     <div className='footer-container'>
       <div className='footer-links'>
@@ -12,6 +40,7 @@ function Footer() {
             <h2>ABOUT US</h2>
             <Link to='/' href="#top">How it works</Link>
             <Link to='/investors' href="#top">Investors</Link>
+            {verified}
 
           </div>
         

@@ -19,8 +19,8 @@ function App() {
   const [hasToken, setHasToken] = useState(false);
 
   useEffect(() => {
-    console.log("app load")
-    console.log("HASTOKEN?: ", localStorage.getItem("token") == true)
+    // console.log("app load")
+    // console.log("HASTOKEN?: ", localStorage.getItem("token") == true)
     setHasToken(localStorage.getItem("token") == true)
   }, [])
 

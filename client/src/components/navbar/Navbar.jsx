@@ -22,33 +22,52 @@ const LogoutButton  = (props) => {
   )
 }
 
-const LoginButton  = (props) => {
-  // const [nav, setNav] = useState(false);
-  // const navClick = () => setNav(!nav);
-  // const closeMobileMenu = () => setNav(false);
-  return (
-    <Link to="/login" className="nav-link" onClick={props.closeMobileMenu}>LOGIN</Link>
-  )
-}
-
+  const LoginButton  = (props) => {
+    // const [nav, setNav] = useState(false);
+    // const navClick = () => setNav(!nav);
+    // const closeMobileMenu = () => setNav(false);
+    return (
+      <Link to="/login" className="nav-link" onClick={props.closeMobileMenu}>LOGIN</Link>
+    )
+  }
 
 const Navbar = (props) => {
+
+  const [verified, setVerified] = useState("");
+  let token = localStorage.getItem("token");
   const [nav, setNav] = useState(false);
   const navClick = () => setNav(!nav);
   const closeMobileMenu = () => setNav(false);
-  // const [count, setCount] = useState(-1)
   const [hasToken, setHasToken] = useState(false);
 
   useEffect(() => {
-    console.log("USEEFFECTRUNNINGTOKEN: ", props.hasToken)
     setHasToken(props.hasToken)
-  }, [props.hasToken])
+    fetch('http://localhost:8000/customer-service', {
+      method: 'GET',
+      headers: {
+        "accesstoken": token,
+        "search": "",
+        "method": "business"
+      } 
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data.auth){
+        setVerified(<Link to='/support' className="nav-link" onClick={closeMobileMenu}>ADMIN PORTAL</Link>)
+        setHasToken(props.hasToken)
+      }
+      else{
+        setVerified("");
+      }
+    })
+    .catch((error)=>{
+      console.error('Error:', error);
+    });
+  }, [props.hasToken, verified])
 
 
   let conditionalComponent = () => {
-    console.log("Running? hadToken: ", hasToken)
     
-
     if (hasToken){
       return (<LogoutButton closeMobileMenu = {closeMobileMenu}/>)
     } else {
@@ -70,6 +89,9 @@ const Navbar = (props) => {
           <li>
             {conditionalComponent()}
             {/* <Link to="/login" className="nav-link" onClick={closeMobileMenu}>LOGIN</Link> */}
+          </li>
+          <li>
+            {verified}
           </li>
         </ul>
       
