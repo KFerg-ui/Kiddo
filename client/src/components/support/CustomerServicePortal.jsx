@@ -62,7 +62,7 @@ const CustomerServicePortal = () => {
 
   if(verification){
     return (
-      <div>
+      <div id = "customerServicePortal">
         <form className="searchForm" onSubmit= {submitFunc}>
           <select>
             <option value="firstName">First Name</option>
