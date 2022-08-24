@@ -12,8 +12,9 @@ import Admin from "./components/login/Admin";
 import { useState, useEffect, createContext } from "react";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
 import ResetPassword from "./components/resetPassword/ResetPassword";
+import ColorBlobs from "./components/colorBlobs/ColorBlobs";
 
-const UserContext = createContext()
+const UserContext = createContext();
 
 function App() {
   const [hasToken, setHasToken] = useState(false);
@@ -21,28 +22,32 @@ function App() {
   useEffect(() => {
     // console.log("app load")
     // console.log("HASTOKEN?: ", localStorage.getItem("token") == true)
-    setHasToken(localStorage.getItem("token") == true)
-  }, [])
-
-
+    setHasToken(localStorage.getItem("token") == true);
+  }, []);
 
   return (
     <Router>
-      <UserContext.Provider value = {setHasToken}>
-
-        <Navbar hasToken = {hasToken}/>
+      <UserContext.Provider value={setHasToken}>
+        <Navbar hasToken={hasToken} />
 
         <Routes>
+          <Route path="/colorblobs" element={<ColorBlobs />} />
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/investors" element={<InvestorPortal />} />
           <Route path="/support" element={<CustomerServicePortal />} />
           <Route path="/info" element={<CompanyInfo />} />
-          <Route path="/support/:company" element={<CustomerServiceCompany />} />
+          <Route
+            path="/support/:company"
+            element={<CustomerServiceCompany />}
+          />
           <Route path="/admin" element={<Admin />} />
-          <Route path = "/forgot-password" element = {<ForgotPassword/>} />
-          <Route path = "/reset-password/:resetToken" element = {<ResetPassword/>} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route
+            path="/reset-password/:resetToken"
+            element={<ResetPassword />}
+          />
         </Routes>
 
         <Footer />
@@ -52,4 +57,4 @@ function App() {
 }
 
 export default App;
-export { UserContext }
+export { UserContext };
