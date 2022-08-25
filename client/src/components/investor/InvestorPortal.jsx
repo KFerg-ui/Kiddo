@@ -13,6 +13,7 @@ const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
   const [count, setCount] = useState(-1);
   const [serverMessage, setServerMessage] = useState("")
+  const [input, setInput] = useState("");
   let token = localStorage.getItem("token");
 
   function verify() {
@@ -62,6 +63,7 @@ const InvestorPortal = () => {
           .then((response) => response.json())
           .then((data) => {
               setServerMessage(data.message)
+              setInput("");
           })
       
   } catch (err) {
@@ -201,7 +203,7 @@ const InvestorPortal = () => {
                 Contact Kiddo About Becoming An Investor
                 <br />
               </label>
-              <input name= "message" id="input" type="text" placeholder="enter message here" />
+              <input name= "message" id="input" type="text" placeholder="enter message here" onChange={event => setInput(event.target.value)} value = {input} />
               <button className="send-btn">Send</button>
               <p>{serverMessage}</p>
             </form>

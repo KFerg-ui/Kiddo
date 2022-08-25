@@ -67,7 +67,7 @@ const CustomerServicePortal = () => {
           <select>
             <option value="firstName">First Name</option>
             <option value="lastName">Last Name</option>
-            <option value="business">Business</option>
+            <option value="business">Company</option>
             <option value="email">Email</option>
           </select>
           <input type= "text" placeholder="Search"/>
