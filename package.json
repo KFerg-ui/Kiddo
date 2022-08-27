@@ -1,5 +1,11 @@
 {
+  
+  "scripts": {
+      "heroku-prebuild": "cd client && npm install && npm run build",
+      "start": "cd client && npm start"
+  },
   "devDependencies": {
     "jest": "^28.1.3"
   }
+  
 }
