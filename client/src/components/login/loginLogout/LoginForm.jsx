@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import {useState, useContext} from "react";
 import { UserContext } from "../../../App";
+const port = process.env.PORT || 8000;
 
 function LoginForm() {
     // const [logged, setLogged] = useState(false);
@@ -18,7 +19,7 @@ function LoginForm() {
         console.log(e);
         
         e.preventDefault();
-        fetch("http://localhost:8000/signin", {
+        fetch(`http://localhost:${port}/signin`, {
           method: "POST",
           body: JSON.stringify({
             email: email,

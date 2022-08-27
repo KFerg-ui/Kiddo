@@ -11,6 +11,7 @@ import image5 from "../../assets/image-5.png";
 import image7 from "../../assets/image-7.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
+const port = process.env.PORT || 8000;
 
 
 
@@ -28,7 +29,7 @@ const Home = () => {
   
   const onSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:8000/newsletter', {
+    fetch(`http://localhost:${port}/newsletter`, {
       method: 'POST', // or 'PUT'
       body: JSON.stringify({
         name: name,

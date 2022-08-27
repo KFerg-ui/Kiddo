@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logo-white-transparent.png'
 import isVerified from "../../functions/isVerified";
 import { UserContext } from "../../App";
+const port = process.env.PORT || 8000;
 
 const LogoutButton  = (props) => {
   const navigate= useNavigate()
@@ -42,7 +43,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     setHasToken(props.hasToken)
-    fetch('http://localhost:8000/customer-service', {
+    fetch(`http://localhost:${port}/customer-service`, {
       method: 'GET',
       headers: {
         "accesstoken": token,

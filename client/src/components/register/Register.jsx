@@ -5,6 +5,7 @@ import image8 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
+const port = process.env.PORT || 8000;
 
 const Register = () => {
 
@@ -41,7 +42,7 @@ const Register = () => {
     let password = e.target.elements.password.value
     let passwordConfirm = e.target.elements.passwordConfirm.value
 
-    fetch("http://localhost:8000/signup/submit", {
+    fetch(`http://localhost:${port}/signup/submit`, {
       method: "POST",
       body: JSON.stringify({
         firstName,

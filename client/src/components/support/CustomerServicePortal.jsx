@@ -1,6 +1,7 @@
 import React , { useState, useEffect } from "react";
 import "./CustomerServicePortal.css";
 import Table from "./table/Table.tsx";
+const port = process.env.PORT || 8000;
 
 
 
@@ -27,7 +28,7 @@ const CustomerServicePortal = () => {
       search = "";
       method = "business"
     }
-    fetch('http://localhost:8000/customer-service', {
+    fetch(`http://localhost:${port}/customer-service`, {
       method: 'GET',
       headers: {
         "accesstoken": token,

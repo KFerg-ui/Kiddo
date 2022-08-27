@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom"
+const port = process.env.PORT || 8000;
 // import UserFront from "@userfront/core"
 
 
@@ -31,7 +32,7 @@ function ForgotPassword() {
         
         try {
 
-            fetch("http://localhost:8000/password/forgot", requestOptions)
+            fetch(`http://localhost:${port}/password/forgot`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     setMessage(data.message)

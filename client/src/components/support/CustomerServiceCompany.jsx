@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import { useParams } from 'react-router-dom';
+const port = process.env.PORT || 8000;
 
 
 export default function CustomerServiceCompany(props) {
@@ -20,7 +21,7 @@ export default function CustomerServiceCompany(props) {
     let investmentArry = [];
 
     function findCompany(){ // need to find work around for spaced business names
-    fetch(`http://localhost:8000/customer-service/${company}`, {
+    fetch(`http://localhost:${port}/customer-service/${company}`, {
         method: 'GET',
         headers: {
           "accesstoken": token
@@ -46,7 +47,7 @@ export default function CustomerServiceCompany(props) {
 
       let note= e.target.elements.note.value
 
-      fetch(`http://localhost:8000/customer-service/notes/${company}`, {
+      fetch(`http://localhost:${port}/customer-service/notes/${company}`, {
         method: 'GET',
         headers: {
           "accesstoken": token,

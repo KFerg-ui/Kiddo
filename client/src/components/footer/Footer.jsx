@@ -1,6 +1,7 @@
 import React , { useEffect ,useState } from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
+const port = process.env.PORT || 8000;
 
 
 function Footer() {
@@ -9,7 +10,7 @@ function Footer() {
   let token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch('http://localhost:8000/customer-service', {
+    fetch(`http://localhost:${port}/customer-service`, {
       method: 'GET',
       headers: {
         "accesstoken": token,

@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "./resetPassword.css";
+const port = process.env.PORT || 8000;
 
 function ResetPassword() {
   const [hasResetToken, setHasResetToken] = React.useState(false);
@@ -10,7 +11,7 @@ function ResetPassword() {
   const verify = async (resetToken) => {
     
 
-    fetch("http://localhost:8000/verifyUser", {
+    fetch(`http://localhost:${port}/verifyUser`, {
       method: "GET",
       headers: {
         accesstoken: resetToken,
@@ -69,7 +70,7 @@ function ResetPassword() {
       setAlertText("Passwords must match");
     } else {
       //Here we must send a request to the server to update the password
-      fetch("http://localhost:8000/password/submit-new", {
+      fetch(`http://localhost:${port}/password/submit-new`, {
         method: "POST",
         body: JSON.stringify({
           newPass: pass1,

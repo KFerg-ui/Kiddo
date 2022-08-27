@@ -8,6 +8,7 @@ import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import PDF from "../../assets/kiddoBusinessPlan.pdf"
 import PRESENT from "../../assets/kiddoPresentations.pdf"
+const port = process.env.PORT || 8000;
 
 const InvestorPortal = () => {
   const [verification, setVerification] = useState(false);
@@ -17,7 +18,7 @@ const InvestorPortal = () => {
   let token = localStorage.getItem("token");
 
   function verify() {
-    fetch("http://localhost:8000/verifyUser", {
+    fetch(`http://localhost:${port}/verifyUser`, {
       method: "GET",
       headers: {
         accesstoken: token,
@@ -59,7 +60,7 @@ const InvestorPortal = () => {
 
     try {
 
-      fetch("http://localhost:8000/contact-kiddo", requestOptions)
+      fetch(`http://localhost:${port}/contact-kiddo`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
               setServerMessage(data.message)

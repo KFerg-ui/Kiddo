@@ -1,9 +1,10 @@
 //This returns false or true
+const port = process.env.PORT || 8000;
 
 export default async function isVerified(){ 
   // console.log("checking verify")
     let token = localStorage.getItem("token");
-    fetch('http://localhost:8000/verifyUser', {
+    fetch(`http://localhost:${port}/verifyUser`, {
       method: 'GET',
       headers: {
         "accesstoken": token
