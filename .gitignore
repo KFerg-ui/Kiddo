@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,node
 
 ### untrack client/build folder ###
-client/build/
 client/node_modules/
 server/node_modules/
 

@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "heroku-prebuild": "cd client && npm install && npm run build",
-    "start": "cd client && npm start"
-},
+    "heroku-prebuild": "cd server && npm i",
+    "heroku-postbuild": "cd client && npm i && npm i --only=dev --no-shrinkwrap && npm run build",
+    "start": "cd server && node server.js"
+  },
   "devDependencies": {
     "jest": "^28.1.3"
   },
