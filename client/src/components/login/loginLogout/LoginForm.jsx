@@ -66,7 +66,7 @@ function LoginForm() {
           <Grid item className="label" xs={12}>
             <input type="text" name="email" />
           </Grid>
-          <Grid item className="label" md={6} xs={12}>
+          <Grid item className="label" xs={12}>
             Password
           </Grid>
           <Grid container className="password" xs={12}>
@@ -84,6 +84,7 @@ function LoginForm() {
           <button id="reg-btn">Register</button>
         </Link>
       </Grid>
+            <Link to="/forgot-password">Forgot password?</Link>
       <Grid className="adminContainer" xs={12}></Grid>
     </Grid>
   );

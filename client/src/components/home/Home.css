@@ -2,7 +2,7 @@
 .videoWrap {
     display: flex;
     background-color: aliceblue;
-    box-shadow: 5px 5px darkgrey;
+    box-shadow: .5vw .5vw darkgrey;
 }
 
 .animation {    
@@ -13,16 +13,15 @@
     /* align-items: center; */
 }
 
-.title {
+.titleHome {
     /* padding: 1em; */
     color: rgb(27, 27, 27); 
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: Hevetica-nue, sans-serif;
     font-size: 27.5vw;
-    font-weight: bold;
-    letter-spacing: -1px;
+    font-weight: 200;
+    letter-spacing: 12px;
     line-height: .1; 
     text-align: center;
-    
 }
 
 .kiddoUnderline {
@@ -30,14 +29,14 @@
     top: -1.5em;
     letter-spacing: 3px;
     font-weight: 500;
-    font-size: xx-large;    
+    /* font-size: xx-large;     */
+    font-size: 4vw;
 }
 
 .joinFamily {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top:.5em; */
 }
 
 .register {
@@ -53,12 +52,14 @@
 .familyOverline {
     font-weight: 500;
     letter-spacing: 2px;
+    font-size: 5.5vw;
 }
 .investorPrompt {
     font-weight: 500;
     margin-bottom: 2em;
     width: 60vw;
     display: flex;
+    /* font-size: 4vw; */
 }
 
 .register-button {
@@ -76,7 +77,7 @@
     position: relative;
     text-align: center;
     text-decoration: none #000000 solid;
-    text-decoration-thickness: auto;
+    /* text-decoration-thickness: auto; */
     width: 100%;
     max-width: 40vw;
     position: relative;
@@ -161,7 +162,7 @@
 }
 
 .imageOne {
-    box-shadow: 2px 2px darkgrey;
+    box-shadow: .2vw .2vw darkgrey;
 }
 
 .label {
@@ -208,8 +209,7 @@
         text-decoration-thickness: auto;
         width: 100%;
         max-width: 10vw;
-        min-width: 100px;
-        max-height: 7vw;
+        min-width: 10em;
         position: relative;
         cursor: pointer;
         transform: rotate(-2deg);

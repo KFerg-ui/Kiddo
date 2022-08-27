@@ -10,7 +10,7 @@
 }
 
 /* .regImg {
-    box-shadow: 5px 5px gray;
+    box-shadow: .5vw .5vw gray;
 } */
 
 .regContainer {
@@ -39,8 +39,8 @@
     padding-bottom: 2em;
 }
 
-#img7 {
-    box-shadow: 5px 5px darkgray;
+#img8 {
+    box-shadow: .5vw .5vw darkgray;
 }
 
 .first {
@@ -69,6 +69,8 @@
 .inputC {
     font-size: large;
     border: 1px solid black;
+    width: 10.3em;
+    text-align: center;
 }
 
 .register-btn {

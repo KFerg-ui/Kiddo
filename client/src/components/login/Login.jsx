@@ -23,13 +23,13 @@ const [logged, setLogged] = useState(false);
     setLogged(isVerified())
   },  [])
 
-  let renderComponents = function () {
-    if (logged){
-      return <LogoutButton logout = {logout}/>
-    } else {
-      return <LoginForm setLogged = {setLogged}/>
-    }
-  }
+  // let renderComponents = function () {
+  //   if (logged){
+  //     return <LogoutButton logout = {logout}/>
+  //   } else {
+  //     return <LoginForm setLogged = {setLogged}/>
+  //   }
+  // }
 
   useEffect(() => {
 
