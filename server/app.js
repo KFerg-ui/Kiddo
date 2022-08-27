@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const port = process.env.PORT || 8000;
+const path = require ('path');
 const app = express();
 const mainRoutes = require("./controllers/mainRoutes");
 const forgotPassword = require("./controllers/forgotPassword")
