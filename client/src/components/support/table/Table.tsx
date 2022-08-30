@@ -32,7 +32,7 @@ export default function Table(props) {
   }, [props.investorList]);
 
   return (
-    <div style={{ height: "35vw", width: "100%" }}>
+    <div id = "tableContainer" style={{ height: "600px", width: "80%" }}>
       <DataGrid
         rows = {rows}
         columns={columns}
