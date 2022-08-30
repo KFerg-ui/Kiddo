@@ -20,7 +20,7 @@ const InvestorPortal = () => {
   function verify() {
     let rootURL;
     if (document.location.hostname.includes("localhost")){
-      rootURL = `http://localhost:8000/`
+      rootURL = `http://localhost:8000`
     } else {
       rootURL = `https://${document.location.hostname}`
     }
@@ -67,7 +67,7 @@ const InvestorPortal = () => {
 
     let rootURL;
     if (document.location.hostname.includes("localhost")){
-      rootURL = `http://localhost:8000/`
+      rootURL = `http://localhost:8000`
     } else {
       rootURL = `https://${document.location.hostname}`
     }
