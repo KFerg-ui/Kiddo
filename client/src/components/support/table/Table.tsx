@@ -5,11 +5,13 @@ import "../CustomerServicePortal.css" ;
 
 const columns: GridColDef[] = [
   { field: "id", hide: true },
-  { field: "name", headerName: "Name", width: 250 },
-  { field: "company", headerName: "Company", width: 250, renderCell: (params) => (
+  { field: "name", headerName: "Name", width: 200 },
+  { field: "company", headerName: "Company", width: 200, renderCell: (params) => (
     <Link className="businessName" to={`/support/${params.value}`}><p className= "business">{params.value}</p></Link>)},
-  { field: "email", headerName: "Email", width: 250 },
-  { field: "lastContact", headerName: "Last Date of Contact", width: 250 },
+  { field: "email", headerName: "Email", width: 200 },
+  { field: "phone", headerName: "Phone", width: 200 },
+  { field: "preferredContact", headerName: "Preferred Contact", width: 200 },
+  { field: "lastContact", headerName: "Last Date of Contact", width: 200 },
 
 ];
 
@@ -25,7 +27,9 @@ export default function Table(props) {
         name: list[i].firstName + " " + list[i].lastName,
         company: list[i].business,
         email: list[i].email,
-        lastContact: list[i].contact[list[i].contact.length -1]
+        lastContact: list[i].contact[list[i].contact.length -1],
+        phone: list[i].phone,
+        preferredContact: list[i].preferredContact
       };
     }
     setRows(ourRows);

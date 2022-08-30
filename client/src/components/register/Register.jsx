@@ -35,19 +35,21 @@ const Register = () => {
     let lastName = removeExtra(e.target.elements.lastName.value);
     let email = removeExtra(e.target.elements.email.value);
     let business = removeExtra(e.target.elements.business.value);
-    let phone = e.target.elements.phone.value;
+    let phone = removeExtra(e.target.elements.phone.value);
     let preferredContact = e.target.elements.preferredContact.value;
     let password = e.target.elements.password.value;
     let passwordConfirm = e.target.elements.passwordConfirm.value;
 
+
     let rootURL;
+
     if (document.location.hostname.includes("localhost")) {
       rootURL = `http://localhost:8000`;
     } else {
       rootURL = `https://${document.location.hostname}`;
     }
 
-    fetch(`${rootURL}/signup/submit`, {
+    const requestOptions = {
       method: "POST",
       body: JSON.stringify({
         firstName,
@@ -62,7 +64,11 @@ const Register = () => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    })
+    }
+
+    console.log(requestOptions)
+
+    fetch(`${rootURL}/signup/submit`, requestOptions)
       .then((response) => {
         // console.log("response: ", response)
         return response.json();
