@@ -54,6 +54,7 @@ export default function CustomerServiceCompany(props) {
 
     let note = e.target.elements.note.value;
 
+    
     let rootURL;
     if (document.location.hostname.includes("localhost")){
       rootURL = `http://localhost:8000`
