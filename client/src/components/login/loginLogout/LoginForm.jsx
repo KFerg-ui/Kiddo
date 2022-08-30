@@ -18,12 +18,15 @@ function LoginForm() {
         let password = e.target[1].value;
         console.log(e);
 
+        console.log('hostname: ', document.location.hostname)
         let rootURL;
         if (document.location.hostname.includes("localhost")){
           rootURL = `http://localhost:8000`
         } else {
           rootURL = `https://${document.location.hostname}`
         }
+
+        console.log('rootURL: ', rootURL)
 
         
         e.preventDefault();
