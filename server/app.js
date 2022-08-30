@@ -23,16 +23,19 @@ const corsOptions = {
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join('/app/client/build')));
+
+
     
-    app.get('*', function ( req , res ) {
-        res.sendFile(path.join('app/client/build', 'index.html'));
-    })
-}
-
-
-app.use(cors(corsOptions))
-app.use(express.json())
-app.use(mainRoutes)
+  }
+  
+  
+  app.use(cors(corsOptions))
+  app.use(express.json())
+  app.use(mainRoutes)
+  app.get('*', function ( req , res ) {
+      
+      res.sendFile(path.join('app/client/build', 'index.html'));
+  })
 // app.use(forgotPassword)
 
 module.exports = app;
