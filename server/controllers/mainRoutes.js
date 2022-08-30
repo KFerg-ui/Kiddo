@@ -12,13 +12,25 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 const buildPasswordResetEmail = (userEmail, token) => {
+
+  let url;
+
+  if (process.env.NODE_ENV === 'production') {
+    
+    url = process.env.PRODUCTION_URL
+
+    
+  } else {
+    url = 'http://localhost:3000'
+  }
+
   const mailOptions = {
     from: `${process.env.ROBOT_EMAIL}`,
     to: `${userEmail}`,
     subject: `Password Reset Request`,
     text: `You are receiving this message because you or someone else has requested the reset of the password associated with this email address.\n\n
             Click the link below, or paste it into your browser, to complete the password reset process within one hour of receiving this email.\n\n
-            http://localhost:3000/reset-password/${token}\n\n
+            ${url}/reset-password/${token}\n\n
             If you did not request this, please ignore this email, and your password will remain unchanged.`,
   };
 
