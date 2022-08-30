@@ -29,10 +29,17 @@ function ForgotPassword() {
             },
         }
 
+        let rootURL;
+        if (document.location.hostname.includes("localhost")){
+          rootURL = `http://localhost:8000/`
+        } else {
+          rootURL = `https://${document.location.hostname}`
+        }
+
         
         try {
 
-            fetch(`http://localhost:${port}/password/forgot`, requestOptions)
+            fetch(`${rootURL}/password/forgot`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     setMessage(data.message)

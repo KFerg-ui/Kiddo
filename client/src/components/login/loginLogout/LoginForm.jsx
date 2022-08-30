@@ -17,9 +17,17 @@ function LoginForm() {
         let email = e.target[0].value;
         let password = e.target[1].value;
         console.log(e);
+
+        let rootURL;
+        if (document.location.hostname.includes("localhost")){
+          rootURL = `http://localhost:8000/`
+        } else {
+          rootURL = `https://${document.location.hostname}`
+        }
+
         
         e.preventDefault();
-        fetch(`http://localhost:${port}/signin`, {
+        fetch(`${rootURL}/signin`, {
           method: "POST",
           body: JSON.stringify({
             email: email,

@@ -26,10 +26,27 @@ const Home = () => {
 
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
+
+  let rootURL;
+  if (document.location.hostname.includes("localhost")){
+    rootURL = `http://localhost:8000/`
+  } else {
+    rootURL = `https://${document.location.hostname}`
+  }
+
+
   
   const onSubmit = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:${port}/newsletter`, {
+
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+    
+    fetch(`${rootURL}/newsletter`, {
       method: 'POST', // or 'PUT'
       body: JSON.stringify({
         name: name,

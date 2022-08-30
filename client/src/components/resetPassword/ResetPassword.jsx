@@ -10,8 +10,14 @@ function ResetPassword() {
 
   const verify = async (resetToken) => {
     
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
 
-    fetch(`http://localhost:${port}/verifyUser`, {
+    fetch(`${rootURL}/verifyUser`, {
       method: "GET",
       headers: {
         accesstoken: resetToken,
@@ -69,8 +75,15 @@ function ResetPassword() {
     if (pass1 !== pass2) {
       setAlertText("Passwords must match");
     } else {
+
+      let rootURL;
+      if (document.location.hostname.includes("localhost")){
+        rootURL = `http://localhost:8000/`
+      } else {
+        rootURL = `https://${document.location.hostname}`
+      }
       //Here we must send a request to the server to update the password
-      fetch(`http://localhost:${port}/password/submit-new`, {
+      fetch(`${rootURL}/password/submit-new`, {
         method: "POST",
         body: JSON.stringify({
           newPass: pass1,

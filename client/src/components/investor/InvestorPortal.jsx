@@ -18,7 +18,14 @@ const InvestorPortal = () => {
   let token = localStorage.getItem("token");
 
   function verify() {
-    fetch(`http://localhost:${port}/verifyUser`, {
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+
+    fetch(`${rootURL}/verifyUser`, {
       method: "GET",
       headers: {
         accesstoken: token,
@@ -58,9 +65,16 @@ const InvestorPortal = () => {
       }
     }
 
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+
     try {
 
-      fetch(`http://localhost:${port}/contact-kiddo`, requestOptions)
+      fetch(`${rootURL}/contact-kiddo`, requestOptions)
           .then((response) => response.json())
           .then((data) => {
               setServerMessage(data.message)

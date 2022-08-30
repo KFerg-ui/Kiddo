@@ -42,7 +42,14 @@ const Register = () => {
     let password = e.target.elements.password.value
     let passwordConfirm = e.target.elements.passwordConfirm.value
 
-    fetch(`http://localhost:${port}/signup/submit`, {
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+
+    fetch(`${rootURL}/signup/submit`, {
       method: "POST",
       body: JSON.stringify({
         firstName,

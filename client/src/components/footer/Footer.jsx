@@ -9,8 +9,16 @@ function Footer() {
   const [verified, setVerfied] = useState("");
   let token = localStorage.getItem("token");
 
+
+
   useEffect(() => {
-    fetch(`http://localhost:${port}/customer-service`, {
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+    fetch(`${rootURL}/customer-service`, {
       method: 'GET',
       headers: {
         "accesstoken": token,

@@ -4,7 +4,14 @@ const port = process.env.PORT || 8000;
 export default async function isVerified(){ 
   // console.log("checking verify")
     let token = localStorage.getItem("token");
-    fetch(`http://localhost:${port}/verifyUser`, {
+
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+    fetch(`${rootURL}/verifyUser`, {
       method: 'GET',
       headers: {
         "accesstoken": token

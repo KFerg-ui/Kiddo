@@ -26,13 +26,20 @@ const Admin = () => {
     let email = e.target[0].value;
     let password = e.target[1].value;
 
-    const port = process.env.PORT || 8000;
-    console.log("port ENV: ", process.env.PORT)
-    console.log("port: ", port)
-
-
+    // const port = process.env.PORT || 8000;
+    // console.log("port ENV: ", process.env.PORT)
+    // console.log("port: ", port)
     e.preventDefault();
-    fetch(`http://localhost:${port}/signin/admin`, {
+
+    let rootURL;
+    if (document.location.hostname.includes("localhost")){
+      rootURL = `http://localhost:8000/`
+    } else {
+      rootURL = `https://${document.location.hostname}`
+    }
+
+
+    fetch(`${rootURL}/signin/admin`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
