@@ -15,6 +15,8 @@ const buildPasswordResetEmail = (userEmail, token) => {
 
   let url;
 
+  console.log("NODE_ENV: ", process.env.NODE_ENV)
+
   if (process.env.NODE_ENV === 'production') {
     
     url = process.env.PRODUCTION_URL
@@ -23,6 +25,8 @@ const buildPasswordResetEmail = (userEmail, token) => {
   } else {
     url = 'http://localhost:3000'
   }
+
+  console.log("URL: ", url)
 
   const mailOptions = {
     from: `${process.env.ROBOT_EMAIL}`,
