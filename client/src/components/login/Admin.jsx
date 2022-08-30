@@ -40,7 +40,7 @@ const Admin = () => {
       rootURL = `https://${document.location.hostname}`
     }
 
-    c
+    
 
 
     fetch(`${rootURL}/signin/admin`, {
