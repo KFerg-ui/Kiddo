@@ -27,6 +27,7 @@ const Admin = () => {
     let password = e.target[1].value;
 
     const port = process.env.PORT || 8000;
+    console.log("port: ", port)
 
 
     e.preventDefault();
