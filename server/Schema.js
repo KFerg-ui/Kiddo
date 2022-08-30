@@ -25,6 +25,7 @@ const LoginSchema = new mongoose.Schema({
     email: { type : String , unique : true, required : true },
     password: { type: String, required : true},
     phone: String,
+    preferredContact: String,
     address: String,
     business: {type: String},
     contact: [String],

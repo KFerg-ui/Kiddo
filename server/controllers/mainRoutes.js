@@ -208,6 +208,7 @@ router.route("/signup/submit").post(async (req, res) => {
     password,
     passwordConfirm,
     phone,
+    preferredContact,
     address,
     business,
   } = req.body;
@@ -220,6 +221,7 @@ router.route("/signup/submit").post(async (req, res) => {
       email: email,
       password: pass,
       phone: phone,
+      preferredContact: preferredContact,
       address: address,
       business: business,
       usertype: "investor",
