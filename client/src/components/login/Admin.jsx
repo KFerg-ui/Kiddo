@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 // import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { UserContext } from "../../App";
-const port = process.env.PORT || 8000;
+
 
 
 
@@ -25,6 +25,8 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
     let password = e.target[1].value;
+
+    const port = process.env.PORT || 8000;
 
 
     e.preventDefault();
