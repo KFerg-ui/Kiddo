@@ -12,10 +12,17 @@
     padding-top: 10px;
     
 }
-.nav-link:visited{
+/* .nav-link:visited{
     text-decoration: none;
     color:#f8f8ff
-}
+} */
+
+.nav-link:link {color:#f8f8ff;}      /* unvisited link */
+.nav-link:visited {color:#f8f8ff;}  /* visited link */
+.nav-link:hover {color:#f8f8ff;}  /* mouse over link */
+.nav-link:active {color:#f8f8ff;}  /* selected link */ 
+
+
 .navbar {
     display: flex;
     width: 100vw;
