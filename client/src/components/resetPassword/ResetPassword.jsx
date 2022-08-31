@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "./resetPassword.css";
-const port = process.env.PORT || 8000;
+// const port = process.env.PORT || 8000;
 
 function ResetPassword() {
   const [hasResetToken, setHasResetToken] = React.useState(false);

@@ -8,7 +8,17 @@
 }
 
 .gridWrapContainer {
+    /* width: 80%; */
     display: flex;
+    margin: 50px;
+    /* width: 90vw; */
+    border: 6px solid #1a2f80;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.browser-header {
+  color: aliceblue;
 }
 
 .gridDBListContainer {
@@ -16,7 +26,9 @@
     justify-content: center;
     align-items: left;
     text-align: center;
-    background-color: aliceblue;
+    background-color: #2f3448;
+    border-bottom: 5px solid gray;
+    
 }
 
 .gridDBListWrap {

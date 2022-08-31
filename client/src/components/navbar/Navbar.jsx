@@ -5,7 +5,7 @@ import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logo-white-transparent.png'
 import isVerified from "../../functions/isVerified";
 import { UserContext } from "../../App";
-const port = process.env.PORT || 8000;
+// const port = process.env.PORT || 8000;
 
 const LogoutButton  = (props) => {
   const navigate= useNavigate()

@@ -1,7 +1,7 @@
 import React , { useState, useEffect } from "react";
 import "./CustomerServicePortal.css";
 import Table from "./table/Table.tsx";
-const port = process.env.PORT || 8000;
+
 
 
 

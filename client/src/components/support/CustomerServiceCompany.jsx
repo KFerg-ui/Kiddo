@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
-const port = process.env.PORT || 8000;
+
 
 export default function CustomerServiceCompany(props) {
   const [verification, setVerification] = useState(false);
@@ -101,6 +101,12 @@ export default function CustomerServiceCompany(props) {
         <ul className="contact-info">Email: {arry.company.email}</ul>
       );
       companyData.push(
+        <ul className="contact-info">Phone: {arry.company.phone}</ul>
+      );
+      companyData.push(
+        <ul className="contact-info">Preferred Contact Method: {arry.company.preferredContact}</ul>
+      );
+      companyData.push(
         <ul className="contact-info">
           Name: {arry.company.firstName} {arry.company.lastName}
         </ul>
@@ -131,7 +137,7 @@ export default function CustomerServiceCompany(props) {
     }
 
     return (
-      <Grid container className="gridWrapContainer" direction="column">
+      <Grid container className="gridWrapContainer" direction="column" width = "95%">
         <Grid item xs={10}>
           <Grid container className="gridDBListContainer" direction="column">
             <Grid item xs={10}>

@@ -3,8 +3,8 @@
   "scripts": {
 
     "heroku-prebuild": "cd server && npm i",
-    "heroku-postbuild": "cd client && npm i && npm i --only=dev --no-shrinkwrap && npm run build",
-    "start": "cd server && node server.js"
+    "start": "cd server && node server.js",
+    "heroku-postbuild": "cd client && npm i && npm i --only=dev --no-shrinkwrap && npm run build"
   },
 
   "devDependencies": {

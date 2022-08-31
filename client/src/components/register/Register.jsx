@@ -4,7 +4,7 @@ import image8 from "../../assets/image-8.png";
 import { Grid } from "@mui/material";
 import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { useNavigate } from "react-router-dom";
-const port = process.env.PORT || 8000;
+// const port = process.env.PORT || 8000;
 
 const Register = () => {
   const changeFirst = (event) => {
@@ -171,7 +171,7 @@ const Register = () => {
                   <option>select</option>
                   <option value="call">Call</option>
                   <option value="text">Text</option>
-                  <option value="EM">Email</option>
+                  <option value="email">Email</option>
                 </select>
               </Grid>
             </Grid>
