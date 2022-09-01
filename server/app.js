@@ -28,15 +28,18 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(mainRoutes)
 // app.use(forgotPassword)
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join('/app/client/build')));
+// ! Our URL routes are not currently working
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join('/app/client/build')));
 
-    console.log("PRODUCTION ENVIRONMENT")
-    app.get('*', function ( req , res ) {
-      res.sendFile(path.join('app/client/build', 'index.html'));
+//     console.log(`Path: ` + path)
+
+//     console.log("PRODUCTION ENVIRONMENT")
+//     app.get('*', function ( req , res ) {
+//       res.sendFile(path.join('app/client/build', 'index.html'));
           
-      })
+//       })
     
-  }
+//   }
 
 module.exports = app;
