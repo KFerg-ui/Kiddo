@@ -31,11 +31,11 @@ app.use(mainRoutes)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join('/app/client/build')));
 
+    console.log("PRODUCTION ENVIRONMENT")
     app.get('*', function ( req , res ) {
       res.sendFile(path.join('app/client/build', 'index.html'));
           
       })
-    // console.log("PRODUCTION ENVIRONMENT")
     
   }
 
