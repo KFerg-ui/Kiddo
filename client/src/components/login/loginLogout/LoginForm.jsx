@@ -16,9 +16,8 @@ function LoginForm() {
     const handleSubmit = async (e) => {
         let email = e.target[0].value;
         let password = e.target[1].value;
-        console.log(e);
 
-        console.log('hostname: ', document.location.hostname)
+
         let rootURL;
         if (document.location.hostname.includes("localhost")){
           rootURL = `http://localhost:8000`
@@ -26,7 +25,6 @@ function LoginForm() {
           rootURL = `https://${document.location.hostname}`
         }
 
-        console.log('rootURL: ', rootURL)
 
         
         e.preventDefault();
@@ -44,7 +42,7 @@ function LoginForm() {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(email, password, data);
+            
             if (data.auth) {
               // props.setLogged(true);
               let token = data.token;
@@ -56,7 +54,7 @@ function LoginForm() {
               // props.setLogged(false)
               setMessage(data.message)
             }
-            console.log(data);
+            
           })
           .catch((err) => console.log(err));
       };

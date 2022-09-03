@@ -29,7 +29,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
+    
 
     let firstName = removeExtra(e.target.elements.firstName.value);
     let lastName = removeExtra(e.target.elements.lastName.value);
@@ -70,7 +70,7 @@ const Register = () => {
 
     fetch(`${rootURL}/signup/submit`, requestOptions)
       .then((response) => {
-        // console.log("response: ", response)
+        
         return response.json();
       })
       //we will have to json() response then:

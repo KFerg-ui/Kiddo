@@ -20,18 +20,18 @@ export default async function isVerified(){
     })
     .then((response) => response.json())
     .then((data) => {
-      // console.log("Auth check: " + data.auth !== undefined)
+      
       if(data.auth){
         return true;
       }
       else{
-        console.log("Bad Auth")
+        
         return false;
       }
     })
     .catch((error)=>{
       console.error('Error:', error);
-      console.log("catch")
+     
       return false;
     });
   }

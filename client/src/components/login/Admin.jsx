@@ -5,43 +5,29 @@ import { Grid } from "@mui/material";
 // import ColorBlobs from "../colorBlobs/ColorBlobs";
 import { UserContext } from "../../App";
 
-
-
-
-
 const Admin = () => {
   const [logged, setLogged] = useState(false);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate()  
+  const navigate = useNavigate();
 
-  const setHasToken = useContext(UserContext)
-  
+  const setHasToken = useContext(UserContext);
+
   useEffect(() => {
-
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  
   const handleSubmit = async (e) => {
     let email = e.target[0].value;
     let password = e.target[1].value;
 
-    // const port = process.env.PORT || 8000;
-    // console.log("port ENV: ", process.env.PORT)
-    // console.log("port: ", port)
     e.preventDefault();
 
-    
-
     let rootURL;
-    if (document.location.hostname.includes("localhost")){
-      rootURL = `http://localhost:8000`
+    if (document.location.hostname.includes("localhost")) {
+      rootURL = `http://localhost:8000`;
     } else {
-      rootURL = `https://${document.location.hostname}`
+      rootURL = `https://${document.location.hostname}`;
     }
-
-    
-
 
     fetch(`${rootURL}/signin/admin`, {
       method: "POST",
@@ -50,8 +36,6 @@ const Admin = () => {
         password: password,
       }),
 
-
-      
       //* DIVE PLS
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -63,8 +47,8 @@ const Admin = () => {
           setLogged(true);
           let token = data.token;
           localStorage.setItem("token", token);
-          setHasToken(true)
-          navigate(`/support`)
+          setHasToken(true);
+          navigate(`/support`);
         } else {
           setLogged(false);
           setMessage(data.message);
@@ -74,15 +58,15 @@ const Admin = () => {
   };
 
   useEffect(() => {
-
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   return (
     <Grid container className="loginGrid">
       <Grid container className="banner" xs={12}>
         <Grid item width="50%" xs={12} className="adLogContainer">
-          {" "}{/* center later */}
+          {" "}
+          {/* center later */}
           <h1 className="adLogTitle">ADMINISTRATOR LOGIN</h1>
         </Grid>
       </Grid>
@@ -98,16 +82,13 @@ const Admin = () => {
             Email{" "}
           </Grid>
           <Grid item className="label" xs={12}>
-            <input type="text" name="email"/>
+            <input type="text" name="email" />
           </Grid>
           <Grid item className="label" xs={12}>
             Password
           </Grid>
           <Grid container className="password" xs={12}>
-            <input
-              type="password"
-              name="password"
-              />
+            <input type="password" name="password" />
           </Grid>
           <Grid item className="logButton" xs={12}>
             <button className="adLogButton">Login</button>
