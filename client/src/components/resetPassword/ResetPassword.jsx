@@ -41,12 +41,16 @@ function ResetPassword() {
   };
 
   useEffect(() => {
-    const url = document.location.pathname;
+    
+    const url = window.location.href;
 
+    
 
     const urlSplit = url.split("/");
     
     const resetToken = urlSplit[urlSplit.length - 1];
+
+    
 
     
 
@@ -58,7 +62,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const path = document.location.pathname;
+    const path = document.location.href;
 
 
     const urlSplit = path.split("/");
