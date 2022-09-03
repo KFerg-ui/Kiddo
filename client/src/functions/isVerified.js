@@ -2,7 +2,7 @@
 const port = process.env.PORT || 8000;
 
 export default async function isVerified(){ 
-  // console.log("checking verify")
+  
     let token = localStorage.getItem("token");
 
     let rootURL;

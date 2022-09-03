@@ -23,30 +23,8 @@ const corsOptions = {
 
 
 
-
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(mainRoutes)
-// app.use(forgotPassword)
-// ! Our URL routes are not currently working
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join('/app/client/build')));
-
-    console.log(`Path: ` + path)
-
-    console.log("PRODUCTION ENVIRONMENT")
-    app.get('*', function ( req , res ) {
-      res.sendFile(path.join('app/client/build', 'index.html'));
-          
-      })
-    
-  }
-
-// app.get("*", (req, res) => {
-//   let url = path.join(__dirname, '../client/build', 'index.html');
-//   if (!url.startsWith('/app/')) // since we're on local windows
-//     url = url.substring(1);
-//   res.sendFile(url);
-// });
 
 module.exports = app;

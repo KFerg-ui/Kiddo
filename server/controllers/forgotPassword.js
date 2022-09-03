@@ -12,9 +12,9 @@ const bodyParser = require("body-parser")
 router
     .route("/password/forgot")
     .post(async (req, res) => {
-        console.log(req.body)
+        
         const userEmail = req.body.email
-        console.log(`input: `, userEmail)
+        
 
         if (userEmail !== ""){
             const user = await Login.findOne({email: userEmail})

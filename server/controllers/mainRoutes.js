@@ -15,7 +15,7 @@ const buildPasswordResetEmail = (userEmail, token) => {
 
   let url;
 
-  console.log("NODE_ENV: ", process.env.NODE_ENV)
+  
 
   if (process.env.NODE_ENV === 'production') {
     
@@ -26,7 +26,7 @@ const buildPasswordResetEmail = (userEmail, token) => {
     url = 'http://localhost:3000'
   }
 
-  console.log("URL: ", url)
+  
 
   const mailOptions = {
     from: `${process.env.ROBOT_EMAIL}`,
@@ -339,17 +339,17 @@ router.route("/contact-kiddo").post(verifyJWT, async (req, res) => {
   const message = req.body.message;
   const token = req.headers.accesstoken;
 
-  // console.log(req.headers)
+ 
 
   const decoded = jwt.decode(token);
 
   const email = decoded.email
 
-  console.log(email)
+  
 
   // const email = jwt.decode(token).userEmail
 
-  console.log("user email: ", email)
+  
 
   if (message !== "") {
     // const user = await Login.findOne({ email: userEmail });
