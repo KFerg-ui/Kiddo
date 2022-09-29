@@ -70,7 +70,7 @@ const Home = () => {
         <>
             <Grid container className="gridHomeContainer" justifyContent="center">
                 <h1 className="titleHome">kiddo</h1>
-                <h1 className="kiddoUnderline">WHERE KIDS COME SECOND</h1>
+                <h1 className="kiddoUnderline">WHERE KIDS COME FIRST</h1>
                 <Grid container className="animation" xs={12}>
                     <Grid item className="videoWrap" md={9} xs={11}>
                         <video data-testid="video" className="videoBox" width="100%" height="100%" controls>
