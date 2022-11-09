@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 require("dotenv").config();
 
 const atlasUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}`;
-console.log(atlasUri);
 
 mongoose.connect(atlasUri, {
     useNewUrlParser: true,

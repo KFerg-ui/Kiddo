@@ -7,7 +7,7 @@ const mainRoutes = require("./controllers/mainRoutes");
 const forgotPassword = require("./controllers/forgotPassword")
 
 // ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', `http://localhost:${port}`, 'https://main.d1deb1rzi9a15a.amplifyapp.com/']
+const whitelist = ['http://localhost:3000', `http://localhost:${port}`, 'https://kiddo-sales.herokuapp.com/']
 const corsOptions = {
     origin: function (origin, callback) {
 
