@@ -57,11 +57,14 @@ const buildContactKiddoEmail = (userEmail, message) => {
 const emailTransporter = () => {
     const transporter = nodeMailer.createTransport({
         port: 587,
-        host: `email-smtp.us-east-2.amazonaws.com`,
-        secure: true,
+        host: `email-smtp.us-east-1.amazonaws.com`,
+        secure: false,
         auth: {
             user: `${process.env.ACCT_SERVICES_USER}`,
             pass: `${process.env.ACCT_SERV_EMAIL_PASS}`,
+        },
+        tls: {
+            ciphers: 'SSLv3'
         },
         debug: true
     });
