@@ -1,23 +1,22 @@
 const mongoose = require('mongoose')
-require("dotenv").config();
 
+require('dotenv').config();
 const atlasUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}`;
 
 mongoose.connect(atlasUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-})
+});
 
 const db = mongoose.connection;
+db.on('error', console.error.bind('Connection error'));
 
-db.on("error", console.error.bind("connection error"))
-
-const NewsletterSchema = new mongoose.Schema({ // create Schema
+// Schemas
+const NewsletterSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     phone: String
-})
-
+});
 
 const LoginSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
@@ -32,11 +31,10 @@ const LoginSchema = new mongoose.Schema({
     investment: [String],
     notes: [String],
     usertype: String
-})
+});
 
+// Model association
+const Login = mongoose.model("logins", LoginSchema);
+const Newsletter = mongoose.model("newsletter", NewsletterSchema);
 
-
-module.exports = {
-    NewsletterSchema,
-    LoginSchema
-}
+module.exports = { Login, Newsletter };

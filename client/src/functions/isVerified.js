@@ -1,37 +1,23 @@
-//This returns false or true
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 export default async function isVerified(){ 
-  
-    let token = localStorage.getItem("token");
+  let token = localStorage.getItem("token");
+  let rootURL = `https://${document.location.hostname}`;
 
-    let rootURL;
-    if (document.location.hostname.includes("localhost")){
-      rootURL = `http://localhost:8000`
-    } else {
-      rootURL = `https://${document.location.hostname}`
-    }
+  if (document.location.hostname === 'localhost'){
+    rootURL = `http://localhost:${PORT}`
+  }
 
-    fetch(`${rootURL}/verifyUser`, {
-      method: 'GET',
-      headers: {
-        "accesstoken": token
-      } 
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      
-      if(data.auth){
-        return true;
-      }
-      else{
-        
-        return false;
-      }
-    })
-    .catch((error)=>{
+  fetch(`${rootURL}/verify-user`, {
+    method: 'GET',
+    headers: {
+      "accesstoken": token
+    } 
+  })
+    .then(response => response.json())
+    .then(data => !!data?.auth)
+    .catch(error => {
       console.error('Error:', error);
-     
       return false;
     });
-  }
+}

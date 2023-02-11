@@ -17,7 +17,7 @@ function ResetPassword() {
       rootURL = `https://${document.location.hostname}`
     }
 
-    fetch(`${rootURL}/verifyUser`, {
+    fetch(`${rootURL}/verify-user`, {
       method: "GET",
       headers: {
         accesstoken: resetToken,
