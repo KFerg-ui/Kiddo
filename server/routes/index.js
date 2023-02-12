@@ -1,29 +1,15 @@
-const verifyUserRoute = require('./verifyUserRoute');
-const customerServiceRoute = require('./customerServiceRoute');
-const customerServiceCompanyRoute = require('./customerServiceCompanyRoute');
-const customerServiceNotesCompanyRoute = require('./customerServiceNotesCompanyRoute');
-const signinAdminRoute = require('./signinAdminRoute');
-const signinRoute = require('./signinRoute');
-const signinSubmitRoute = require('./signinSubmitRoute');
-const newsletterRoute = require('./newsletterRoute');
-const forgotPasswordRoute = require('./forgotPasswordRoute');
-const resetPasswordRoute = require('./resetPasswordRoute');
-const resetPasswordWithTokenRoute = require('./resetPasswordWithTokenRoute');
-const contactKiddoRoute = require('./contactKiddoRoute');
+// This is a magic barrel file that you shouldn't have to touch.
+// All the *Route.js will be automatically included.
+const fs = require('fs');
 
-const routes = [
-  verifyUserRoute,
-  customerServiceRoute,
-  customerServiceCompanyRoute,
-  customerServiceNotesCompanyRoute,
-  signinAdminRoute,
-  signinRoute,
-  signinSubmitRoute,
-  newsletterRoute,
-  forgotPasswordRoute,
-  resetPasswordRoute,
-  resetPasswordWithTokenRoute,
-  contactKiddoRoute
-];
+const files = fs.readdirSync(__dirname, { withFileTypes: true });
+const routes = files.reduce((_routes, file) => {
+  if (file.name.includes('Route.js')) {
+    const routeName = file.name.replace('.js', '');
+    _routes.push(require(`./${routeName}`));
+  }
+  
+  return _routes;
+}, []);
 
 module.exports = { routes };
